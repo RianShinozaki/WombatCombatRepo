@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="HitboxData" load_steps=2 format=3 uid="uid://lnsq23gc3iss"]
+
+[ext_resource type="Script" uid="uid://bvsg0yf1vijg5" path="res://Scripts/Fighter/Hitbox/hitbox_data.gd" id="1_v12s7"]
+
+[resource]
+script = ExtResource("1_v12s7")
+damage = 3
+x_knockback = 30.0
+y_knockback = -100.0
+x_knockback_is_relative = true
+knockback_power = 2
+hitstun_duration_frames = 4
+hitstun_duration_frames_on_block = 4
+self_hitstun_duration_frames = 2
+force_hurt_duration_frames = 16
+force_hurt_duration_frames_on_block = 4
+metadata/_custom_type_script = "uid://bvsg0yf1vijg5"

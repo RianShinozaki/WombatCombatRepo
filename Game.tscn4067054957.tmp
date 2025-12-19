@@ -1,0 +1,399 @@
+[gd_scene load_steps=46 format=3 uid="uid://dtg05jdn1ct63"]
+
+[ext_resource type="Texture2D" uid="uid://xob1v1sccc84" path="res://Art Assets/CreamBGSky.png" id="1_xkndl"]
+[ext_resource type="Texture2D" uid="uid://ccksdv6wc4oqu" path="res://Art Assets/CreamBGFront.png" id="2_u44n3"]
+[ext_resource type="Script" uid="uid://bn2pp6otranyw" path="res://Scripts/collision_entity.gd" id="3_u44n3"]
+[ext_resource type="Script" uid="uid://dcnks7kp08igg" path="res://Scripts/parameter_set.gd" id="4_joorw"]
+[ext_resource type="Texture2D" uid="uid://bc1uk4sv25q1r" path="res://Art Assets/auta.png" id="4_sb48q"]
+[ext_resource type="Script" uid="uid://jrkg1otu3vsn" path="res://Scripts/entity_movement_parameters.gd" id="5_2vekm"]
+[ext_resource type="Script" uid="uid://d2myk0wp535gl" path="res://Scripts/normal_state.gd" id="5_t88pq"]
+[ext_resource type="Script" uid="uid://gtrlsb5uxboa" path="res://Scripts/entity_jump_parameters.gd" id="6_yx171"]
+[ext_resource type="Script" uid="uid://saumttwoa1k5" path="res://Scripts/duck_parameters.gd" id="7_yx171"]
+[ext_resource type="Script" uid="uid://b0nr5qbboqndr" path="res://Scripts/input_manager.gd" id="8_2vekm"]
+[ext_resource type="Script" uid="uid://c3tjx53bpng7a" path="res://Scripts/duck_state.gd" id="11_yhmtn"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xkndl"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u44n3"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sb48q"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sb48q"]
+size = Vector2(8, 16)
+
+[sub_resource type="Resource" id="Resource_yhmtn"]
+script = ExtResource("5_2vekm")
+max_speed = 80.0
+initial_speed = 80.0
+initial_speed_in_air = 80.0
+minimum_speed = 80.0
+minimum_speed_in_air = 80.0
+acceleration = 999.0
+acceleration_in_air = 999.0
+deceleration = 999.0
+deceleration_in_air = 999.0
+deceleration_above_speed = 999.0
+deceleration_above_speed_in_air = 999.0
+reverse_acceleration = 999.0
+reverse_acceleration_in_air = 999.0
+absolute_limit = 200.0
+slope_uphill_influence = 1.0
+slope_downhill_influence = 1.0
+collision_shape = SubResource("RectangleShape2D_sb48q")
+collision_shape_position = Vector2(0, 2)
+metadata/_custom_type_script = "uid://jrkg1otu3vsn"
+
+[sub_resource type="Resource" id="Resource_gwjdr"]
+script = ExtResource("6_yx171")
+jump_power = -200.0
+gravity = 270.0
+normal_gravity_scale = 1.0
+short_hop_gravity_scale = 2.0
+rising_gravity_scale = 1.5
+falling_gravity_scale = 2.0
+rising_threshold = 40.0
+falling_threshold = 40.0
+max_falling_speed = 400.0
+metadata/_custom_type_script = "uid://gtrlsb5uxboa"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yx171"]
+size = Vector2(8, 10)
+
+[sub_resource type="Resource" id="Resource_lvtmh"]
+script = ExtResource("7_yx171")
+minimum_speed = 80.0
+minimum_speed_in_air = 80.0
+deceleration = 999.0
+deceleration_in_air = 999.0
+deceleration_above_speed = 999.0
+deceleration_above_speed_in_air = 999.0
+reverse_acceleration = 999.0
+reverse_acceleration_in_air = 999.0
+absolute_limit = 999.0
+slope_uphill_influence = 1.0
+slope_downhill_influence = 1.0
+collision_shape = SubResource("RectangleShape2D_yx171")
+collision_shape_position = Vector2(0, 5)
+metadata/_custom_type_script = "uid://saumttwoa1k5"
+
+[sub_resource type="Animation" id="Animation_joorw"]
+resource_name = "Idle"
+length = 0.332
+loop_mode = 1
+step = 0.1667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_2vekm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_yx171"]
+resource_name = "Run"
+length = 0.664
+loop_mode = 1
+step = 0.1667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3334, 0.5001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_yhmtn"]
+resource_name = "WalkBack"
+length = 0.3334
+step = 0.1667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_gwjdr"]
+resource_name = "Duck"
+step = 0.1667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_lvtmh"]
+resource_name = "JumpSquat"
+length = 0.1667
+step = 0.1667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_yyih5"]
+resource_name = "JumpRise"
+step = 0.1667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+
+[sub_resource type="Animation" id="Animation_qjyg3"]
+resource_name = "JumpFall"
+step = 0.1667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2vekm"]
+_data = {
+&"Duck": SubResource("Animation_gwjdr"),
+&"Idle": SubResource("Animation_joorw"),
+&"JumpFall": SubResource("Animation_qjyg3"),
+&"JumpRise": SubResource("Animation_yyih5"),
+&"JumpSquat": SubResource("Animation_lvtmh"),
+&"RESET": SubResource("Animation_2vekm"),
+&"Run": SubResource("Animation_yx171"),
+&"WalkBack": SubResource("Animation_yhmtn")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lvtmh"]
+animation = &"Duck"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_joorw"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yx171"]
+animation = &"JumpSquat"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2vekm"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_joorw"]
+advance_mode = 2
+advance_expression = "abs(velocity.x) != 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2vekm"]
+advance_mode = 2
+advance_expression = "abs(velocity.x) == 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yhmtn"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_yx171"]
+states/Duck/node = SubResource("AnimationNodeAnimation_lvtmh")
+states/Duck/position = Vector2(499, -20)
+states/Idle/node = SubResource("AnimationNodeAnimation_joorw")
+states/Idle/position = Vector2(393, 115)
+states/Land/node = SubResource("AnimationNodeAnimation_yx171")
+states/Land/position = Vector2(351, 27)
+states/Run/node = SubResource("AnimationNodeAnimation_2vekm")
+states/Run/position = Vector2(566, 115)
+transitions = ["Idle", "Run", SubResource("AnimationNodeStateMachineTransition_joorw"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_2vekm"), "Land", "Idle", SubResource("AnimationNodeStateMachineTransition_yhmtn")]
+graph_offset = Vector2(-39, -52)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yhmtn"]
+animation = &"JumpFall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gwjdr"]
+animation = &"JumpRise"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yyih5"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qjyg3"]
+advance_mode = 2
+advance_expression = "velocity.y > 5"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2vekm"]
+states/JumpFall/node = SubResource("AnimationNodeAnimation_yhmtn")
+states/JumpFall/position = Vector2(583, 79)
+states/JumpRise/node = SubResource("AnimationNodeAnimation_gwjdr")
+states/JumpRise/position = Vector2(367, 79)
+transitions = ["Start", "JumpRise", SubResource("AnimationNodeStateMachineTransition_yyih5"), "JumpRise", "JumpFall", SubResource("AnimationNodeStateMachineTransition_qjyg3")]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yx171"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gwjdr"]
+advance_mode = 2
+advance_expression = "is_on_floor() == false"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lvtmh"]
+advance_mode = 2
+advance_expression = "is_on_floor() == true"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_yhmtn"]
+states/Grounded/node = SubResource("AnimationNodeStateMachine_yx171")
+states/Grounded/position = Vector2(429, 132)
+states/Jump/node = SubResource("AnimationNodeStateMachine_2vekm")
+states/Jump/position = Vector2(471, -1)
+transitions = ["Start", "Grounded", SubResource("AnimationNodeStateMachineTransition_yx171"), "Grounded", "Jump", SubResource("AnimationNodeStateMachineTransition_gwjdr"), "Jump", "Grounded", SubResource("AnimationNodeStateMachineTransition_lvtmh")]
+graph_offset = Vector2(8, 58)
+
+[node name="Node2D" type="Node2D"]
+texture_filter = 1
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="CreamBgSky" type="Sprite2D" parent="Background"]
+position = Vector2(0, -37)
+texture = ExtResource("1_xkndl")
+
+[node name="CreamBgFront" type="Sprite2D" parent="Background"]
+texture = ExtResource("2_u44n3")
+
+[node name="CreamBgSky2" type="Sprite2D" parent="Background"]
+position = Vector2(-264, -37)
+texture = ExtResource("1_xkndl")
+
+[node name="CreamBgFront2" type="Sprite2D" parent="Background"]
+position = Vector2(-264, 0)
+texture = ExtResource("2_u44n3")
+
+[node name="CreamBgSky3" type="Sprite2D" parent="Background"]
+position = Vector2(264, -37)
+texture = ExtResource("1_xkndl")
+
+[node name="CreamBgFront3" type="Sprite2D" parent="Background"]
+position = Vector2(264, 0)
+texture = ExtResource("2_u44n3")
+
+[node name="Collision" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collision"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/StaticBody2D"]
+position = Vector2(0, 15)
+shape = SubResource("WorldBoundaryShape2D_xkndl")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Collision"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/StaticBody2D2"]
+position = Vector2(-160, -16)
+shape = SubResource("WorldBoundaryShape2D_u44n3")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Collision"]
+position = Vector2(296, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/StaticBody2D3"]
+position = Vector2(-136, -16)
+shape = SubResource("WorldBoundaryShape2D_sb48q")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -30)
+zoom = Vector2(5, 5)
+
+[node name="Auta" type="CharacterBody2D" parent="." node_paths=PackedStringArray("current_action_state")]
+position = Vector2(0, -15)
+script = ExtResource("3_u44n3")
+apply_physics = true
+current_action_state = NodePath("ActionStates/NormalState")
+parameters = Dictionary[String, ExtResource("4_joorw")]({
+"duck": SubResource("Resource_lvtmh"),
+"jump": SubResource("Resource_gwjdr"),
+"movement": SubResource("Resource_yhmtn")
+})
+
+[node name="EnvironmentBox" type="CollisionShape2D" parent="Auta"]
+position = Vector2(-1, 5)
+shape = SubResource("RectangleShape2D_yx171")
+
+[node name="Art" type="Sprite2D" parent="Auta"]
+position = Vector2(0, -1)
+texture = ExtResource("4_sb48q")
+hframes = 4
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Auta/Art"]
+libraries = {
+&"": SubResource("AnimationLibrary_2vekm")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Auta/Art"]
+tree_root = SubResource("AnimationNodeStateMachine_yhmtn")
+advance_expression_base_node = NodePath("../..")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="GenericAttributes" type="Node2D" parent="Auta"]
+
+[node name="InputManager" type="Node2D" parent="Auta/GenericAttributes"]
+script = ExtResource("8_2vekm")
+read_controller_input = true
+
+[node name="ActionStates" type="Node2D" parent="Auta"]
+
+[node name="NormalState" type="Node2D" parent="Auta/ActionStates"]
+script = ExtResource("5_t88pq")
+active = true
+
+[node name="DuckState" type="Node2D" parent="Auta/ActionStates"]
+script = ExtResource("11_yhmtn")

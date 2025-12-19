@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="EntityMovementParameters" load_steps=3 format=3 uid="uid://ddkdnhhp2gdmi"]
+
+[ext_resource type="Script" uid="uid://jrkg1otu3vsn" path="res://Scripts/Fighter/Parameters/Scripts/entity_movement_parameters.gd" id="1_ov61i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sb48q"]
+size = Vector2(8, 26)
+
+[resource]
+script = ExtResource("1_ov61i")
+max_speed = 60.0
+initial_speed = 60.0
+initial_speed_in_air = 60.0
+minimum_speed = 60.0
+minimum_speed_in_air = 60.0
+acceleration = 999.0
+acceleration_in_air = 999.0
+deceleration = 999.0
+reverse_acceleration = 999.0
+reverse_acceleration_in_air = 999.0
+absolute_limit = 200.0
+slope_uphill_influence = 1.0
+slope_downhill_influence = 1.0
+collision_shape = SubResource("RectangleShape2D_sb48q")
+collision_shape_position = Vector2(0, -3)
+metadata/_custom_type_script = "uid://jrkg1otu3vsn"

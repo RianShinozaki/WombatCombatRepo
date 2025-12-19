@@ -1,0 +1,16 @@
+res://Objects/riko.tscn
+res://Themes/battle_ui.tres
+res://Scripts/fighter.gd
+res://Scripts/entity_art.gd
+res://Scripts/input_manager.gd
+res://Scripts/hurt_manager.gd
+res://Scripts/hitbox.gd
+res://Scripts/normal_state.gd
+res://Scripts/hurt_state.gd
+res://Scripts/duck_state.gd
+res://Scripts/attack_state.gd
+res://Game.tscn
+res://Maps/Game.tscn
+res://Scripts/Fighter/Hitbox/Resources/Riko/riko_dash_kick.tres
+res://Scripts/Fighter/Action States/hurt_state.gd
+res://Scripts/Fighter/Components/hurt_manager.gd

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="DuckParameters" load_steps=3 format=3 uid="uid://boeu2t36u147a"]
+
+[ext_resource type="Script" uid="uid://saumttwoa1k5" path="res://Scripts/Fighter/Parameters/Scripts/duck_parameters.gd" id="1_b17n3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yx171"]
+size = Vector2(8, 14)
+
+[resource]
+script = ExtResource("1_b17n3")
+minimum_speed = 20.0
+minimum_speed_in_air = 20.0
+deceleration = 200.0
+deceleration_in_air = 999.0
+deceleration_above_speed = 100.0
+deceleration_above_speed_in_air = 999.0
+reverse_acceleration = 100.0
+reverse_acceleration_in_air = 999.0
+absolute_limit = 999.0
+slope_uphill_influence = 1.0
+slope_downhill_influence = 1.0
+collision_shape = SubResource("RectangleShape2D_yx171")
+collision_shape_position = Vector2(0, 3)
+metadata/_custom_type_script = "uid://saumttwoa1k5"

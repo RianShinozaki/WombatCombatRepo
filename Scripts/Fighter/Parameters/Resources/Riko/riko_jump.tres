@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EntityJumpParameters" load_steps=2 format=3 uid="uid://d0vcqrp0s8ni7"]
+
+[ext_resource type="Script" uid="uid://gtrlsb5uxboa" path="res://Scripts/Fighter/Parameters/Scripts/entity_jump_parameters.gd" id="1_8j3xe"]
+
+[resource]
+script = ExtResource("1_8j3xe")
+jump_power = -200.0
+gravity = 270.0
+normal_gravity_scale = 1.0
+short_hop_gravity_scale = 2.0
+rising_gravity_scale = 1.5
+falling_gravity_scale = 2.0
+rising_threshold = 40.0
+falling_threshold = 40.0
+max_falling_speed = 400.0
+metadata/_custom_type_script = "uid://gtrlsb5uxboa"

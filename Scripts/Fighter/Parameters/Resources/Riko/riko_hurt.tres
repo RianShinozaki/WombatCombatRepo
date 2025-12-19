@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PlayerHurtParameters" load_steps=3 format=3 uid="uid://ctv5kyqfbs1w2"]
+
+[ext_resource type="Script" uid="uid://bx3ocu2pva66k" path="res://Scripts/Fighter/Parameters/Scripts/hurt_parameters.gd" id="1_b0m7d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sb48q"]
+size = Vector2(8, 26)
+
+[resource]
+script = ExtResource("1_b0m7d")
+recovery_time = 0.1
+recovery_min_speed = 30.0
+minimum_speed = 20.0
+deceleration = 240.0
+absolute_limit = 200.0
+slope_uphill_influence = 1.0
+slope_downhill_influence = 1.0
+collision_shape = SubResource("RectangleShape2D_sb48q")
+collision_shape_position = Vector2(0, -3)
+metadata/_custom_type_script = "uid://bx3ocu2pva66k"

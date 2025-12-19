@@ -1,0 +1,116 @@
+[gd_scene load_steps=11 format=3 uid="uid://dtg05jdn1ct63"]
+
+[ext_resource type="Texture2D" uid="uid://xob1v1sccc84" path="res://Art Assets/Backgrounds/CreamBGSky.png" id="1_qbg5b"]
+[ext_resource type="Script" uid="uid://d2mlgrhekosko" path="res://Scripts/System/parallax_controller.gd" id="2_8puwx"]
+[ext_resource type="Texture2D" uid="uid://ccksdv6wc4oqu" path="res://Art Assets/Backgrounds/CreamBGFront.png" id="3_8edix"]
+[ext_resource type="Script" uid="uid://pyph5bknxeg2" path="res://Scripts/System/GameCamera.gd" id="4_qpgel"]
+[ext_resource type="PackedScene" uid="uid://dj3t8o260vsfx" path="res://Objects/riko.tscn" id="5_ceqvn"]
+[ext_resource type="Theme" uid="uid://i3rss0f21vbn" path="res://Themes/battle_ui.tres" id="6_lntlw"]
+[ext_resource type="Script" uid="uid://dclrouxt8oqon" path="res://Scripts/UI/health_bar.gd" id="7_xacle"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xkndl"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u44n3"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sb48q"]
+normal = Vector2(-1, 0)
+
+[node name="Node2D" type="Node2D"]
+texture_filter = 1
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="CreamBgSky" type="Sprite2D" parent="Background"]
+position = Vector2(0, -37)
+texture = ExtResource("1_qbg5b")
+offset = Vector2(4.76, 15.29)
+script = ExtResource("2_8puwx")
+offset = Vector2(4.76, 15.29)
+
+[node name="CreamBgFront" type="Sprite2D" parent="Background"]
+texture = ExtResource("3_8edix")
+
+[node name="CreamBgFront2" type="Sprite2D" parent="Background"]
+position = Vector2(-264, 0)
+texture = ExtResource("3_8edix")
+
+[node name="CreamBgFront3" type="Sprite2D" parent="Background"]
+position = Vector2(264, 0)
+texture = ExtResource("3_8edix")
+
+[node name="Collision" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collision"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/StaticBody2D"]
+position = Vector2(0, 15)
+shape = SubResource("WorldBoundaryShape2D_xkndl")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Collision"]
+position = Vector2(-80, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_u44n3")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Collision"]
+position = Vector2(80, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/StaticBody2D3"]
+shape = SubResource("WorldBoundaryShape2D_sb48q")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("targets")]
+position = Vector2(0, -30)
+offset = Vector2(0, 10)
+zoom = Vector2(5, 5)
+limit_enabled = false
+limit_left = -155
+limit_top = -120
+limit_right = 155
+limit_bottom = 35
+script = ExtResource("4_qpgel")
+targets = [NodePath("../Riko"), NodePath("../Riko2")]
+target_offset_y = 21.62
+x_extents = Vector2(-80, 80)
+y_extents = Vector2(-155, 30)
+
+[node name="Riko" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("5_ceqvn")]
+position = Vector2(-57, 4)
+opponent = NodePath("../Riko2")
+
+[node name="Riko2" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("5_ceqvn")]
+modulate = Color(1, 0.39607844, 0.6, 1)
+position = Vector2(24, 2)
+opponent = NodePath("../Riko")
+fighter_id = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="P1_Health" type="ProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("target")]
+offset_left = 28.0
+offset_top = 30.0
+offset_right = 228.0
+offset_bottom = 50.0
+theme = ExtResource("6_lntlw")
+max_value = 1.0
+value = 0.7
+show_percentage = false
+script = ExtResource("7_xacle")
+target = NodePath("../../Riko")
+
+[node name="P2_Health" type="ProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("target")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -228.0
+offset_top = 30.0
+offset_right = -28.0
+offset_bottom = 50.0
+grow_horizontal = 0
+theme = ExtResource("6_lntlw")
+max_value = 1.0
+value = 0.7
+fill_mode = 1
+show_percentage = false
+script = ExtResource("7_xacle")
+target = NodePath("../../Riko2")
