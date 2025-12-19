@@ -1,17 +1,17 @@
 [gd_resource type="Resource" script_class="EntityMovementParameters" load_steps=3 format=3 uid="uid://ddkdnhhp2gdmi"]
 
-[ext_resource type="Script" uid="uid://jrkg1otu3vsn" path="res://Scripts/Fighter/Parameters/Scripts/entity_movement_parameters.gd" id="1_ov61i"]
+[ext_resource type="Script" uid="uid://jrkg1otu3vsn" path="res://Scripts/Fighter/Parameters/Scripts/entity_movement_parameters.gd" id="1_ei3qm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sb48q"]
 size = Vector2(8, 26)
 
 [resource]
-script = ExtResource("1_ov61i")
-max_speed = 60.0
-initial_speed = 60.0
-initial_speed_in_air = 60.0
-minimum_speed = 60.0
-minimum_speed_in_air = 60.0
+script = ExtResource("1_ei3qm")
+max_speed = 50.0
+initial_speed = 50.0
+initial_speed_in_air = 50.0
+minimum_speed = 50.0
+minimum_speed_in_air = 50.0
 acceleration = 999.0
 acceleration_in_air = 999.0
 deceleration = 999.0

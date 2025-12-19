@@ -92,7 +92,9 @@ func _end() -> void:
 
 func on_jump():
 	if not active: return
-	if(entity.is_on_floor()):
+	anim.get("parameters/AnimationNodeStateMachine/playback").start("JumpSquat", true)
+	var _anim = await anim.animation_finished
+	if entity.is_on_floor() and _anim == "JumpSquat":
 		can_short_hop = true
 		entity.velocity.y = jmp_param.get_jump_power()
 
@@ -113,7 +115,7 @@ func on_heavy_attack():
 
 func on_double_tap(_direction: Vector2):
 	if _direction.x != 0:
-		entity.velocity.x = mov_param.get_max_speed() * 1.4 * _direction.x
+		entity.velocity.x = mov_param.get_max_speed() * 1.6 * _direction.x
 		entity.dashing = true
 	
 #Grounded animation handler

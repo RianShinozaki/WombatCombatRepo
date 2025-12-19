@@ -14,3 +14,7 @@ res://Maps/Game.tscn
 res://Scripts/Fighter/Hitbox/Resources/Riko/riko_dash_kick.tres
 res://Scripts/Fighter/Action States/hurt_state.gd
 res://Scripts/Fighter/Components/hurt_manager.gd
+res://Scripts/Fighter/Parameters/Resources/Riko/riko_movement.tres
+res://Scripts/Fighter/Parameters/Resources/Riko/riko_jump.tres
+res://Scripts/Fighter/Action States/normal_state.gd
+res://Scripts/Fighter/Action States/penalty_state.gd

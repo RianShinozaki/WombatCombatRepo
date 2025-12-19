@@ -637,15 +637,15 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("..")
+tracks/1/path = NodePath("../ActionStates/AttackState")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.16666667),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": ["PenaltyState"],
-"method": &"switch_action_state_name"
+"args": [],
+"method": &"animation_cancel"
 }]
 }
 
@@ -664,20 +664,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [6]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../ActionStates/AttackState")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.05),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"animation_cancel"
-}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2vekm"]
@@ -721,8 +707,8 @@ animation = &"DuckPunch"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7ktgc"]
 animation = &"Kick"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wmqtj"]
-animation = &"Land"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_btmf1"]
+animation = &"LandingPenalty"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x2gyo"]
 animation = &"LandingPenalty"
@@ -753,6 +739,14 @@ advance_expression = "is_on_floor()"
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ordi8"]
+advance_mode = 2
+advance_expression = "is_on_floor()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vd6q1"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rdl13"]
 switch_mode = 2
 advance_mode = 2
@@ -762,14 +756,6 @@ switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fhcxa"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_my8vd"]
-advance_mode = 2
-advance_expression = "is_on_floor()"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nncjt"]
 switch_mode = 2
 advance_mode = 2
 
@@ -784,16 +770,16 @@ states/DuckPunch/node = SubResource("AnimationNodeAnimation_n0sce")
 states/DuckPunch/position = Vector2(859.864, 458)
 states/Kick/node = SubResource("AnimationNodeAnimation_7ktgc")
 states/Kick/position = Vector2(321, 113)
-states/Land/node = SubResource("AnimationNodeAnimation_wmqtj")
-states/Land/position = Vector2(695.864, 284.90475)
 states/LandPenalty/node = SubResource("AnimationNodeAnimation_x2gyo")
 states/LandPenalty/position = Vector2(578.864, 182)
+"states/LandPenalty 2/node" = SubResource("AnimationNodeAnimation_btmf1")
+"states/LandPenalty 2/position" = Vector2(657.864, 349)
 states/LowKick/node = SubResource("AnimationNodeAnimation_f7q5x")
 states/LowKick/position = Vector2(724.864, 404)
 states/Punch/node = SubResource("AnimationNodeAnimation_brc4g")
 states/Punch/position = Vector2(360, 41)
-transitions = ["Punch", "End", SubResource("AnimationNodeStateMachineTransition_btmf1"), "Kick", "End", SubResource("AnimationNodeStateMachineTransition_1apos"), "AirPunch", "End", SubResource("AnimationNodeStateMachineTransition_n0sce"), "AirKick", "LandPenalty", SubResource("AnimationNodeStateMachineTransition_f7q5x"), "LandPenalty", "End", SubResource("AnimationNodeStateMachineTransition_uwm3q"), "LowKick", "End", SubResource("AnimationNodeStateMachineTransition_rdl13"), "DuckPunch", "End", SubResource("AnimationNodeStateMachineTransition_kbti5"), "DashKick", "End", SubResource("AnimationNodeStateMachineTransition_fhcxa"), "AirPunch", "Land", SubResource("AnimationNodeStateMachineTransition_my8vd"), "Land", "End", SubResource("AnimationNodeStateMachineTransition_nncjt")]
-graph_offset = Vector2(173.86403, 88.904755)
+transitions = ["Punch", "End", SubResource("AnimationNodeStateMachineTransition_btmf1"), "Kick", "End", SubResource("AnimationNodeStateMachineTransition_1apos"), "AirPunch", "End", SubResource("AnimationNodeStateMachineTransition_n0sce"), "AirKick", "LandPenalty", SubResource("AnimationNodeStateMachineTransition_f7q5x"), "LandPenalty", "End", SubResource("AnimationNodeStateMachineTransition_uwm3q"), "AirPunch", "LandPenalty 2", SubResource("AnimationNodeStateMachineTransition_ordi8"), "LandPenalty 2", "End", SubResource("AnimationNodeStateMachineTransition_vd6q1"), "LowKick", "End", SubResource("AnimationNodeStateMachineTransition_rdl13"), "DuckPunch", "End", SubResource("AnimationNodeStateMachineTransition_kbti5"), "DashKick", "End", SubResource("AnimationNodeStateMachineTransition_fhcxa")]
+graph_offset = Vector2(101.86403, 180)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rdl13"]
 animation = &"Block"
@@ -945,7 +931,7 @@ states/Jump/position = Vector2(471, -1)
 states/JumpSquat/node = SubResource("AnimationNodeAnimation_j2cfp")
 states/JumpSquat/position = Vector2(317, -74)
 transitions = ["Start", "Grounded", SubResource("AnimationNodeStateMachineTransition_yx171"), "Grounded", "Jump", SubResource("AnimationNodeStateMachineTransition_gwjdr"), "Jump", "Grounded", SubResource("AnimationNodeStateMachineTransition_lvtmh"), "Attack", "Grounded", SubResource("AnimationNodeStateMachineTransition_ixvft"), "Hurt", "HurtMajor", SubResource("AnimationNodeStateMachineTransition_j2cfp"), "JumpSquat", "Jump", SubResource("AnimationNodeStateMachineTransition_gkhnp")]
-graph_offset = Vector2(63, -83.80612)
+graph_offset = Vector2(31, -60.806126)
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_x2gyo"]
 

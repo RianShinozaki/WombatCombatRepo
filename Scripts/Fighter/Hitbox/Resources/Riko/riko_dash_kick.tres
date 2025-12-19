@@ -15,6 +15,6 @@ hitstun_duration_frames = 12
 hitstun_duration_frames_on_block = 4
 self_hitstun_duration_frames = 12
 self_hitstun_duration_frames_on_block = 16
-force_hurt_duration_frames = 16
+force_hurt_duration_frames = 24
 force_hurt_duration_frames_on_block = 8
 metadata/_custom_type_script = "uid://bvsg0yf1vijg5"
