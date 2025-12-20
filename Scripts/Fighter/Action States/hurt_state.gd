@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 		GameCamera.instance.shake_screen(_len/3, 0.25)
 	
 	#Check for floor slam
-	if entity.is_on_floor() and (entity.pre_move_velocity.y > 250 or abs(entity.pre_move_velocity).x > 100):
+	if entity.is_on_floor() and (entity.pre_move_velocity.y > 80 or abs(entity.pre_move_velocity).x > 100):
 		var _len = entity.pre_move_velocity.length()/60
 		var _dir = entity.pre_move_velocity.normalized()
 		

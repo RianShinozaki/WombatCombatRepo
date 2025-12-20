@@ -15,4 +15,5 @@ hitstun_duration_frames = 4
 self_hitstun_duration_frames = 2
 force_hurt_duration_frames = 8
 force_hurt_duration_frames_on_block = 4
+impact_fx = "Small Hit"
 metadata/_custom_type_script = "uid://bvsg0yf1vijg5"

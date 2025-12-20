@@ -8,7 +8,7 @@ extends Node2D
 @export var power_resistance: int
 @export var capture_ui: bool = true
 
-#@onready var object_pools = $"../ObjectPools"
+@onready var fx_pool = $"../OneShotFXPool"
 
 var entity: Fighter
 
@@ -69,20 +69,26 @@ func process_hurt(_hitbox: Area2D):
 	
 	#Manage HP
 	entity.get_node("GenericAttributes/EntityStatus").health -= float(_hb_data.damage) if not _blocked else float(_hb_data.damage)/4.0
-	#GameCamera.instance.shake_screen(_len, 0.25)
 	
 	#Create FX
-	#var pool = object_pools.get_node(_hb_data.impact_fx)
-	#var fx: Node2D = pool.spawn_object()
-	#var offset: Vector2 = (_hitbox.global_position - entity.global_position).normalized()*4
-	#if fx != null:
-	#	fx.global_position = entity.global_position + offset
-	#	fx.global_scale.x = sign(_x_knockback)
+	var _impact_fx = _hb_data.impact_fx if not _blocked else "Blocked"
+	if _impact_fx != "":
+		var fx: Node2D = fx_pool.spawn_fx(_impact_fx)
+		var offset_y: float = _hitbox.get_node("CollisionShape2D").global_position.y - entity.global_position.y
+		var offset_x: float = sign(_hitbox.get_node("CollisionShape2D").global_position.x - entity.global_position.x)*4
+		var offset: Vector2 = Vector2(offset_x, offset_y)
+		if fx != null:
+			fx.global_position = entity.global_position + offset
+			fx.global_scale.x = sign(_x_knockback)
 	
 	#fx = object_pools.get_node("BloodSpurt").spawn_object()
 	#if fx != null:
 	#	fx.global_position = entity.global_position + offset
 	#	fx.global_scale.x = sign(_x_knockback)
+	
+	#Set sort order
+	entity.z_index = -1
+	entity.opponent.z_index = 1
 	
 func frames_to_sec(_frames: int):
 	return 1.0 / 60 * _frames

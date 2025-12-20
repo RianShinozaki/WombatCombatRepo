@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ccksdv6wc4oqu" path="res://Art Assets/Backgrounds/CreamBGFront.png" id="3_8edix"]
 [ext_resource type="Script" uid="uid://pyph5bknxeg2" path="res://Scripts/System/GameCamera.gd" id="4_qpgel"]
 [ext_resource type="PackedScene" uid="uid://dj3t8o260vsfx" path="res://Objects/riko.tscn" id="5_ceqvn"]
-[ext_resource type="Theme" uid="uid://i3rss0f21vbn" path="res://Themes/battle_ui.tres" id="6_lntlw"]
+[ext_resource type="Theme" uid="uid://i3rss0f21vbn" path="res://Misc Resources/Themes/battle_ui.tres" id="6_lntlw"]
 [ext_resource type="Script" uid="uid://dclrouxt8oqon" path="res://Scripts/UI/health_bar.gd" id="7_xacle"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xkndl"]
@@ -20,6 +20,7 @@ normal = Vector2(-1, 0)
 texture_filter = 1
 
 [node name="Background" type="Node2D" parent="."]
+z_index = -10
 
 [node name="CreamBgSky" type="Sprite2D" parent="Background"]
 position = Vector2(0, -37)
@@ -79,7 +80,7 @@ position = Vector2(-57, 4)
 opponent = NodePath("../Riko2")
 
 [node name="Riko2" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("5_ceqvn")]
-modulate = Color(1, 0.39607844, 0.6, 1)
+self_modulate = Color(0.8900387, 0.00066478195, 0.8956758, 1)
 position = Vector2(24, 2)
 opponent = NodePath("../Riko")
 fighter_id = 2

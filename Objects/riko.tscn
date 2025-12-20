@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://dj3t8o260vsfx"]
+[gd_scene load_steps=117 format=3 uid="uid://dj3t8o260vsfx"]
 
 [ext_resource type="Script" uid="uid://bmbetce6put8" path="res://Scripts/Fighter/Base/fighter.gd" id="1_ixvft"]
 [ext_resource type="Script" uid="uid://dcnks7kp08igg" path="res://Scripts/Fighter/Parameters/Scripts/parameter_set.gd" id="2_yrmp7"]
@@ -25,7 +25,12 @@
 [ext_resource type="Resource" uid="uid://ckq4pgxor76vb" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_low_punch.tres" id="18_f7q5x"]
 [ext_resource type="Resource" uid="uid://lnsq23gc3iss" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_low_kick.tres" id="19_uwm3q"]
 [ext_resource type="Resource" uid="uid://x510e5mrxcgl" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_dash_kick.tres" id="20_uwm3q"]
+[ext_resource type="Script" uid="uid://5rxuw6n1giow" path="res://Scripts/Effects/one_shot_fx_creator.gd" id="22_vd6q1"]
+[ext_resource type="SpriteFrames" uid="uid://b0uc2sl5q835l" path="res://Misc Resources/SpriteFrames/med_hit.tres" id="23_kbti5"]
 [ext_resource type="Script" uid="uid://cvmpahko10ix1" path="res://Scripts/Fighter/Action States/penalty_state.gd" id="23_ordi8"]
+[ext_resource type="PackedScene" uid="uid://bl473fbbeg4pj" path="res://Objects/one_shot_animated_fx.tscn" id="23_rdl13"]
+[ext_resource type="SpriteFrames" uid="uid://csvsuag5jq5ty" path="res://Misc Resources/SpriteFrames/small_hit.tres" id="24_j2cfp"]
+[ext_resource type="SpriteFrames" uid="uid://cesw45x1s7dh3" path="res://Misc Resources/SpriteFrames/blocked.tres" id="25_wmqtj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yyih5"]
 size = Vector2(14, 26)
@@ -1131,6 +1136,16 @@ collision_mask = 32
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_uwm3q")
 debug_color = Color(0.66839445, 0.51181114, 0, 0.41960785)
+
+[node name="OneShotFXPool" type="Node2D" parent="SpecialAttributes"]
+script = ExtResource("22_vd6q1")
+fx_dict = Dictionary[String, SpriteFrames]({
+"Blocked": ExtResource("25_wmqtj"),
+"Med Hit": ExtResource("23_kbti5"),
+"Small Hit": ExtResource("24_j2cfp")
+})
+object = ExtResource("23_rdl13")
+count = 10
 
 [node name="ActionStates" type="Node2D" parent="."]
 

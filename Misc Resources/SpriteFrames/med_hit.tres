@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://b0uc2sl5q835l"]
+
+[ext_resource type="Texture2D" uid="uid://np2kt206vg50" path="res://Art Assets/Effects/MedHit.png" id="1_84yy5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8edix"]
+atlas = ExtResource("1_84yy5")
+region = Rect2(0, 0, 28, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpgel"]
+atlas = ExtResource("1_84yy5")
+region = Rect2(28, 0, 28, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ceqvn"]
+atlas = ExtResource("1_84yy5")
+region = Rect2(56, 0, 28, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lntlw"]
+atlas = ExtResource("1_84yy5")
+region = Rect2(84, 0, 28, 27)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8edix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpgel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ceqvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lntlw")
+}],
+"loop": false,
+"name": &"default",
+"speed": 18.0
+}]

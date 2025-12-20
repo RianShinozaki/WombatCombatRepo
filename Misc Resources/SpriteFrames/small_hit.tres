@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://csvsuag5jq5ty"]
+
+[ext_resource type="Texture2D" uid="uid://bfjncpfjlqcmt" path="res://Art Assets/Effects/SmallHit.png" id="1_q0hg4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_neusc"]
+atlas = ExtResource("1_q0hg4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5tg6"]
+atlas = ExtResource("1_q0hg4")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqxmt"]
+atlas = ExtResource("1_q0hg4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yx703"]
+atlas = ExtResource("1_q0hg4")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_neusc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5tg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqxmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yx703")
+}],
+"loop": false,
+"name": &"default",
+"speed": 18.0
+}]

@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://cesw45x1s7dh3"]
+
+[ext_resource type="Texture2D" uid="uid://685lw07qam1j" path="res://Art Assets/Effects/blocked.png" id="1_505rs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4r56"]
+atlas = ExtResource("1_505rs")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsasd"]
+atlas = ExtResource("1_505rs")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4ya0"]
+atlas = ExtResource("1_505rs")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw74h"]
+atlas = ExtResource("1_505rs")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4r56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsasd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4ya0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lw74h")
+}],
+"loop": false,
+"name": &"default",
+"speed": 18.0
+}]

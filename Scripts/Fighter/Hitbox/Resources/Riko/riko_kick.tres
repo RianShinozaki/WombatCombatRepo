@@ -6,7 +6,7 @@
 script = ExtResource("1_lov12")
 damage = 3
 damage_range = 1
-x_knockback = 80.0
+x_knockback = 100.0
 x_knockback_on_block = 40.0
 x_knockback_is_relative = true
 y_knockback_is_additive = true
@@ -17,4 +17,5 @@ self_hitstun_duration_frames = 8
 self_hitstun_duration_frames_on_block = 8
 force_hurt_duration_frames = 16
 force_hurt_duration_frames_on_block = 8
+impact_fx = "Med Hit"
 metadata/_custom_type_script = "uid://bvsg0yf1vijg5"
