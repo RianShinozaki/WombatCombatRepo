@@ -33,3 +33,6 @@ res://Scripts/Fighter/Hitbox/Resources/Riko/riko_air_punch.tres
 res://Scripts/Fighter/Hitbox/Resources/Riko/riko_low_punch.tres
 res://Scripts/Fighter/Hitbox/Resources/Riko/riko_low_kick.tres
 res://Misc Resources/SpriteFrames/blocked.tres
+res://Scripts/System/3D_to_2D_target.gd
+res://Scripts/Fighter/Components/shadow.gd
+res://Shaders/fighter.gdshader

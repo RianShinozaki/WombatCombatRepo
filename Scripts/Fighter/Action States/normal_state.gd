@@ -59,14 +59,14 @@ func _process(delta: float) -> void:
 	#Get the "moving toward" value
 	entity.moving_toward_opponent = 0
 	if entity.opponent.global_position.x > entity.global_position.x:
-		if entity.velocity.x > 0:
+		if hor > 0:
 			entity.moving_toward_opponent = 1
-		if entity.velocity.x < 0:
+		if hor < 0:
 			entity.moving_toward_opponent = -1
 	if entity.opponent.global_position.x < entity.global_position.x:
-		if entity.velocity.x > 0:
+		if hor > 0:
 			entity.moving_toward_opponent = -1
-		if entity.velocity.x < 0:
+		if hor < 0:
 			entity.moving_toward_opponent = 1
 			
 	#Update gravity

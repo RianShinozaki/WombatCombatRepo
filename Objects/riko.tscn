@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=3 uid="uid://dj3t8o260vsfx"]
+[gd_scene load_steps=124 format=3 uid="uid://dj3t8o260vsfx"]
 
 [ext_resource type="Script" uid="uid://bmbetce6put8" path="res://Scripts/Fighter/Base/fighter.gd" id="1_ixvft"]
 [ext_resource type="Script" uid="uid://dcnks7kp08igg" path="res://Scripts/Fighter/Parameters/Scripts/parameter_set.gd" id="2_yrmp7"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://ddkdnhhp2gdmi" path="res://Scripts/Fighter/Parameters/Resources/Riko/riko_movement.tres" id="7_7ktgc"]
 [ext_resource type="Script" uid="uid://b0nr5qbboqndr" path="res://Scripts/Fighter/Components/input_manager.gd" id="7_w4ghc"]
 [ext_resource type="Script" uid="uid://dp13pejk5ofre" path="res://Scripts/Fighter/Components/hurt_manager.gd" id="8_1kbdq"]
+[ext_resource type="Shader" uid="uid://c4kyt4d7iupt3" path="res://Shaders/fighter.gdshader" id="8_gkhnp"]
 [ext_resource type="Script" uid="uid://d2myk0wp535gl" path="res://Scripts/Fighter/Action States/normal_state.gd" id="8_w432u"]
 [ext_resource type="Script" uid="uid://ckcn71lv51hn0" path="res://Scripts/Fighter/Components/entity_art.gd" id="8_x2gyo"]
 [ext_resource type="Script" uid="uid://c3tjx53bpng7a" path="res://Scripts/Fighter/Action States/duck_state.gd" id="9_ixvft"]
@@ -31,9 +32,25 @@
 [ext_resource type="PackedScene" uid="uid://bl473fbbeg4pj" path="res://Objects/one_shot_animated_fx.tscn" id="23_rdl13"]
 [ext_resource type="SpriteFrames" uid="uid://csvsuag5jq5ty" path="res://Misc Resources/SpriteFrames/small_hit.tres" id="24_j2cfp"]
 [ext_resource type="SpriteFrames" uid="uid://cesw45x1s7dh3" path="res://Misc Resources/SpriteFrames/blocked.tres" id="25_wmqtj"]
+[ext_resource type="Texture2D" uid="uid://dwiyu1vuc23x6" path="res://Art Assets/Backgrounds/shadow.png" id="32_22y4d"]
+[ext_resource type="Script" uid="uid://c3rdpw0yqo021" path="res://Scripts/Fighter/Components/shadow.gd" id="33_fhcxa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yyih5"]
 size = Vector2(14, 26)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_my8vd"]
+resource_local_to_scene = true
+shader = ExtResource("8_gkhnp")
+shader_parameter/original_0 = Color(0, 0, 0, 1)
+shader_parameter/original_1 = Color(0, 0, 0, 1)
+shader_parameter/original_2 = Color(0, 0, 0, 1)
+shader_parameter/original_3 = Color(0, 0, 0, 1)
+shader_parameter/original_4 = Color(0, 0, 0, 1)
+shader_parameter/replace_0 = Color(0, 0, 0, 1)
+shader_parameter/replace_1 = Color(0, 0, 0, 1)
+shader_parameter/replace_2 = Color(0, 0, 0, 1)
+shader_parameter/replace_3 = Color(0, 0, 0, 1)
+shader_parameter/replace_4 = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_ixvft"]
 resource_name = "AirKick"
@@ -370,7 +387,7 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.25),
+"times": PackedFloat32Array(0, 0.06666667, 0.25),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [12, 13, 14]
@@ -382,7 +399,7 @@ tracks/1/path = NodePath("../SpecialAttributes/Hitboxes/KickHitbox/CollisionShap
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.2),
+"times": PackedFloat32Array(0, 0.06666667, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -963,22 +980,32 @@ nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_x2gyo")
 nodes/TimeScale/position = Vector2(560, 140)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"AnimationNodeStateMachine"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkhnp"]
+size = Vector2(12, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_my8vd"]
+size = Vector2(15, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w432u"]
+size = Vector2(9, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixvft"]
+size = Vector2(10, 9)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8o8ig"]
-size = Vector2(10, 6)
+size = Vector2(11, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nncjt"]
+size = Vector2(12, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4ghc"]
 size = Vector2(14, 7)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w432u"]
-size = Vector2(10, 6)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixvft"]
-size = Vector2(10, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uwm3q"]
 size = Vector2(8, 19)
 
 [node name="Riko" type="CharacterBody2D" node_paths=PackedStringArray("current_action_state")]
+texture_filter = 1
 collision_layer = 0
 script = ExtResource("1_ixvft")
 fighter_id = 1
@@ -997,10 +1024,12 @@ parameters = Dictionary[String, ExtResource("2_yrmp7")]({
 })
 
 [node name="EnvironmentBox" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_yyih5")
 
 [node name="Art" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_my8vd")
 position = Vector2(0, -6)
 texture = ExtResource("6_7457w")
 hframes = 6
@@ -1030,7 +1059,7 @@ double_tap_max_time = 0.2
 
 [node name="EntityStatus" type="Node2D" parent="GenericAttributes"]
 script = ExtResource("9_x2gyo")
-max_health = 30.0
+max_health = 50.0
 
 [node name="SpecialAttributes" type="Node2D" parent="."]
 
@@ -1047,8 +1076,8 @@ script = ExtResource("10_w4ghc")
 hitbox_data = ExtResource("14_brc4g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/PunchHitbox"]
-position = Vector2(9, -4)
-shape = SubResource("RectangleShape2D_8o8ig")
+position = Vector2(11, -6.5)
+shape = SubResource("RectangleShape2D_gkhnp")
 disabled = true
 
 [node name="KickHitbox" type="Area2D" parent="SpecialAttributes/Hitboxes"]
@@ -1058,8 +1087,8 @@ script = ExtResource("10_w4ghc")
 hitbox_data = ExtResource("15_btmf1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/KickHitbox"]
-position = Vector2(11, -1.5)
-shape = SubResource("RectangleShape2D_w4ghc")
+position = Vector2(11.5, 0.5)
+shape = SubResource("RectangleShape2D_my8vd")
 disabled = true
 
 [node name="AirPunchHitbox" type="Area2D" parent="SpecialAttributes/Hitboxes"]
@@ -1069,7 +1098,7 @@ script = ExtResource("10_w4ghc")
 hitbox_data = ExtResource("16_1apos")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/AirPunchHitbox"]
-position = Vector2(9, -1)
+position = Vector2(8.5, 0)
 shape = SubResource("RectangleShape2D_w432u")
 disabled = true
 
@@ -1080,7 +1109,7 @@ script = ExtResource("10_w4ghc")
 hitbox_data = ExtResource("17_n0sce")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/AirKickHitbox"]
-position = Vector2(9, 4)
+position = Vector2(12, 3.5)
 shape = SubResource("RectangleShape2D_ixvft")
 disabled = true
 
@@ -1091,7 +1120,7 @@ script = ExtResource("10_w4ghc")
 hitbox_data = ExtResource("18_f7q5x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/LowPunchHitbox"]
-position = Vector2(11, 2)
+position = Vector2(11.5, 2)
 shape = SubResource("RectangleShape2D_8o8ig")
 disabled = true
 
@@ -1103,8 +1132,8 @@ script = ExtResource("10_w4ghc")
 hitbox_data = ExtResource("19_uwm3q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/LowKickHitbox"]
-position = Vector2(11, -1.5)
-shape = SubResource("RectangleShape2D_w4ghc")
+position = Vector2(10, -0.5)
+shape = SubResource("RectangleShape2D_nncjt")
 disabled = true
 
 [node name="DashKickHitbox" type="Area2D" parent="SpecialAttributes/Hitboxes"]
@@ -1114,7 +1143,7 @@ script = ExtResource("10_w4ghc")
 hitbox_data = ExtResource("20_uwm3q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/DashKickHitbox"]
-position = Vector2(11, -1.5)
+position = Vector2(12, -1.5)
 shape = SubResource("RectangleShape2D_w4ghc")
 disabled = true
 
@@ -1164,6 +1193,18 @@ script = ExtResource("9_ixvft")
 
 [node name="AttackState" type="Node2D" parent="ActionStates"]
 script = ExtResource("16_w432u")
+
+[node name="Sprite3D" type="Sprite3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+modulate = Color(0, 0, 0, 0.5568628)
+pixel_size = 0.001
+texture_filter = 0
+texture = ExtResource("32_22y4d")
+script = ExtResource("33_fhcxa")
+target = NodePath("..")
+z_offset = 6.96
+y = -12.95
+pixel_scale = 0.001
 
 [connection signal="area_entered" from="SpecialAttributes/Shovebox" to="." method="_on_shove_box_area_entered"]
 [connection signal="area_exited" from="SpecialAttributes/Shovebox" to="." method="_on_shove_box_area_exited"]

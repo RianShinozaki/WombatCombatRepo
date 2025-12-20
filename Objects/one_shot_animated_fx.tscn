@@ -41,7 +41,9 @@ animations = [{
 }]
 
 [node name="OneShotAnimatedFX" type="AnimatedSprite2D"]
+top_level = true
 z_index = 5
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xacle")
 frame_progress = 0.53188014
 script = ExtResource("2_6wp0c")

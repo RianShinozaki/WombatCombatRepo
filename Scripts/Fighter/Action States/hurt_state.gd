@@ -43,7 +43,8 @@ func _physics_process(delta: float) -> void:
 		entity.inflict_hitstun(_len, _dir, 0.1)
 		entity.velocity.x = -(entity.pre_move_velocity.x) * 0.7
 		GameCamera.instance.shake_screen(_len/3, 0.25)
-	
+		animation_duration -= 10 * (1.0/60)
+		
 	#Check for floor slam
 	if entity.is_on_floor() and (entity.pre_move_velocity.y > 80 or abs(entity.pre_move_velocity).x > 100):
 		var _len = entity.pre_move_velocity.length()/60
@@ -53,6 +54,8 @@ func _physics_process(delta: float) -> void:
 		entity.velocity.y = -100
 		entity.velocity.x = entity.pre_move_velocity.x*0.8
 		GameCamera.instance.shake_screen(_len/3, 0.25)
+		animation_duration += 16 * (1.0/60)
+		
 	
 	#Bottom out speed
 	if abs(entity.velocity.x) < mov_param.get_minimum_speed(entity):
