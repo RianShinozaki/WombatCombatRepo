@@ -27,7 +27,6 @@ func _physics_process(delta: float) -> void:
 	alive_counter += delta
 	hitbox_data.x_knockback = abs(hitbox_data.x_knockback) * (-1 if art.flip_h else 1)
 	if alive_counter >= 0.3:
-		print("shrink")
 		alive_counter -= 0.3
 		@warning_ignore("narrowing_conversion")
 		hitbox_data.damage -= orig_damage/4.0

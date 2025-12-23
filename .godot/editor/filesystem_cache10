@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1766368740
+::res://::1766460240
 icon.svg::CompressedTexture2D::1967608574854644140::1766032384::1766032394::1::::<><><>0<>0<>9079c22a5867cf33d1eae8baa3de2ba6<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile::-1::1766121310::0::1::::<><><>0<>0<><>::
 ::res://Art Assets/::1766191382
@@ -13,11 +13,11 @@ blocked.png::CompressedTexture2D::2245820967788067565::1766188935::1766188964::1
 EnergyHit.png::CompressedTexture2D::3576336223927087545::1766288789::1766288790::1::::<><><>0<>0<>0ce5f61d6cddd115bd346fdcc122c035<>res://.godot/imported/EnergyHit.png-ca598079cb71ac6664a08c3bd0ee3028.ctex::
 MedHit.png::CompressedTexture2D::945078891180578469::1766166085::1766185294::1::::<><><>0<>0<>9958b07605f30cd5ba98c874c800226a<>res://.godot/imported/MedHit.png-25866e360e7e829332aa6bdde55a8240.ctex::
 SmallHit.png::CompressedTexture2D::2756737990162099139::1766188146::1766188148::1::::<><><>0<>0<>57d1635ce237d9be853763967f8e37aa<>res://.godot/imported/SmallHit.png-49687c0f8b076d96da4149a7cff37a8e.ctex::
-::res://Art Assets/Fighters/::1766423294
+::res://Art Assets/Fighters/::1766457968
 auta.png::CompressedTexture2D::2581705942344155397::1766037036::1766120942::1::::<><><>0<>0<>892124175f34f731d2340fcd4a5877f2<>res://.godot/imported/auta.png-d939cd6cf1538b5ae1ba79bafe30e553.ctex::
 hadouken.png::CompressedTexture2D::4378091372346436245::1766289170::1766289171::1::::<><><>0<>0<>05c948b387630d32fbb37e2c071eb393<>res://.godot/imported/hadouken.png-09481affc28d94d53496d6f9cd9a3c09.ctex::
 Mel.png::CompressedTexture2D::8874935988437991626::1766036573::1766120942::1::::<><><>0<>0<>4831cf5280d90d260fcd0ba6a403ae09<>res://.godot/imported/Mel.png-0abda1b54c8ee6711846dbd1c97dbbe5.ctex::
-riko.png::CompressedTexture2D::2056555602945730023::1766423486::1766423487::1::::<><><>0<>0<>efeaa6a52729ad797f521e541b8625a4<>res://.godot/imported/riko.png-3cb162c4a5eb7de88d89ca7ecc6f79cb.ctex::
+riko.png::CompressedTexture2D::2056555602945730023::1766457967::1766457968::1::::<><><>0<>0<>efeaa6a52729ad797f521e541b8625a4<>res://.godot/imported/riko.png-3cb162c4a5eb7de88d89ca7ecc6f79cb.ctex::
 ::res://Audio/::1766368740
 ::res://Audio/Music/::1766368740
 Street Fighter IV - Volcanic Rim Stage (Sega Genesis Remix).mp3::AudioStreamMP3::7753815658170610302::1766334752::1766334763::1::::<><><>0<>0<>c089a0f8d7d80d6d605e098485aabf12<>res://.godot/imported/Street Fighter IV - Volcanic Rim Stage (Sega Genesis Remix).mp3-4d70f61ad4e701574b17b48859f6103a.mp3str::
@@ -42,50 +42,52 @@ med_hit.tres::SpriteFrames::4182599943944996991::1766368949::0::1::::<><><>0<>0<
 small_hit.tres::SpriteFrames::6080721118098515046::1766368949::0::1::::<><><>0<>0<><>::uid://bfjncpfjlqcmt::::res://Art Assets/Effects/SmallHit.png
 ::res://Misc Resources/Themes/::1766368949
 battle_ui.tres::Theme::620378643689968227::1766368949::0::1::::<><><>0<>0<><>::
-::res://Objects/::1766423311
-hadouken.tscn::PackedScene::1136943616398439983::1766370503::0::1::::<><><>0<>0<><>::uid://7qw8wxuvee75::::res://Scripts/Fighter/Hitbox/Special/hadouken.gd<>uid://cljxvu7q41hcs::::res://Scripts/Fighter/Hitbox/Resources/Riko/light_hadouken.tres<>uid://b3m1r4gvxnyyn::::res://Art Assets/Fighters/hadouken.png<>uid://c4kyt4d7iupt3::::res://Shaders/fighter.gdshader<>uid://dvtevxlb0aap::::res://Scripts/System/ObjectPoolObject.gd<>uid://dk0ffw3nrllc1::::res://Audio/SFX/magicloop.ogg
-hadouken_heavy.tscn::PackedScene::3497976297002929881::1766370528::0::1::::<><><>0<>0<><>::uid://7qw8wxuvee75::::res://Scripts/Fighter/Hitbox/Special/hadouken.gd<>uid://hadrtfopxgyp::::res://Scripts/Fighter/Hitbox/Resources/Riko/heavy_hadouken.tres<>uid://b3m1r4gvxnyyn::::res://Art Assets/Fighters/hadouken.png<>uid://dvtevxlb0aap::::res://Scripts/System/ObjectPoolObject.gd<>uid://dk0ffw3nrllc1::::res://Audio/SFX/magicloop.ogg
+::res://Objects/::1766460230
+hadouken.tscn::PackedScene::1136943616398439983::1766432363::0::1::::<><><>0<>0<><>::uid://7qw8wxuvee75::::res://Scripts/Fighter/Hitbox/Special/hadouken.gd<>uid://cljxvu7q41hcs::::res://Scripts/Fighter/Hitbox/Resources/Riko/light_hadouken.tres<>uid://b3m1r4gvxnyyn::::res://Art Assets/Fighters/hadouken.png<>uid://c4kyt4d7iupt3::::res://Shaders/fighter.gdshader<>uid://dvtevxlb0aap::::res://Scripts/System/ObjectPoolObject.gd<>uid://dk0ffw3nrllc1::::res://Audio/SFX/magicloop.ogg
+hadouken_heavy.tscn::PackedScene::3497976297002929881::1766431579::0::1::::<><><>0<>0<><>::uid://7qw8wxuvee75::::res://Scripts/Fighter/Hitbox/Special/hadouken.gd<>uid://hadrtfopxgyp::::res://Scripts/Fighter/Hitbox/Resources/Riko/heavy_hadouken.tres<>uid://b3m1r4gvxnyyn::::res://Art Assets/Fighters/hadouken.png<>uid://dvtevxlb0aap::::res://Scripts/System/ObjectPoolObject.gd<>uid://dk0ffw3nrllc1::::res://Audio/SFX/magicloop.ogg
 one_shot_animated_fx.tscn::PackedScene::3220358128789660491::1766193850::0::1::::<><><>0<>0<><>::uid://np2kt206vg50::::res://Art Assets/Effects/MedHit.png<>uid://bar8wcfs46rbv::::res://Scripts/Effects/one_shot_animated_fx.gd<>uid://dvtevxlb0aap::::res://Scripts/System/ObjectPoolObject.gd
-riko.tscn::PackedScene::7849977553476066913::1766423311::0::1::::<><><>0<>0<><>::uid://bmbetce6put8::::res://Scripts/Fighter/Base/fighter.gd<>uid://dcnks7kp08igg::::res://Scripts/Fighter/Parameters/Scripts/parameter_set.gd<>uid://dg8gob5sr5k7r::::res://Scripts/Fighter/Parameters/Resources/Riko/riko_attack_movement.tres<>uid://boeu2t36u147a::::res://Scripts/Fighter/Parameters/Resources/Riko/riko_duck.tres<>uid://ctv5kyqfbs1w2::::res://Scripts/Fighter/Parameters/Resources/Riko/riko_hurt.tres<>uid://d0vcqrp0s8ni7::::res://Scripts/Fighter/Parameters/Resources/Riko/riko_jump.tres<>uid://4khf15ax841h::::res://Art Assets/Fighters/riko.png<>uid://ddkdnhhp2gdmi::::res://Scripts/Fighter/Parameters/Resources/Riko/riko_movement.tres<>uid://b0nr5qbboqndr::::res://Scripts/Fighter/Components/input_manager.gd<>uid://dp13pejk5ofre::::res://Scripts/Fighter/Components/hurt_manager.gd<>uid://c4kyt4d7iupt3::::res://Shaders/fighter.gdshader<>uid://d2myk0wp535gl::::res://Scripts/Fighter/Action States/normal_state.gd<>uid://ckcn71lv51hn0::::res://Scripts/Fighter/Components/entity_art.gd<>uid://c3tjx53bpng7a::::res://Scripts/Fighter/Action States/duck_state.gd<>uid://ckfwe044dx0cu::::res://Scripts/Fighter/Components/entity_status.gd<>uid://8m50bpdrgnj5::::res://Scripts/Fighter/Action States/hurt_state.gd<>uid://p333cm362g8t::::res://Scripts/Fighter/Components/hitbox.gd<>uid://yap1q5si5num::::res://Scripts/Fighter/Components/hurtbox.gd<>uid://x72pljjxm3iy::::res://Scripts/Fighter/Hitbox/Resources/Riko/riko_punch.tres<>uid://b344ybj4cga3y::::res://Scripts/Fighter/Hitbox/Resources/Riko/riko_kick.tres<>uid://dpcvksvdlq1h2::::res://Scripts/Fighter/Hitbox/Resources/Riko/riko_air_punch.tres<>uid://cyydaswh7revc::::res://Scripts/Fighter/Action States/attack_state.gd<>uid://cojbi5skowv57::::res://Scripts/Fighter/Hitbox/Resources/Riko/riko_air_kick.tres<>uid://ckq4pgxor76vb::::res://Scripts/Fighter/Hitbox/Resources/Riko/riko_low_punch.tres<>uid://lnsq23gc3iss::::res://Scripts/Fighter/Hitbox/Resources/Riko/riko_low_kick.tres<>uid://x510e5mrxcgl::::res://Scripts/Fighter/Hitbox/Resources/Riko/riko_dash_kick.tres<>uid://5rxuw6n1giow::::res://Scripts/Effects/one_shot_fx_creator.gd<>uid://b0uc2sl5q835l::::res://Misc Resources/SpriteFrames/med_hit.tres<>uid://cvmpahko10ix1::::res://Scripts/Fighter/Action States/penalty_state.gd<>uid://bl473fbbeg4pj::::res://Objects/one_shot_animated_fx.tscn<>uid://csvsuag5jq5ty::::res://Misc Resources/SpriteFrames/small_hit.tres<>uid://cesw45x1s7dh3::::res://Misc Resources/SpriteFrames/blocked.tres<>uid://5rkha074c8fj::::res://Misc Resources/SpriteFrames/hadouken.tres<>uid://ro21gab4hwxu::::res://Scripts/System/ObjectPool.gd<>uid://qg0kbkuunkr4::::res://Objects/hadouken.tscn<>uid://bp3pfnjxjuyub::::res://Objects/hadouken_heavy.tscn<>uid://d3ak87hldl7ia::::res://Audio/SFX/heavyattack.ogg<>uid://dwiyu1vuc23x6::::res://Art Assets/Backgrounds/shadow.png<>uid://ct13kvb4lpv8o::::res://Audio/SFX/lightattack.ogg<>uid://c3rdpw0yqo021::::res://Scripts/Fighter/Components/shadow.gd<>uid://bft11x5n1mjms::::res://Audio/SFX/jump.ogg<>uid://clwmyuq5exo6w::::res://Audio/SFX/land.ogg<>uid://di18kc7hynsy1::::res://Audio/SFX/heavyland.ogg<>uid://beoncekjwu8vb::::res://Audio/SFX/magicthrow.ogg<>uid://dpct3xr84kbl5::::res://Audio/SFX/smallhit.ogg<>uid://crb746cclygaj::::res://Audio/SFX/heavyhit.ogg<>uid://djygofnq0tjbg::::res://Audio/SFX/magichit.ogg
+riko.tscn::PackedScene::7849977553476066913::1766460230::0::1::::<><><>0<>0<><>::uid://bmbetce6put8::::res://Scripts/Fighter/Base/fighter.gd<>uid://dcnks7kp08igg::::res://Scripts/Fighter/Parameters/Scripts/parameter_set.gd<>uid://dg8gob5sr5k7r::::res://Scripts/Fighter/Parameters/Resources/Riko/riko_attack_movement.tres<>uid://boeu2t36u147a::::res://Scripts/Fighter/Parameters/Resources/Riko/riko_duck.tres<>uid://ctv5kyqfbs1w2::::res://Scripts/Fighter/Parameters/Resources/Riko/riko_hurt.tres<>uid://d0vcqrp0s8ni7::::res://Scripts/Fighter/Parameters/Resources/Riko/riko_jump.tres<>uid://4khf15ax841h::::res://Art Assets/Fighters/riko.png<>uid://ddkdnhhp2gdmi::::res://Scripts/Fighter/Parameters/Resources/Riko/riko_movement.tres<>uid://b0nr5qbboqndr::::res://Scripts/Fighter/Components/input_manager.gd<>uid://dp13pejk5ofre::::res://Scripts/Fighter/Components/hurt_manager.gd<>uid://c4kyt4d7iupt3::::res://Shaders/fighter.gdshader<>uid://d2myk0wp535gl::::res://Scripts/Fighter/Action States/normal_state.gd<>uid://ckcn71lv51hn0::::res://Scripts/Fighter/Components/entity_art.gd<>uid://c3tjx53bpng7a::::res://Scripts/Fighter/Action States/duck_state.gd<>uid://ckfwe044dx0cu::::res://Scripts/Fighter/Components/entity_status.gd<>uid://8m50bpdrgnj5::::res://Scripts/Fighter/Action States/hurt_state.gd<>uid://p333cm362g8t::::res://Scripts/Fighter/Components/hitbox.gd<>uid://yap1q5si5num::::res://Scripts/Fighter/Components/hurtbox.gd<>uid://x72pljjxm3iy::::res://Scripts/Fighter/Hitbox/Resources/Riko/riko_punch.tres<>uid://b344ybj4cga3y::::res://Scripts/Fighter/Hitbox/Resources/Riko/riko_kick.tres<>uid://dpcvksvdlq1h2::::res://Scripts/Fighter/Hitbox/Resources/Riko/riko_air_punch.tres<>uid://cyydaswh7revc::::res://Scripts/Fighter/Action States/attack_state.gd<>uid://cojbi5skowv57::::res://Scripts/Fighter/Hitbox/Resources/Riko/riko_air_kick.tres<>uid://ckq4pgxor76vb::::res://Scripts/Fighter/Hitbox/Resources/Riko/riko_low_punch.tres<>uid://lnsq23gc3iss::::res://Scripts/Fighter/Hitbox/Resources/Riko/riko_low_kick.tres<>uid://x510e5mrxcgl::::res://Scripts/Fighter/Hitbox/Resources/Riko/riko_dash_kick.tres<>uid://5rxuw6n1giow::::res://Scripts/Effects/one_shot_fx_creator.gd<>uid://djdkm33ye7slu::::res://Scripts/Fighter/Hitbox/Resources/Riko/riko_uppercut_1.tres<>uid://b0uc2sl5q835l::::res://Misc Resources/SpriteFrames/med_hit.tres<>uid://cvmpahko10ix1::::res://Scripts/Fighter/Action States/penalty_state.gd<>uid://bl473fbbeg4pj::::res://Objects/one_shot_animated_fx.tscn<>uid://dca37jcn83ivi::::res://Scripts/Fighter/Hitbox/Resources/Riko/riko_uppercut_2.tres<>uid://csvsuag5jq5ty::::res://Misc Resources/SpriteFrames/small_hit.tres<>uid://cesw45x1s7dh3::::res://Misc Resources/SpriteFrames/blocked.tres<>uid://5rkha074c8fj::::res://Misc Resources/SpriteFrames/hadouken.tres<>uid://ro21gab4hwxu::::res://Scripts/System/ObjectPool.gd<>uid://qg0kbkuunkr4::::res://Objects/hadouken.tscn<>uid://bp3pfnjxjuyub::::res://Objects/hadouken_heavy.tscn<>uid://d3ak87hldl7ia::::res://Audio/SFX/heavyattack.ogg<>uid://dwiyu1vuc23x6::::res://Art Assets/Backgrounds/shadow.png<>uid://ct13kvb4lpv8o::::res://Audio/SFX/lightattack.ogg<>uid://c3rdpw0yqo021::::res://Scripts/Fighter/Components/shadow.gd<>uid://bft11x5n1mjms::::res://Audio/SFX/jump.ogg<>uid://clwmyuq5exo6w::::res://Audio/SFX/land.ogg<>uid://di18kc7hynsy1::::res://Audio/SFX/heavyland.ogg<>uid://beoncekjwu8vb::::res://Audio/SFX/magicthrow.ogg<>uid://dpct3xr84kbl5::::res://Audio/SFX/smallhit.ogg<>uid://crb746cclygaj::::res://Audio/SFX/heavyhit.ogg<>uid://djygofnq0tjbg::::res://Audio/SFX/magichit.ogg
 ::res://Scripts/::1766186397
 ::res://Scripts/Effects/::1766187970
 one_shot_animated_fx.gd::GDScript::2423558167367870147::1766187970::0::1::::OneShotAnimatedFX<>AnimatedSprite2D<><>0<>0<><>::
 one_shot_fx_creator.gd::GDScript::2142193141700005186::1766187617::0::1::::<>ObjectPool<><>0<>0<><>::
 ::res://Scripts/Fighter/::1766121014
-::res://Scripts/Fighter/Action States/::1766372265
+::res://Scripts/Fighter/Action States/::1766460174
 action_state.gd::GDScript::7725004202949859701::1766370611::0::1::::ActionState<>Node2D<><>0<>0<><>::
-attack_state.gd::GDScript::6507101811542197316::1766370830::0::1::::AttackState<>ActionState<><>0<>0<><>::
-duck_state.gd::GDScript::6777941311793982800::1766120770::0::1::::DuckState<>ActionState<><>0<>0<><>::
-hurt_state.gd::GDScript::2342870603589093860::1766372237::0::1::::HurtState<>ActionState<><>0<>0<><>::
-normal_state.gd::GDScript::9080609775912546543::1766372265::0::1::::NormalState<>ActionState<><>0<>0<><>::
+attack_state.gd::GDScript::6507101811542197316::1766459465::0::1::::AttackState<>ActionState<><>0<>0<><>::
+duck_state.gd::GDScript::6777941311793982800::1766459440::0::1::::DuckState<>ActionState<><>0<>0<><>::
+hurt_state.gd::GDScript::2342870603589093860::1766460174::0::1::::HurtState<>ActionState<><>0<>0<><>::
+normal_state.gd::GDScript::9080609775912546543::1766459935::0::1::::NormalState<>ActionState<><>0<>0<><>::
 penalty_state.gd::GDScript::6272490755508424944::1766161146::0::1::::PenaltyState<>ActionState<><>0<>0<><>::
-::res://Scripts/Fighter/Base/::1766371598
-collision_entity.gd::GDScript::3355553042884329322::1766209333::0::1::::CollisionEntity<>CharacterBody2D<><>0<>0<><>::
-fighter.gd::GDScript::95030238112178783::1766371598::0::1::::Fighter<>CollisionEntity<><>0<>0<><>::
-::res://Scripts/Fighter/Components/::1766372557
+::res://Scripts/Fighter/Base/::1766459825
+collision_entity.gd::GDScript::3355553042884329322::1766447058::0::1::::CollisionEntity<>CharacterBody2D<><>0<>0<><>::
+fighter.gd::GDScript::95030238112178783::1766459825::0::1::::Fighter<>CollisionEntity<><>0<>0<><>::
+::res://Scripts/Fighter/Components/::1766459242
 entity_art.gd::GDScript::5479706409180782975::1766120472::0::1::::<>Sprite2D<><>0<>0<><>::
 entity_hitbox.gd::GDScript::1560169199737367416::1766034638::0::1::::<>Hitbox<><>0<>0<><>::
 entity_status.gd::GDScript::5486395968758957572::1766369679::0::1::::EntityStatus<>Node2D<><>0<>0<><>::
-hitbox.gd::GDScript::1112385434609998421::1766372539::0::1::::Hitbox<>Area2D<><>0<>0<><>::
+hitbox.gd::GDScript::1112385434609998421::1766432363::0::1::::Hitbox<>Area2D<><>0<>0<><>::
 hurtbox.gd::GDScript::1685490320393259416::1766119399::0::1::::Hurtbox<>Area2D<><>0<>0<><>::
-hurt_manager.gd::GDScript::8267495614453018794::1766372557::0::1::::HurtManager<>Node2D<><>0<>0<><>::
+hurt_manager.gd::GDScript::8267495614453018794::1766459242::0::1::::HurtManager<>Node2D<><>0<>0<><>::
 input_manager.gd::GDScript::4169065290124059371::1766285404::0::1::::InputManager<>Node2D<><>0<>0<><>::
 shadow.gd::GDScript::6773433544203223108::1766193567::0::1::::<>Sprite3D<><>0<>0<><>::
 ::res://Scripts/Fighter/Hitbox/::1766355630
 hitbox_data.gd::GDScript::3897955415963212958::1766355630::0::1::::HitboxData<>Resource<><>0<>0<><>::
 ::res://Scripts/Fighter/Hitbox/Resources/::1766121191
-::res://Scripts/Fighter/Hitbox/Resources/Riko/::1766370322
-heavy_hadouken.tres::Resource/HitboxData::491535421265636863::1766340705::0::1::::<><><>0<>0<><>::uid://bvsg0yf1vijg5::::res://Scripts/Fighter/Hitbox/hitbox_data.gd
-light_hadouken.tres::Resource/HitboxData::5564933140364222610::1766340698::0::1::::<><><>0<>0<><>::uid://bvsg0yf1vijg5::::res://Scripts/Fighter/Hitbox/hitbox_data.gd
+::res://Scripts/Fighter/Hitbox/Resources/Riko/::1766459250
+heavy_hadouken.tres::Resource/HitboxData::491535421265636863::1766431520::0::1::::<><><>0<>0<><>::uid://bvsg0yf1vijg5::::res://Scripts/Fighter/Hitbox/hitbox_data.gd
+light_hadouken.tres::Resource/HitboxData::5564933140364222610::1766431583::0::1::::<><><>0<>0<><>::uid://bvsg0yf1vijg5::::res://Scripts/Fighter/Hitbox/hitbox_data.gd
 riko_air_kick.tres::Resource/HitboxData::5774141185430135872::1766370322::0::1::::<><><>0<>0<><>::uid://bvsg0yf1vijg5::::res://Scripts/Fighter/Hitbox/hitbox_data.gd
-riko_air_punch.tres::Resource/HitboxData::8217517353957913665::1766367903::0::1::::<><><>0<>0<><>::uid://bvsg0yf1vijg5::::res://Scripts/Fighter/Hitbox/hitbox_data.gd
+riko_air_punch.tres::Resource/HitboxData::8217517353957913665::1766430852::0::1::::<><><>0<>0<><>::uid://bvsg0yf1vijg5::::res://Scripts/Fighter/Hitbox/hitbox_data.gd
 riko_dash_kick.tres::Resource/HitboxData::1677898279962470951::1766367441::0::1::::<><><>0<>0<><>::uid://bvsg0yf1vijg5::::res://Scripts/Fighter/Hitbox/hitbox_data.gd
-riko_kick.tres::Resource/HitboxData::4413378980016812928::1766370288::0::1::::<><><>0<>0<><>::uid://bvsg0yf1vijg5::::res://Scripts/Fighter/Hitbox/hitbox_data.gd
+riko_kick.tres::Resource/HitboxData::4413378980016812928::1766424400::0::1::::<><><>0<>0<><>::uid://bvsg0yf1vijg5::::res://Scripts/Fighter/Hitbox/hitbox_data.gd
 riko_low_kick.tres::Resource/HitboxData::800037131054781142::1766369972::0::1::::<><><>0<>0<><>::uid://bvsg0yf1vijg5::::res://Scripts/Fighter/Hitbox/hitbox_data.gd
-riko_low_punch.tres::Resource/HitboxData::5509547778860993623::1766207561::0::1::::<><><>0<>0<><>::uid://bvsg0yf1vijg5::::res://Scripts/Fighter/Hitbox/hitbox_data.gd
-riko_punch.tres::Resource/HitboxData::1682070229618175816::1766340700::0::1::::<><><>0<>0<><>::uid://bvsg0yf1vijg5::::res://Scripts/Fighter/Hitbox/hitbox_data.gd
-::res://Scripts/Fighter/Hitbox/Special/::1766370425
-hadouken.gd::GDScript::2280468937502855710::1766370425::0::1::::Hadouken<>Hitbox<><>0<>0<><>::
+riko_low_punch.tres::Resource/HitboxData::5509547778860993623::1766430865::0::1::::<><><>0<>0<><>::uid://bvsg0yf1vijg5::::res://Scripts/Fighter/Hitbox/hitbox_data.gd
+riko_punch.tres::Resource/HitboxData::1682070229618175816::1766448093::0::1::::<><><>0<>0<><>::uid://bvsg0yf1vijg5::::res://Scripts/Fighter/Hitbox/hitbox_data.gd
+riko_uppercut_1.tres::Resource/HitboxData::7797784891543699474::1766458143::0::1::::<><><>0<>0<><>::uid://bvsg0yf1vijg5::::res://Scripts/Fighter/Hitbox/hitbox_data.gd
+riko_uppercut_2.tres::Resource/HitboxData::7301397435993415810::1766459250::0::1::::<><><>0<>0<><>::uid://bvsg0yf1vijg5::::res://Scripts/Fighter/Hitbox/hitbox_data.gd
+::res://Scripts/Fighter/Hitbox/Special/::1766431661
+hadouken.gd::GDScript::2280468937502855710::1766431661::0::1::::Hadouken<>Hitbox<><>0<>0<><>::
 ::res://Scripts/Fighter/Parameters/::1766121068
 ::res://Scripts/Fighter/Parameters/Resources/::1766121126
 ::res://Scripts/Fighter/Parameters/Resources/Riko/::1766371537

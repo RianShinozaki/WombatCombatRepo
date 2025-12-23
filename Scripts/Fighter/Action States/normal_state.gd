@@ -133,10 +133,14 @@ func on_heavy_attack():
 	if not active: return
 	#check for hadouken input
 	var _hadouken = check_input_pattern(entity.hadouken_pattern_2_l) if entity.get_node("Art").flip_h else check_input_pattern(entity.hadouken_pattern_2_r)
-	
+	var _uppercut = check_input_pattern(entity.uppercut_pattern_l) if entity.get_node("Art").flip_h else check_input_pattern(entity.uppercut_pattern_r)
+
 	var _attack: AttackState = entity.get_action_state_name("AttackState")
 	entity.switch_action_state(_attack)
-	if _hadouken:
+	if _uppercut:
+		_attack._initiate("heavy uppercut")
+		_attack.post_attack_state = entity.get_action_state_name("NormalState")
+	elif _hadouken:
 		_attack._initiate("heavy hadouken")
 	elif entity.dashing:
 		_attack._initiate("heavy dash")
@@ -150,7 +154,6 @@ func on_double_tap(_direction: Vector2):
 	
 #Grounded animation handler
 func just_grounded(_normal: Vector2, _velocity: Vector2):
-	print("grounded")
 	if not active: return
 	entity_status.knockdown = 0.0
 	$"../../SpecialAttributes/SFX/Land".play()

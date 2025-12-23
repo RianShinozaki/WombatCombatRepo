@@ -1,4 +1,4 @@
-[gd_scene load_steps=156 format=3 uid="uid://dj3t8o260vsfx"]
+[gd_scene load_steps=164 format=3 uid="uid://dj3t8o260vsfx"]
 
 [ext_resource type="Script" uid="uid://bmbetce6put8" path="res://Scripts/Fighter/Base/fighter.gd" id="1_ixvft"]
 [ext_resource type="Script" uid="uid://dcnks7kp08igg" path="res://Scripts/Fighter/Parameters/Scripts/parameter_set.gd" id="2_yrmp7"]
@@ -27,9 +27,11 @@
 [ext_resource type="Resource" uid="uid://lnsq23gc3iss" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_low_kick.tres" id="19_uwm3q"]
 [ext_resource type="Resource" uid="uid://x510e5mrxcgl" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_dash_kick.tres" id="20_uwm3q"]
 [ext_resource type="Script" uid="uid://5rxuw6n1giow" path="res://Scripts/Effects/one_shot_fx_creator.gd" id="22_vd6q1"]
+[ext_resource type="Resource" uid="uid://djdkm33ye7slu" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_uppercut_1.tres" id="22_yfgk3"]
 [ext_resource type="SpriteFrames" uid="uid://b0uc2sl5q835l" path="res://Misc Resources/SpriteFrames/med_hit.tres" id="23_kbti5"]
 [ext_resource type="Script" uid="uid://cvmpahko10ix1" path="res://Scripts/Fighter/Action States/penalty_state.gd" id="23_ordi8"]
 [ext_resource type="PackedScene" uid="uid://bl473fbbeg4pj" path="res://Objects/one_shot_animated_fx.tscn" id="23_rdl13"]
+[ext_resource type="Resource" uid="uid://dca37jcn83ivi" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_uppercut_2.tres" id="23_tqbfv"]
 [ext_resource type="SpriteFrames" uid="uid://csvsuag5jq5ty" path="res://Misc Resources/SpriteFrames/small_hit.tres" id="24_j2cfp"]
 [ext_resource type="SpriteFrames" uid="uid://cesw45x1s7dh3" path="res://Misc Resources/SpriteFrames/blocked.tres" id="25_wmqtj"]
 [ext_resource type="SpriteFrames" uid="uid://5rkha074c8fj" path="res://Misc Resources/SpriteFrames/hadouken.tres" id="27_kql1y"]
@@ -117,6 +119,20 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, -3)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../ActionStates/AttackState")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_cancel"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_w432u"]
@@ -533,6 +549,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_pl6v3"]
+resource_name = "HurtAir"
+length = 0.5344
+step = 0.0167
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.21666667, 0.33333334, 0.42857143),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [38, 44, 45, 46]
 }
 
 [sub_resource type="Animation" id="Animation_1apos"]
@@ -1127,6 +1160,30 @@ tracks/9/keys = {
 "update": 0,
 "values": [Vector2(0, -3)]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../SpecialAttributes/Hitboxes/UppercutHitbox_1/CollisionShape2D:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../SpecialAttributes/Hitboxes/UppercutHitbox_2/CollisionShape2D:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_yx171"]
 resource_name = "Run"
@@ -1146,6 +1203,70 @@ tracks/0/keys = {
 "values": [3, 4, 5, 1]
 }
 
+[sub_resource type="Animation" id="Animation_yfgk3"]
+resource_name = "Uppercut_Heavy"
+length = 0.7515
+step = 0.0167
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.23333335, 0.35, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [47, 48, 49, 50, 51]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ActionStates/AttackState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.13333334, 0.23333333, 0.35, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [true],
+"method": &"set_intangibility"
+}, {
+"args": [],
+"method": &"uppercut_jump"
+}, {
+"args": [false],
+"method": &"set_intangibility"
+}, {
+"args": [],
+"method": &"animation_cancel"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../SpecialAttributes/Hitboxes/UppercutHitbox_1/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.23333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../SpecialAttributes/Hitboxes/UppercutHitbox_2/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
 [sub_resource type="Animation" id="Animation_yhmtn"]
 resource_name = "WalkBack"
 length = 0.666
@@ -1162,23 +1283,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [5, 4, 3, 2]
-}
-
-[sub_resource type="Animation" id="Animation_pl6v3"]
-resource_name = "HurtAir"
-length = 0.5344
-step = 0.0167
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.21666667, 0.33333334, 0.42857143),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [38, 44, 45, 46]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2vekm"]
@@ -1211,6 +1315,7 @@ _data = {
 &"Punch": SubResource("Animation_8o8ig"),
 &"RESET": SubResource("Animation_2vekm"),
 &"Run": SubResource("Animation_yx171"),
+&"Uppercut_Heavy": SubResource("Animation_yfgk3"),
 &"WalkBack": SubResource("Animation_yhmtn")
 }
 
@@ -1246,6 +1351,9 @@ animation = &"LowKick"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_brc4g"]
 animation = &"Punch"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tqbfv"]
+animation = &"Uppercut_Heavy"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_btmf1"]
 switch_mode = 2
@@ -1295,9 +1403,17 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e2ywe"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tqbfv"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ordi8"]
 states/AirKick/node = SubResource("AnimationNodeAnimation_w432u")
-states/AirKick/position = Vector2(321, 199)
+states/AirKick/position = Vector2(326, 192)
 states/AirPunch/node = SubResource("AnimationNodeAnimation_ixvft")
 states/AirPunch/position = Vector2(416, 339)
 states/DashKick/node = SubResource("AnimationNodeAnimation_vd6q1")
@@ -1313,13 +1429,15 @@ states/Kick/position = Vector2(321, 113)
 states/Land/node = SubResource("AnimationNodeAnimation_wmqtj")
 states/Land/position = Vector2(695.864, 284.90475)
 states/LandPenalty/node = SubResource("AnimationNodeAnimation_x2gyo")
-states/LandPenalty/position = Vector2(578.864, 182)
+states/LandPenalty/position = Vector2(555.864, 204)
 states/LowKick/node = SubResource("AnimationNodeAnimation_f7q5x")
 states/LowKick/position = Vector2(724.864, 404)
 states/Punch/node = SubResource("AnimationNodeAnimation_brc4g")
 states/Punch/position = Vector2(360, 41)
-transitions = ["Punch", "End", SubResource("AnimationNodeStateMachineTransition_btmf1"), "Kick", "End", SubResource("AnimationNodeStateMachineTransition_1apos"), "AirPunch", "End", SubResource("AnimationNodeStateMachineTransition_n0sce"), "AirKick", "LandPenalty", SubResource("AnimationNodeStateMachineTransition_f7q5x"), "LandPenalty", "End", SubResource("AnimationNodeStateMachineTransition_uwm3q"), "LowKick", "End", SubResource("AnimationNodeStateMachineTransition_rdl13"), "DuckPunch", "End", SubResource("AnimationNodeStateMachineTransition_kbti5"), "DashKick", "End", SubResource("AnimationNodeStateMachineTransition_fhcxa"), "AirPunch", "Land", SubResource("AnimationNodeStateMachineTransition_my8vd"), "Land", "End", SubResource("AnimationNodeStateMachineTransition_nncjt"), "Hadouken", "End", SubResource("AnimationNodeStateMachineTransition_kql1y"), "Hadouken_Heavy", "End", SubResource("AnimationNodeStateMachineTransition_vsqle")]
-graph_offset = Vector2(226.86403, -123.095245)
+states/Uppercut_Heavy/node = SubResource("AnimationNodeAnimation_tqbfv")
+states/Uppercut_Heavy/position = Vector2(995.864, -69.095245)
+transitions = ["Punch", "End", SubResource("AnimationNodeStateMachineTransition_btmf1"), "Kick", "End", SubResource("AnimationNodeStateMachineTransition_1apos"), "AirPunch", "End", SubResource("AnimationNodeStateMachineTransition_n0sce"), "AirKick", "LandPenalty", SubResource("AnimationNodeStateMachineTransition_f7q5x"), "LandPenalty", "End", SubResource("AnimationNodeStateMachineTransition_uwm3q"), "LowKick", "End", SubResource("AnimationNodeStateMachineTransition_rdl13"), "DuckPunch", "End", SubResource("AnimationNodeStateMachineTransition_kbti5"), "DashKick", "End", SubResource("AnimationNodeStateMachineTransition_fhcxa"), "AirPunch", "Land", SubResource("AnimationNodeStateMachineTransition_my8vd"), "Land", "End", SubResource("AnimationNodeStateMachineTransition_nncjt"), "Hadouken", "End", SubResource("AnimationNodeStateMachineTransition_kql1y"), "Hadouken_Heavy", "End", SubResource("AnimationNodeStateMachineTransition_vsqle"), "Uppercut_Heavy", "End", SubResource("AnimationNodeStateMachineTransition_e2ywe"), "AirKick", "End", SubResource("AnimationNodeStateMachineTransition_tqbfv")]
+graph_offset = Vector2(136.86401, 47.904755)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rdl13"]
 animation = &"Block"
@@ -1508,7 +1626,7 @@ states/KnockedBounce/position = Vector2(823, 182.19388)
 states/KnockedDown/node = SubResource("AnimationNodeAnimation_5sqab")
 states/KnockedDown/position = Vector2(683, 266.19388)
 transitions = ["Start", "Grounded", SubResource("AnimationNodeStateMachineTransition_yx171"), "Grounded", "Jump", SubResource("AnimationNodeStateMachineTransition_gwjdr"), "Jump", "Grounded", SubResource("AnimationNodeStateMachineTransition_lvtmh"), "Attack", "Grounded", SubResource("AnimationNodeStateMachineTransition_ixvft"), "Hurt", "HurtMajor", SubResource("AnimationNodeStateMachineTransition_j2cfp"), "JumpSquat", "Jump", SubResource("AnimationNodeStateMachineTransition_gkhnp"), "KnockedAir", "KnockedBounce", SubResource("AnimationNodeStateMachineTransition_ajl3s"), "GetUp", "Grounded", SubResource("AnimationNodeStateMachineTransition_5sqab"), "HurtAir", "Jump", SubResource("AnimationNodeStateMachineTransition_yfgk3")]
-graph_offset = Vector2(-159, -190.80612)
+graph_offset = Vector2(-2, -204.80612)
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_x2gyo"]
 
@@ -1540,6 +1658,12 @@ size = Vector2(12, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4ghc"]
 size = Vector2(14, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pl6v3"]
+size = Vector2(9, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfgk3"]
+size = Vector2(11, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uwm3q"]
 size = Vector2(8, 19)
@@ -1574,7 +1698,7 @@ shape = SubResource("RectangleShape2D_yyih5")
 material = SubResource("ShaderMaterial_my8vd")
 position = Vector2(0, -6)
 texture = ExtResource("6_7457w")
-hframes = 7
+hframes = 8
 vframes = 7
 script = ExtResource("8_x2gyo")
 
@@ -1611,9 +1735,9 @@ script = ExtResource("8_1kbdq")
 power_resistance = 1
 
 [node name="Hitboxes" type="Node2D" parent="SpecialAttributes"]
-visible = false
 
 [node name="PunchHitbox" type="Area2D" parent="SpecialAttributes/Hitboxes"]
+visible = false
 collision_layer = 2
 collision_mask = 16
 script = ExtResource("10_w4ghc")
@@ -1625,6 +1749,7 @@ shape = SubResource("RectangleShape2D_gkhnp")
 disabled = true
 
 [node name="KickHitbox" type="Area2D" parent="SpecialAttributes/Hitboxes"]
+visible = false
 collision_layer = 2
 collision_mask = 16
 script = ExtResource("10_w4ghc")
@@ -1636,6 +1761,7 @@ shape = SubResource("RectangleShape2D_my8vd")
 disabled = true
 
 [node name="AirPunchHitbox" type="Area2D" parent="SpecialAttributes/Hitboxes"]
+visible = false
 collision_layer = 2
 collision_mask = 16
 script = ExtResource("10_w4ghc")
@@ -1647,6 +1773,7 @@ shape = SubResource("RectangleShape2D_w432u")
 disabled = true
 
 [node name="AirKickHitbox" type="Area2D" parent="SpecialAttributes/Hitboxes"]
+visible = false
 collision_layer = 2
 collision_mask = 16
 script = ExtResource("10_w4ghc")
@@ -1658,6 +1785,7 @@ shape = SubResource("RectangleShape2D_ixvft")
 disabled = true
 
 [node name="LowPunchHitbox" type="Area2D" parent="SpecialAttributes/Hitboxes"]
+visible = false
 collision_layer = 2
 collision_mask = 16
 script = ExtResource("10_w4ghc")
@@ -1669,6 +1797,7 @@ shape = SubResource("RectangleShape2D_8o8ig")
 disabled = true
 
 [node name="LowKickHitbox" type="Area2D" parent="SpecialAttributes/Hitboxes"]
+visible = false
 position = Vector2(2, 8)
 collision_layer = 2
 collision_mask = 16
@@ -1681,6 +1810,7 @@ shape = SubResource("RectangleShape2D_nncjt")
 disabled = true
 
 [node name="DashKickHitbox" type="Area2D" parent="SpecialAttributes/Hitboxes"]
+visible = false
 collision_layer = 2
 collision_mask = 16
 script = ExtResource("10_w4ghc")
@@ -1689,6 +1819,28 @@ hitbox_data = ExtResource("20_uwm3q")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/DashKickHitbox"]
 position = Vector2(12, -1.5)
 shape = SubResource("RectangleShape2D_w4ghc")
+disabled = true
+
+[node name="UppercutHitbox_1" type="Area2D" parent="SpecialAttributes/Hitboxes"]
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("10_w4ghc")
+hitbox_data = ExtResource("22_yfgk3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/UppercutHitbox_1"]
+position = Vector2(9.5, -3.5)
+shape = SubResource("RectangleShape2D_pl6v3")
+disabled = true
+
+[node name="UppercutHitbox_2" type="Area2D" parent="SpecialAttributes/Hitboxes"]
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("10_w4ghc")
+hitbox_data = ExtResource("23_tqbfv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/UppercutHitbox_2"]
+position = Vector2(8.5, -19.5)
+shape = SubResource("RectangleShape2D_yfgk3")
 disabled = true
 
 [node name="Hurtbox" type="Area2D" parent="SpecialAttributes"]

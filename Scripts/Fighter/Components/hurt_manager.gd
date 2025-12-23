@@ -90,8 +90,7 @@ func process_hurt(_hitbox: Hitbox):
 		#Apply the appropriate animation
 		if not _blocked:
 			#Knockdown if appropriate
-			if _knockdown:
-				print("knockAir")
+			if _knockdown and _hurt.knockdown != HurtState.knockdown_state.PRONE and _hurt.knockdown != HurtState.knockdown_state.GETUP:
 				anim_playback.start("KnockedAir", true)
 				
 				#Quickly shift body upwards if switching into knocked air
@@ -104,8 +103,8 @@ func process_hurt(_hitbox: Hitbox):
 				
 				_hurt.knockdown = HurtState.knockdown_state.KNOCKDOWN
 			#Initiate "Air flip back" for strong enough aerial hits
-			elif entity.is_on_floor() == false and _knockdown_total >= entity_status.max_knockdown/2:
-				print("hurtAir")
+			elif (entity.is_on_floor() == false and _knockdown_total >= entity_status.max_knockdown/2) or (_hurt.knockdown == HurtState.knockdown_state.PRONE or _hurt.knockdown == HurtState.knockdown_state.GETUP):
+				_hurt.knockdown = HurtState.knockdown_state.UPRIGHT
 				anim_playback.start("HurtAir", true)
 				_hurt_duration = anim_player.get_animation("HurtAir").length * 60
 				_x_knockback = 140 * sign(_x_knockback)

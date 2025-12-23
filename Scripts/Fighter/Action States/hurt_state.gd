@@ -35,6 +35,7 @@ func _start() -> void:
 	counter = 0
 	slam_number = 0
 	
+	
 func _physics_process(delta: float) -> void:
 	if !active: return
 	if !entity.apply_physics: return
@@ -101,6 +102,5 @@ func _physics_process(delta: float) -> void:
 		
 func _end() -> void:
 	super._end()
-	print("hurt end")
 	knockdown = knockdown_state.UPRIGHT
 	hurtbox.set_deferred("disabled", false)

@@ -41,6 +41,9 @@ var hadouken_pattern_l: Array[input_code] = [input_code.DOWN, input_code.LEFT_DO
 var hadouken_pattern_2_r: Array[input_code] = [input_code.DOWN, input_code.RIGHT_DOWN, input_code.RIGHT, input_code.C]
 var hadouken_pattern_2_l: Array[input_code] = [input_code.DOWN, input_code.LEFT_DOWN, input_code.LEFT, input_code.C]
 
+var uppercut_pattern_r: Array[input_code] = [input_code.UP, input_code.DOWN, input_code.UP, input_code.C]
+var uppercut_pattern_l: Array[input_code] = [input_code.UP, input_code.DOWN, input_code.UP, input_code.C]
+
 @onready var after_hurt_state: ActionState = $ActionStates/NormalState
 
 var jumps = 2

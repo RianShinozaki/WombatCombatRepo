@@ -13,6 +13,8 @@ var jmp_param: EntityJumpParameters
 @onready var sfx_magic_attack: AudioStreamPlayer2D = $"../../SpecialAttributes/SFX/MagicAttack"
 
 @onready var post_attack_state: ActionState = $"../NormalState"
+@onready var art: Sprite2D = $"../../Art"
+@onready var shape: CollisionShape2D = $"../../SpecialAttributes/Hurtbox/CollisionShape2D"
 
 var can_short_hop:
 	get:
@@ -59,7 +61,10 @@ func _initiate(_status: String = ""):
 			sfx_light_attack.play()
 	
 	if _status.contains("heavy"):
-		if _status.contains("hadouken"):
+		if _status.contains("uppercut"):
+			entity.velocity.x = 0
+			play_animation_oneshot("Uppercut_Heavy")
+		elif _status.contains("hadouken"):
 			entity.velocity.x = 0
 			play_animation_oneshot("Hadouken_Heavy")
 		elif _status.contains("dash") and entity.is_on_floor():
@@ -123,6 +128,14 @@ func spawn_hadouken(_power: int):
 	_hadouken.collision_layer = entity.p1_hitbox_layer if entity.fighter_id == 1 else entity.p2_hitbox_layer
 	_hadouken.collision_mask = (entity.p2_hurtbox_layer + entity.p2_hitbox_layer) if entity.fighter_id == 1 else (entity.p1_hurtbox_layer + entity.p1_hitbox_layer)
 
+func uppercut_jump():
+	entity.velocity.y = -80
+	entity.velocity.x = 30 * (-1 if art.flip_h else 1)
+
+func set_intangibility(_disabled: bool):
+	shape.set_deferred("disabled", _disabled)
+	
+	
 func just_grounded(_normal: Vector2, _velocity: Vector2):
 	#var fx: Node2D = land_fx_pool.spawn_object()
 	#if fx != null:

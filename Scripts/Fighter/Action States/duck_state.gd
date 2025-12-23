@@ -14,9 +14,7 @@ func _ready() -> void:
 	inp = entity.get_node("GenericAttributes/InputManager")
 	anim = entity.get_node("Art/AnimationTree")
 	duck_param = entity.parameters["duck"]
-	inp.action_b_just_pressed.connect(on_light_attack)
-	inp.action_c_just_pressed.connect(on_heavy_attack)
-	
+
 func _start() -> void:
 	super._start()
 	entity.get_node("EnvironmentBox").shape = duck_param.collision_shape
@@ -32,7 +30,23 @@ func _process(delta: float) -> void:
 	#Stop ducking
 	if _vert <= 0.3 or not entity.is_on_floor():
 		entity.switch_action_state_name("NormalState")
+		return
 	
+	#Process input buffer
+	if not entity.inputs_buffer.is_empty():
+		for _i in range(entity.inputs_buffer.size()):
+			var _input: Fighter.input_code = entity.inputs_buffer[_i]
+			match(_input):
+				Fighter.input_code.B:
+					on_light_attack()
+					entity.inputs_buffer.remove_at(_i)
+					entity.inputs_buffer_times.remove_at(_i)
+					return
+				Fighter.input_code.C:
+					on_heavy_attack()
+					entity.inputs_buffer.remove_at(_i)
+					entity.inputs_buffer_times.remove_at(_i)
+					return
 	#Decelerate
 	entity.accelerate_x(duck_param.get_deceleration(entity) * delta, 0, false)
 	if abs(entity.velocity.x) < duck_param.get_minimum_speed(entity):
@@ -51,10 +65,23 @@ func on_light_attack():
 func on_heavy_attack():
 	if not active: return
 	var _attack: AttackState = entity.get_action_state_name("AttackState")
+	var _uppercut = check_input_pattern(entity.uppercut_pattern_l) if entity.get_node("Art").flip_h else check_input_pattern(entity.uppercut_pattern_r)
+
 	entity.switch_action_state(_attack)
-	_attack._initiate("duck heavy")
+	if _uppercut:
+		_attack._initiate("heavy uppercut")
+		_attack.post_attack_state = entity.get_action_state_name("NormalState")
+	else:
+		_attack._initiate("duck heavy")
 	
 func _end() -> void:
 	super._end()
 	anim.get("parameters/AnimationNodeStateMachine/playback").start("Grounded", true)
 	anim.get("parameters/AnimationNodeStateMachine/Grounded/playback").start("Idle", true)
+
+func check_input_pattern(_pattern: Array[Fighter.input_code]) -> bool:
+	if entity.inputs_queue.size() < _pattern.size(): return false
+	for i in range(_pattern.size()):
+		if _pattern[i] != entity.inputs_queue[entity.inputs_queue.size() - _pattern.size() + i]:
+			return false
+	return true
