@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dtg05jdn1ct63"]
+[gd_scene load_steps=31 format=3 uid="uid://dtg05jdn1ct63"]
 
 [ext_resource type="Texture2D" uid="uid://xob1v1sccc84" path="res://Art Assets/Backgrounds/CreamBGSky.png" id="1_qbg5b"]
 [ext_resource type="Script" uid="uid://d2mlgrhekosko" path="res://Scripts/System/parallax_controller.gd" id="2_8puwx"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://dclrouxt8oqon" path="res://Scripts/UI/health_bar.gd" id="7_xacle"]
 [ext_resource type="Script" uid="uid://bshhgc4qdv4qy" path="res://Scripts/System/3D_to_2D_target.gd" id="8_8edix"]
 [ext_resource type="Texture2D" uid="uid://c0lhha0dyccv4" path="res://Art Assets/Backgrounds/Grid.png" id="8_8puwx"]
+[ext_resource type="AudioStream" uid="uid://diqahf736qp0a" path="res://Audio/Music/Street Fighter IV - Volcanic Rim Stage (Sega Genesis Remix).mp3" id="10_qpgel"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8edix"]
 
@@ -83,6 +84,18 @@ shader_parameter/replace_2 = Color(0.38722995, 0.15377143, 0.13540837, 1)
 shader_parameter/replace_3 = Color(0.71945673, 0.16269562, 0.2661459, 1)
 shader_parameter/replace_4 = Color(0.83522344, 0.379215, 0.41541192, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qpgel"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qpgel"]
+bg_color = Color(1, 1, 0, 1)
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ceqvn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lntlw"]
+bg_color = Color(1, 1, 0, 1)
+border_color = Color(1, 1, 1, 1)
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8edix"]
 sky_top_color = Color(0.8157308, 0, 0.40268844, 1)
 sky_horizon_color = Color(0.8745098, 0.7372549, 0.6862745, 1)
@@ -118,7 +131,7 @@ albedo_color = Color(0.3787864, 0.526335, 1, 1)
 albedo_texture = ExtResource("8_8puwx")
 uv1_scale = Vector3(40, 17.52, 40)
 
-[node name="Node2D" type="Node2D"]
+[node name="Game" type="Node2D"]
 texture_filter = 1
 
 [node name="Background" type="Node2D" parent="."]
@@ -147,6 +160,7 @@ position = Vector2(264, 0)
 texture = ExtResource("3_8edix")
 
 [node name="Sky" type="Sprite2D" parent="Background"]
+visible = false
 z_index = -4
 material = SubResource("CanvasItemMaterial_8edix")
 texture = SubResource("GradientTexture2D_qpgel")
@@ -183,9 +197,9 @@ limit_right = 155
 limit_bottom = 35
 script = ExtResource("4_qpgel")
 targets = [NodePath("../Riko"), NodePath("../Riko2")]
-target_offset_y = 20.0
+target_offset_y = 15.0
 x_extents = Vector2(-80, 80)
-y_extents = Vector2(-155, 30)
+y_extents = Vector2(-60, 30)
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
 z_index = -4
@@ -205,36 +219,65 @@ fighter_id = 2
 [node name="Art" parent="Riko2" index="1"]
 material = SubResource("ShaderMaterial_qpgel")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
+scale = Vector2(5, 5)
+transform = Transform2D(5, 0, 0, 5, 0, 0)
 
-[node name="P1_Health" type="ProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("target")]
-offset_left = 28.0
-offset_top = 30.0
-offset_right = 228.0
-offset_bottom = 50.0
-theme = ExtResource("6_lntlw")
-max_value = 1.0
-value = 0.7
-show_percentage = false
-script = ExtResource("7_xacle")
-target = NodePath("../../Riko")
-
-[node name="P2_Health" type="ProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("target")]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -228.0
-offset_top = 30.0
-offset_right = -28.0
-offset_bottom = 50.0
-grow_horizontal = 0
+[node name="P1_Health" type="ProgressBar" parent="UI" node_paths=PackedStringArray("target")]
+offset_left = 4.0
+offset_top = 8.0
+offset_right = 54.0
+offset_bottom = 13.0
 theme = ExtResource("6_lntlw")
 max_value = 1.0
 value = 0.7
 fill_mode = 1
 show_percentage = false
 script = ExtResource("7_xacle")
+target = NodePath("../../Riko")
+
+[node name="P1_Health_True" type="ProgressBar" parent="UI/P1_Health"]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 5.0
+theme = ExtResource("6_lntlw")
+theme_override_styles/background = SubResource("StyleBoxEmpty_qpgel")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qpgel")
+max_value = 1.0
+value = 0.7
+fill_mode = 1
+show_percentage = false
+
+[node name="P2_Health" type="ProgressBar" parent="UI" node_paths=PackedStringArray("target")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -566.0
+offset_top = 8.0
+offset_right = -516.0
+offset_bottom = 13.0
+grow_horizontal = 0
+theme = ExtResource("6_lntlw")
+max_value = 1.0
+value = 0.7
+show_percentage = false
+script = ExtResource("7_xacle")
 target = NodePath("../../Riko2")
+
+[node name="P2_Health_True" type="ProgressBar" parent="UI/P2_Health"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_bottom = 5.0
+grow_horizontal = 0
+theme = ExtResource("6_lntlw")
+theme_override_styles/background = SubResource("StyleBoxEmpty_ceqvn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_lntlw")
+max_value = 1.0
+value = 0.7
+show_percentage = false
 
 [node name="SubViewport" type="SubViewport" parent="."]
 oversampling = false
@@ -269,5 +312,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ceqvn")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.016, 0)
 mesh = SubResource("QuadMesh_8edix")
 surface_material_override/0 = SubResource("StandardMaterial3D_qpgel")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_qpgel")
+autoplay = true
 
 [editable path="Riko2"]

@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://5rkha074c8fj"]
+
+[ext_resource type="Texture2D" uid="uid://bq7ny81lapv10" path="res://Art Assets/Effects/EnergyHit.png" id="1_e3wph"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3wph"]
+atlas = ExtResource("1_e3wph")
+region = Rect2(0, 0, 50, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2locl"]
+atlas = ExtResource("1_e3wph")
+region = Rect2(50, 0, 50, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tinp"]
+atlas = ExtResource("1_e3wph")
+region = Rect2(100, 0, 50, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4le6h"]
+atlas = ExtResource("1_e3wph")
+region = Rect2(0, 43, 50, 43)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3wph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2locl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tinp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4le6h")
+}],
+"loop": false,
+"name": &"default",
+"speed": 18.0
+}]

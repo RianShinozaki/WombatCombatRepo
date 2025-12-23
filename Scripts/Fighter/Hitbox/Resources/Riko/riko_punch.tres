@@ -4,16 +4,19 @@
 
 [resource]
 script = ExtResource("1_c32ir")
-damage = 2
+damage = 3
 damage_range = 1
 x_knockback = 30.0
 x_knockback_on_block = 15.0
 x_knockback_is_relative = true
 y_knockback_is_additive = true
 knockback_power = 2
-hitstun_duration_frames = 4
+knockdown_power = 0.2
+hitstun_duration_frames = 6
+hitstun_duration_frames_on_block = 4
 self_hitstun_duration_frames = 2
-force_hurt_duration_frames = 8
+self_hitstun_duration_frames_on_block = 6
+force_hurt_duration_frames = 16
 force_hurt_duration_frames_on_block = 4
 impact_fx = "Small Hit"
 metadata/_custom_type_script = "uid://bvsg0yf1vijg5"

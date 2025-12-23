@@ -14,6 +14,7 @@ enum range_type {LOW, MID, HIGH}
 @export var x_knockback_is_additive: bool
 @export var y_knockback_is_additive: bool
 @export var knockback_power: int
+@export var knockdown_power: float
 
 @export var hitstun_duration_frames: int
 @export var hitstun_duration_frames_on_block: int

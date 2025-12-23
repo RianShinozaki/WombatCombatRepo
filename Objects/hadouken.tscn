@@ -1,0 +1,87 @@
+[gd_scene load_steps=14 format=3 uid="uid://qg0kbkuunkr4"]
+
+[ext_resource type="Script" uid="uid://7qw8wxuvee75" path="res://Scripts/Fighter/Hitbox/Special/hadouken.gd" id="1_wkruo"]
+[ext_resource type="Resource" uid="uid://cljxvu7q41hcs" path="res://Scripts/Fighter/Hitbox/Resources/Riko/light_hadouken.tres" id="2_gcv7i"]
+[ext_resource type="Texture2D" uid="uid://b3m1r4gvxnyyn" path="res://Art Assets/Fighters/hadouken.png" id="3_2iwuu"]
+[ext_resource type="Shader" uid="uid://c4kyt4d7iupt3" path="res://Shaders/fighter.gdshader" id="3_gcv7i"]
+[ext_resource type="Script" uid="uid://dvtevxlb0aap" path="res://Scripts/System/ObjectPoolObject.gd" id="4_efevg"]
+[ext_resource type="AudioStream" uid="uid://dk0ffw3nrllc1" path="res://Audio/SFX/magicloop.ogg" id="6_2iwuu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2iwuu"]
+shader = ExtResource("3_gcv7i")
+shader_parameter/original_0 = Color(1, 1, 1, 1)
+shader_parameter/original_1 = Color(0.5019608, 0.7647059, 0.9882353, 1)
+shader_parameter/original_2 = Color(0.12941177, 0.13333334, 0.87058824, 1)
+shader_parameter/original_3 = Color(0, 0, 0, 1)
+shader_parameter/original_4 = Color(0, 0, 0, 1)
+shader_parameter/replace_0 = Color(1, 1, 0.7607843, 1)
+shader_parameter/replace_1 = Color(1, 0.5921569, 0.22745098, 1)
+shader_parameter/replace_2 = Color(0.8509804, 0.25490198, 0.05882353, 1)
+shader_parameter/replace_3 = Color(0, 0, 0, 1)
+shader_parameter/replace_4 = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkruo"]
+atlas = ExtResource("3_2iwuu")
+region = Rect2(0, 0, 61, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcv7i"]
+atlas = ExtResource("3_2iwuu")
+region = Rect2(61, 0, 61, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2iwuu"]
+atlas = ExtResource("3_2iwuu")
+region = Rect2(0, 33, 61, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efevg"]
+atlas = ExtResource("3_2iwuu")
+region = Rect2(61, 33, 61, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ys1ck"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkruo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcv7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2iwuu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efevg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r1twq"]
+radius = 9.0
+
+[node name="Hadouken" type="Area2D"]
+z_index = 6
+texture_filter = 1
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("1_wkruo")
+speed = 100.0
+hitbox_data = ExtResource("2_gcv7i")
+
+[node name="Art" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_2iwuu")
+sprite_frames = SubResource("SpriteFrames_ys1ck")
+autoplay = "default"
+frame_progress = 0.4607976
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_r1twq")
+
+[node name="ObjectPoolObject" type="Node" parent="."]
+script = ExtResource("4_efevg")
+metadata/_custom_type_script = "uid://dvtevxlb0aap"
+
+[node name="MagicLoop" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_2iwuu")
+pitch_scale = 1.5

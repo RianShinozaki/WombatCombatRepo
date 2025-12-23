@@ -4,18 +4,19 @@
 
 [resource]
 script = ExtResource("1_rjhjl")
-damage = 3
+damage = 4
 damage_range = 2
 x_knockback = 80.0
 y_knockback = 100.0
-x_knockback_on_block = 40.0
+x_knockback_on_block = 10.0
 x_knockback_is_relative = true
 knockback_power = 2
+knockdown_power = 0.6
 hitstun_duration_frames = 16
 hitstun_duration_frames_on_block = 2
 self_hitstun_duration_frames = 8
 self_hitstun_duration_frames_on_block = 8
-force_hurt_duration_frames = 8
-force_hurt_duration_frames_on_block = 8
+force_hurt_duration_frames = 20
+force_hurt_duration_frames_on_block = 4
 impact_fx = "Med Hit"
 metadata/_custom_type_script = "uid://bvsg0yf1vijg5"

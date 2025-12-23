@@ -5,12 +5,16 @@ extends Node2D
 @export var read_controller_input: bool
 @export var player_prefix: String
 @export var input_direction: Vector2
+@export var input_direction_rounded: Vector2
 @export var input_deadzone: float
 @export var double_tap_max_time: float
 
 var last_direction: Vector2
+var last_direction_rounded: Vector2
 var last_direction_nonzero: Vector2
 var double_tap_timer: float
+
+signal direction_input(input: Vector2)
 
 signal action_a_just_pressed
 var action_a_pressed: bool
@@ -31,19 +35,23 @@ func _process(_delta: float) -> void:
 	
 	if read_controller_input:
 		input_direction = Input.get_vector(player_prefix+"left", player_prefix+"right", player_prefix+"up", player_prefix+"down")
-		
+		input_direction_rounded = input_direction.round()
 		#Ignore inputs below a certain magnitude
 		if input_direction.length() < input_deadzone:
 			input_direction = Vector2.ZERO
 		
+		#Emit signal
+		if input_direction != Vector2.ZERO and input_direction_rounded != last_direction_rounded:
+			emit_signal("direction_input", input_direction_rounded)
+		last_direction_rounded = input_direction_rounded
+		
 		#Check for a double tap
 		if input_direction != Vector2.ZERO and last_direction == Vector2.ZERO:
-			var _this_direction = Vector2(input_direction.round())
-			if double_tap_timer < double_tap_max_time and _this_direction == last_direction_nonzero:
-				emit_signal("double_tap_direction", _this_direction)
+			if double_tap_timer < double_tap_max_time and input_direction_rounded == last_direction_nonzero:
+				emit_signal("double_tap_direction", input_direction_rounded)
 				
 			double_tap_timer = 0
-			last_direction_nonzero = _this_direction
+			last_direction_nonzero = input_direction_rounded
 			
 		last_direction = input_direction
 		

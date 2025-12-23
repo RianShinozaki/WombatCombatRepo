@@ -8,7 +8,7 @@ signal state_ended()
 @export var active: bool
 @export var auto_hook: bool = true
 
-var entity: CollisionEntity
+var entity: Fighter
 
 func _ready() -> void:
 	if auto_hook: entity = get_parent().get_parent()

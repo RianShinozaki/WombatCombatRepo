@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="HitboxData" load_steps=2 format=3 uid="uid://cljxvu7q41hcs"]
+
+[ext_resource type="Script" uid="uid://bvsg0yf1vijg5" path="res://Scripts/Fighter/Hitbox/hitbox_data.gd" id="1_w5tqf"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_w5tqf")
+damage = 6
+damage_range = 1
+x_knockback = 40.0
+x_knockback_on_block = 10.0
+y_knockback_is_additive = true
+knockback_power = 2
+knockdown_power = 0.5
+hitstun_duration_frames = 8
+hitstun_duration_frames_on_block = 4
+force_hurt_duration_frames = 8
+force_hurt_duration_frames_on_block = 4
+impact_fx = "Hadouken"
+metadata/_custom_type_script = "uid://bvsg0yf1vijg5"

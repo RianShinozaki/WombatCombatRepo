@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://diqahf736qp0a"
+path="res://.godot/imported/Street Fighter IV - Volcanic Rim Stage (Sega Genesis Remix).mp3-4d70f61ad4e701574b17b48859f6103a.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Street Fighter IV - Volcanic Rim Stage (Sega Genesis Remix).mp3"
+dest_files=["res://.godot/imported/Street Fighter IV - Volcanic Rim Stage (Sega Genesis Remix).mp3-4d70f61ad4e701574b17b48859f6103a.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

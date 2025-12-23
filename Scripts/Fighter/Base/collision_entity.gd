@@ -91,10 +91,12 @@ func get_action_state_name(_state: String) -> ActionState:
 	return get_node("ActionStates/"+_state)
 	
 func switch_action_state(_state: ActionState) -> ActionState:
-	last_action_state = current_action_state
-	current_action_state = _state
-	last_action_state._end()
-	current_action_state._start()
+	if last_action_state != current_action_state:
+		last_action_state = current_action_state
+	if current_action_state != _state:
+		current_action_state = _state
+		last_action_state._end()
+		current_action_state._start()
 	return current_action_state
 
 func inflict_hitstun(_shake_level: float, _shake_direction: Vector2, _duration: float, _stun_fx: float = 1.0):

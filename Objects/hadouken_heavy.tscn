@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://bp3pfnjxjuyub"]
+
+[ext_resource type="Script" uid="uid://7qw8wxuvee75" path="res://Scripts/Fighter/Hitbox/Special/hadouken.gd" id="1_piqp2"]
+[ext_resource type="Resource" uid="uid://hadrtfopxgyp" path="res://Scripts/Fighter/Hitbox/Resources/Riko/heavy_hadouken.tres" id="2_piqp2"]
+[ext_resource type="Texture2D" uid="uid://b3m1r4gvxnyyn" path="res://Art Assets/Fighters/hadouken.png" id="3_33ajn"]
+[ext_resource type="Script" uid="uid://dvtevxlb0aap" path="res://Scripts/System/ObjectPoolObject.gd" id="4_xdqda"]
+[ext_resource type="AudioStream" uid="uid://dk0ffw3nrllc1" path="res://Audio/SFX/magicloop.ogg" id="5_55lc0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkruo"]
+atlas = ExtResource("3_33ajn")
+region = Rect2(0, 0, 61, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcv7i"]
+atlas = ExtResource("3_33ajn")
+region = Rect2(61, 0, 61, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2iwuu"]
+atlas = ExtResource("3_33ajn")
+region = Rect2(0, 33, 61, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efevg"]
+atlas = ExtResource("3_33ajn")
+region = Rect2(61, 33, 61, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ys1ck"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkruo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcv7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2iwuu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efevg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r1twq"]
+radius = 9.0
+
+[node name="Hadouken_Heavy" type="Area2D"]
+z_index = 6
+texture_filter = 1
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("1_piqp2")
+speed = 140.0
+hitbox_data = ExtResource("2_piqp2")
+
+[node name="Art" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ys1ck")
+autoplay = "default"
+frame_progress = 0.4607976
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_r1twq")
+
+[node name="ObjectPoolObject" type="Node" parent="."]
+script = ExtResource("4_xdqda")
+metadata/_custom_type_script = "uid://dvtevxlb0aap"
+
+[node name="MagicLoop" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_55lc0")
+volume_db = 1.0
