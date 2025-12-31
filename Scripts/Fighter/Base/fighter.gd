@@ -113,7 +113,7 @@ func _physics_process(_delta: float) -> void:
 	#Restore jumps if grounded
 	if is_on_floor():
 		jumps = 2
-			
+	
 	super._physics_process(_delta)
 	
 #Impact == when my attack hits an opponent
@@ -134,7 +134,6 @@ func _on_shove_box_area_exited(area: Area2D) -> void:
 
 #Get direction input to add to queue
 func on_direction_input_code(_input_code: input_code):
-	print(_input_code)
 	inputs_queue.append(_input_code)
 	input_queue_time = 1.0 / 60 * float(input_queue_max_frames)
 	inputs_buffer.append(_input_code)

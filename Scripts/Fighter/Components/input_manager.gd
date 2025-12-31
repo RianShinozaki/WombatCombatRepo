@@ -15,6 +15,8 @@ var last_direction_rounded: Vector2
 var last_direction_nonzero: Vector2
 var double_tap_timer: float
 var last_input_angle: float
+var last_input_was_zero: bool = false
+var direction_just_pressed: bool = false
 
 signal direction_input(input: Vector2)
 signal direction_input_code(input_code: Fighter.input_code)
@@ -37,17 +39,30 @@ func _process(_delta: float) -> void:
 	double_tap_timer = move_toward(double_tap_timer, double_tap_max_time, _delta)
 	
 	if read_controller_input:
-		input_direction = Input.get_vector(player_prefix+"left", player_prefix+"right", player_prefix+"up", player_prefix+"down")
+		var _input_raw = Input.get_vector(player_prefix+"left", player_prefix+"right", player_prefix+"up", player_prefix+"down")
+		input_direction = input_direction.move_toward(_input_raw, 0.5)
 		input_direction_rounded = input_direction.round()
 		#Ignore inputs below a certain magnitude
+		direction_just_pressed = false
 		if input_direction.length() < input_deadzone:
 			input_direction = Vector2.ZERO
+			last_input_was_zero = true
+		else:
+			if last_input_was_zero:
+				direction_just_pressed = true
+			last_input_was_zero = false
 		
 		if input_direction != Vector2.ZERO:
 			var _angle: float = input_direction.angle()
 			_angle = snapped(_angle, PI/4)
 			_angle = wrap(_angle, 0, 2*PI)
 			input_angle = _angle
+			
+			if double_tap_timer < double_tap_max_time and last_input_angle == input_angle and direction_just_pressed:
+				emit_signal("double_tap_direction", Vector2.from_angle(input_angle))
+				
+			double_tap_timer = 0
+			last_direction_nonzero = input_direction_rounded
 			
 			#Emit signal
 			if last_input_angle != input_angle:
@@ -57,16 +72,6 @@ func _process(_delta: float) -> void:
 			
 		last_direction_rounded = input_direction_rounded
 		last_input_angle = input_angle
-		
-		#Check for a double tap
-		if input_direction != Vector2.ZERO and last_direction == Vector2.ZERO:
-			if double_tap_timer < double_tap_max_time and input_direction_rounded == last_direction_nonzero:
-				emit_signal("double_tap_direction", input_direction_rounded)
-				
-			double_tap_timer = 0
-			last_direction_nonzero = input_direction_rounded
-			
-		last_direction = input_direction
 		
 		#I don't know a better way to do this
 		if Input.is_action_just_pressed(player_prefix+"A"):
