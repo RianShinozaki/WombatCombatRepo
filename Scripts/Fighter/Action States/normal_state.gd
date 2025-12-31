@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 	#Check for duck input
 	if entity.is_on_floor(): 
 		#entity.get_node("Art/AfterImageGenerator").call("stop_afterimages")
-		if inp.input_direction.y > 0.3:
+		if inp.get_input_y() > 0.3:
 			entity.switch_action_state_name("DuckState")
 			
 	#Process input buffer
@@ -68,7 +68,7 @@ func _process(delta: float) -> void:
 			
 	
 	#Accelerate
-	var hor = inp.input_direction.x
+	var hor = inp.get_input_x()
 	if abs(hor) > 0 && (sign(hor) == sign(entity.velocity.x) || entity.velocity.x == 0):
 		entity.accelerate_x(mov_param.get_acceleration(entity) * delta * sign(hor), sign(hor) * mov_param.get_max_speed(), true)
 		if abs(entity.velocity.x) < mov_param.get_initial_speed(entity):
@@ -109,7 +109,7 @@ func on_jump():
 	anim.get("parameters/AnimationNodeStateMachine/playback").start("JumpSquat", true)
 	var _anim = await anim.animation_finished
 	if _anim == "JumpSquat":
-		var _hor = sign(inp.input_direction.x)
+		var _hor = sign(inp.get_input_x())
 		entity.velocity.x = mov_param.max_speed * _hor
 		can_short_hop = true
 		entity.velocity.y = jmp_param.get_jump_power()

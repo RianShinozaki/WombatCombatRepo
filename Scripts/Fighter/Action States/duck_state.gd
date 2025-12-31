@@ -25,7 +25,7 @@ func _start() -> void:
 
 func _process(delta: float) -> void:
 	if !active: return
-	var _vert: float = inp.input_direction.y
+	var _vert: float = inp.get_input_y()
 	
 	#Stop ducking
 	if _vert <= 0.3 or not entity.is_on_floor():

@@ -14,14 +14,14 @@ extends Node2D
 @onready var entity_status: EntityStatus = $"../../GenericAttributes/EntityStatus"
 @onready var shape: CollisionShape2D = $"../Hurtbox/CollisionShape2D"
 @onready var anim_player: AnimationPlayer = $"../../Art/AnimationPlayer"
+@onready var sfx_light_hit: AudioStreamPlayer2D = $"../../SpecialAttributes/SFX/LightHit"
+@onready var sfx_heavy_hit: AudioStreamPlayer2D = $"../../SpecialAttributes/SFX/HeavyHit"
+@onready var sfx_magic_hit: AudioStreamPlayer2D = $"../../SpecialAttributes/SFX/MagicHit"
 
 var entity: Fighter
 
 signal staggered
-
-@onready var sfx_light_hit: AudioStreamPlayer2D = $"../../SpecialAttributes/SFX/LightHit"
-@onready var sfx_heavy_hit: AudioStreamPlayer2D = $"../../SpecialAttributes/SFX/HeavyHit"
-@onready var sfx_magic_hit: AudioStreamPlayer2D = $"../../SpecialAttributes/SFX/MagicHit"
+signal knockout
 
 var knockdown_mult: float = 1.0
 var last_hitbox: Hitbox
@@ -82,8 +82,10 @@ func process_hurt(_hitbox: Hitbox):
 		if entity_status.knockdown >= entity_status.max_knockdown:
 			_knockdown = true
 			
+	#Handle knockout
 	if entity_status.health <= 0:
 		_knockdown = true
+		emit_signal("knockout")
 		
 	#Apply knockback depending on "power" level and whether it was blocked
 	if power_resistance < _hb_data.knockback_power or _blocked:
@@ -107,8 +109,8 @@ func process_hurt(_hitbox: Hitbox):
 				_hurt.knockdown = HurtState.knockdown_state.UPRIGHT
 				anim_playback.start("HurtAir", true)
 				_hurt_duration = anim_player.get_animation("HurtAir").length * 60
-				_x_knockback = 140 * sign(_x_knockback)
-				_y_knockback = -60
+				_x_knockback = 100 * sign(_x_knockback)
+				_y_knockback = -90 * (1 if sign(_y_knockback) == 0 else -sign(_y_knockback))
 				entity.velocity.y = 0
 			else:
 				anim_playback.start("Hurt", true)
@@ -127,8 +129,11 @@ func process_hurt(_hitbox: Hitbox):
 			entity.velocity.y = _y_knockback
 		else:
 			entity.velocity.y += _y_knockback
-			
+		
 		_hurt.animation_duration = frames_to_sec(_hurt_duration)
+		if _hitbox != last_hitbox:
+			_hurt.counter = 0
+		
 		emit_signal("staggered")
 	
 	#Process screenshake

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_db6br")
-damage = 4
+damage = 10
 damage_range = 1
 x_knockback = 50.0
 y_knockback = -200.0

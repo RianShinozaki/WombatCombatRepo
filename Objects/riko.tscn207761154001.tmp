@@ -1,4 +1,4 @@
-[gd_scene load_steps=171 format=3 uid="uid://dj3t8o260vsfx"]
+[gd_scene load_steps=170 format=3 uid="uid://dj3t8o260vsfx"]
 
 [ext_resource type="Script" uid="uid://bmbetce6put8" path="res://Scripts/Fighter/Base/fighter.gd" id="1_ixvft"]
 [ext_resource type="Script" uid="uid://dcnks7kp08igg" path="res://Scripts/Fighter/Parameters/Scripts/parameter_set.gd" id="2_yrmp7"]
@@ -49,7 +49,6 @@
 [ext_resource type="AudioStream" uid="uid://dpct3xr84kbl5" path="res://Audio/SFX/smallhit.ogg" id="38_pl6v3"]
 [ext_resource type="AudioStream" uid="uid://crb746cclygaj" path="res://Audio/SFX/heavyhit.ogg" id="39_yfgk3"]
 [ext_resource type="AudioStream" uid="uid://djygofnq0tjbg" path="res://Audio/SFX/magichit.ogg" id="40_tqbfv"]
-[ext_resource type="Script" uid="uid://dpjonc0d1omqu" path="res://Scripts/Fighter/Action States/dodge_state.gd" id="45_e2ywe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yyih5"]
 resource_local_to_scene = true
@@ -1204,40 +1203,6 @@ tracks/0/keys = {
 "values": [3, 4, 5, 1]
 }
 
-[sub_resource type="Animation" id="Animation_e2ywe"]
-resource_name = "TechBackwards"
-length = 0.4676
-step = 0.0167
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.28333333, 0.38333333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [55, 56, 57, 43]
-}
-
-[sub_resource type="Animation" id="Animation_tqbfv"]
-resource_name = "TechForward"
-length = 0.4676
-step = 0.0167
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.06666667, 0.23333333, 0.31666666, 0.39999998),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [43, 52, 53, 54, 43]
-}
-
 [sub_resource type="Animation" id="Animation_yfgk3"]
 resource_name = "Uppercut_Heavy"
 length = 0.7515
@@ -1318,6 +1283,40 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [5, 4, 3, 2]
+}
+
+[sub_resource type="Animation" id="Animation_tqbfv"]
+resource_name = "TechForward"
+length = 0.3674
+step = 0.0167
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.11666667, 0.2, 0.28333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [52, 53, 54, 43]
+}
+
+[sub_resource type="Animation" id="Animation_e2ywe"]
+resource_name = "TechBackwards"
+length = 0.3674
+step = 0.0167
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.2, 0.28333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [55, 56, 57, 43]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2vekm"]
@@ -1681,7 +1680,7 @@ states/TechBackwards/position = Vector2(164, 216.19388)
 states/TechForward/node = SubResource("AnimationNodeAnimation_l72cs")
 states/TechForward/position = Vector2(303, 291.19388)
 transitions = ["Start", "Grounded", SubResource("AnimationNodeStateMachineTransition_yx171"), "Grounded", "Jump", SubResource("AnimationNodeStateMachineTransition_gwjdr"), "Jump", "Grounded", SubResource("AnimationNodeStateMachineTransition_lvtmh"), "Attack", "Grounded", SubResource("AnimationNodeStateMachineTransition_ixvft"), "Hurt", "HurtMajor", SubResource("AnimationNodeStateMachineTransition_j2cfp"), "JumpSquat", "Jump", SubResource("AnimationNodeStateMachineTransition_gkhnp"), "KnockedAir", "KnockedBounce", SubResource("AnimationNodeStateMachineTransition_ajl3s"), "GetUp", "Grounded", SubResource("AnimationNodeStateMachineTransition_5sqab"), "HurtAir", "Jump", SubResource("AnimationNodeStateMachineTransition_yfgk3"), "TechBackwards", "Grounded", SubResource("AnimationNodeStateMachineTransition_jvpbl"), "TechForward", "Grounded", SubResource("AnimationNodeStateMachineTransition_und4d")]
-graph_offset = Vector2(-10, 59.29027)
+graph_offset = Vector2(-10, -148.80612)
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_x2gyo"]
 
@@ -1774,7 +1773,7 @@ parameters/TimeScale/scale = 1.0
 [node name="InputManager" type="Node2D" parent="GenericAttributes"]
 script = ExtResource("7_w4ghc")
 player_prefix = "p1-"
-input_deadzone = 0.5
+input_deadzone = 0.2
 double_tap_max_time = 0.2
 
 [node name="EntityStatus" type="Node2D" parent="GenericAttributes"]
@@ -1981,7 +1980,7 @@ active = true
 script = ExtResource("23_ordi8")
 
 [node name="DodgeState" type="Node2D" parent="ActionStates"]
-script = ExtResource("45_e2ywe")
+script = ExtResource("23_ordi8")
 
 [node name="HurtState" type="Node2D" parent="ActionStates"]
 script = ExtResource("10_vh0l3")

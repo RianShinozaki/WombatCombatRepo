@@ -25,8 +25,9 @@ enum input_code {RIGHT, RIGHT_DOWN, DOWN, LEFT_DOWN, LEFT, LEFT_UP, UP, UPRIGHT_
 @export var input_buffer_max_frames: int
 
 @onready var input: InputManager = $GenericAttributes/InputManager
-var shove_entities: Array[Node2D]
+@onready var after_hurt_state: ActionState = $ActionStates/NormalState
 
+var shove_entities: Array[Node2D]
 var moving_toward_opponent: int = 0
 # 0 -- not moving
 # 1 -- moving toward
@@ -41,12 +42,12 @@ var hadouken_pattern_l: Array[input_code] = [input_code.DOWN, input_code.LEFT_DO
 var hadouken_pattern_2_r: Array[input_code] = [input_code.DOWN, input_code.RIGHT_DOWN, input_code.RIGHT, input_code.C]
 var hadouken_pattern_2_l: Array[input_code] = [input_code.DOWN, input_code.LEFT_DOWN, input_code.LEFT, input_code.C]
 
-var uppercut_pattern_r: Array[input_code] = [input_code.UP, input_code.DOWN, input_code.UP, input_code.C]
-var uppercut_pattern_l: Array[input_code] = [input_code.UP, input_code.DOWN, input_code.UP, input_code.C]
-
-@onready var after_hurt_state: ActionState = $ActionStates/NormalState
+var uppercut_pattern_r: Array[input_code] = [input_code.RIGHT, input_code.DOWN, input_code.RIGHT_DOWN, input_code.C]
+var uppercut_pattern_l: Array[input_code] = [input_code.LEFT, input_code.DOWN, input_code.LEFT_DOWN, input_code.C]
 
 var jumps = 2
+
+signal knockout(_fighter_kod: Fighter)
 
 func _ready() -> void:
 	#Align input manager with player id
@@ -62,11 +63,18 @@ func _ready() -> void:
 		area.collision_layer = p2_hitbox_layer if fighter_id == 2 else p1_hitbox_layer
 		area.collision_mask = p1_hurtbox_layer if fighter_id == 2 else p2_hurtbox_layer
 	
-	input.direction_input.connect(on_direction_input)
+	input.direction_input_code.connect(on_direction_input_code)
 	input.action_a_just_pressed.connect(on_a_pressed)
 	input.action_b_just_pressed.connect(on_b_pressed)
 	input.action_c_just_pressed.connect(on_c_pressed)
-		
+	$SpecialAttributes/HurtManager.knockout.connect(on_knockout)
+
+func activate():
+	input.read_controller_input = true
+
+func deactivate():
+	input.read_controller_input = false
+	
 func _physics_process(_delta: float) -> void:
 	#Manage "shoving," aka moving opponent away if too close
 	for _entity in shove_entities:
@@ -125,19 +133,17 @@ func _on_shove_box_area_exited(area: Area2D) -> void:
 	if area in shove_entities: shove_entities.erase(area)
 
 #Get direction input to add to queue
-func on_direction_input(_input: Vector2):
-	var _angle: float = _input.angle()
-	if _angle < 0: _angle += 2*PI
-	_angle *= 8 / (2*PI)
-	var _input_code: input_code = roundi(_angle) as input_code
+func on_direction_input_code(_input_code: input_code):
+	print(_input_code)
 	inputs_queue.append(_input_code)
 	input_queue_time = 1.0 / 60 * float(input_queue_max_frames)
+	inputs_buffer.append(_input_code)
+	inputs_buffer_times.append(1.0 / 60 * float(input_buffer_max_frames))
 	
 func on_a_pressed():
 	inputs_queue.append(input_code.A)
 	inputs_buffer.append(input_code.A)
 	inputs_buffer_times.append(1.0 / 60 * float(input_buffer_max_frames))
-	input_queue_time = 0.0
 	input_queue_time = 1.0 / 60 * float(input_queue_max_frames)
 	
 func on_b_pressed():
@@ -151,3 +157,6 @@ func on_c_pressed():
 	inputs_buffer.append(input_code.C)
 	inputs_buffer_times.append(1.0 / 60 * float(input_buffer_max_frames))
 	input_queue_time = 1.0 / 60 * float(input_queue_max_frames)
+
+func on_knockout():
+	emit_signal("knockout", self)

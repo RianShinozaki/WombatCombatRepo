@@ -7,14 +7,17 @@ extends Node2D
 @export var input_direction: Vector2
 @export var input_direction_rounded: Vector2
 @export var input_deadzone: float
+@export var input_angle: float
 @export var double_tap_max_time: float
 
 var last_direction: Vector2
 var last_direction_rounded: Vector2
 var last_direction_nonzero: Vector2
 var double_tap_timer: float
+var last_input_angle: float
 
 signal direction_input(input: Vector2)
+signal direction_input_code(input_code: Fighter.input_code)
 
 signal action_a_just_pressed
 var action_a_pressed: bool
@@ -40,10 +43,20 @@ func _process(_delta: float) -> void:
 		if input_direction.length() < input_deadzone:
 			input_direction = Vector2.ZERO
 		
-		#Emit signal
-		if input_direction != Vector2.ZERO and input_direction_rounded != last_direction_rounded:
-			emit_signal("direction_input", input_direction_rounded)
+		if input_direction != Vector2.ZERO:
+			var _angle: float = input_direction.angle()
+			_angle = snapped(_angle, PI/4)
+			_angle = wrap(_angle, 0, 2*PI)
+			input_angle = _angle
+			
+			#Emit signal
+			if last_input_angle != input_angle:
+				emit_signal("direction_input", Vector2.from_angle(input_angle))
+				var _input_code: Fighter.input_code = roundi(input_angle * (8/(2*PI))) as Fighter.input_code
+				emit_signal("direction_input_code", _input_code)
+			
 		last_direction_rounded = input_direction_rounded
+		last_input_angle = input_angle
 		
 		#Check for a double tap
 		if input_direction != Vector2.ZERO and last_direction == Vector2.ZERO:
@@ -80,3 +93,13 @@ func set_input_direction(direction: Vector2):
 func press_button(_button: String):
 	var _button_lower = _button.to_lower()
 	emit_signal("action_" + _button_lower + "_just_pressed")
+
+func get_input_x() -> float:
+	if input_direction == Vector2.ZERO: return 0
+	var _vec = Vector2.from_angle(input_angle).normalized()
+	return snapped(_vec.x, 0.01)
+
+func get_input_y() -> float:
+	if input_direction == Vector2.ZERO: return 0
+	var _vec = Vector2.from_angle(input_angle).normalized()
+	return snapped(_vec.y, 0.01)

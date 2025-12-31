@@ -1,5 +1,6 @@
-[gd_scene load_steps=31 format=3 uid="uid://dtg05jdn1ct63"]
+[gd_scene load_steps=41 format=3 uid="uid://dtg05jdn1ct63"]
 
+[ext_resource type="Script" uid="uid://c60dhmamwv7gt" path="res://Maps/game.gd" id="1_lntlw"]
 [ext_resource type="Texture2D" uid="uid://xob1v1sccc84" path="res://Art Assets/Backgrounds/CreamBGSky.png" id="1_qbg5b"]
 [ext_resource type="Script" uid="uid://d2mlgrhekosko" path="res://Scripts/System/parallax_controller.gd" id="2_8puwx"]
 [ext_resource type="Texture2D" uid="uid://ccksdv6wc4oqu" path="res://Art Assets/Backgrounds/CreamBGFront.png" id="3_8edix"]
@@ -9,7 +10,258 @@
 [ext_resource type="Script" uid="uid://dclrouxt8oqon" path="res://Scripts/UI/health_bar.gd" id="7_xacle"]
 [ext_resource type="Script" uid="uid://bshhgc4qdv4qy" path="res://Scripts/System/3D_to_2D_target.gd" id="8_8edix"]
 [ext_resource type="Texture2D" uid="uid://c0lhha0dyccv4" path="res://Art Assets/Backgrounds/Grid.png" id="8_8puwx"]
+[ext_resource type="FontFile" uid="uid://bp8ne7jhgsq8m" path="res://Art Assets/Fonts/PublicPixel.ttf" id="8_ceqvn"]
 [ext_resource type="AudioStream" uid="uid://diqahf736qp0a" path="res://Audio/Music/Street Fighter IV - Volcanic Rim Stage (Sega Genesis Remix).mp3" id="10_qpgel"]
+[ext_resource type="AudioStream" uid="uid://d0r4ykgqptr0l" path="res://Audio/SFX/Voice/ROUNDSTART.wav" id="10_xacle"]
+[ext_resource type="AudioStream" uid="uid://bojpeojdmt1uk" path="res://Audio/SFX/Voice/GAMESET.wav" id="11_1shu2"]
+
+[sub_resource type="Animation" id="Animation_ys1ck"]
+resource_name = "GAMESET"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Audio/GAMESET:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Game Set Cutscene/GAMESET:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_1shu2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Starting Cutscene/Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Audio/ROUNDSTART:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/Starting Cutscene/ROUNDSTART:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9, 30.400002)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/Starting Cutscene/ROUNDSTART2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9, 30.400002)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/Starting Cutscene/ROUNDSTART3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9, 30.400002)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("UI/GameHUD:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("UI/Starting Cutscene/FIGHT!:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("UI/Audio/GAMESET:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("UI/Game Set Cutscene/GAMESET:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_xacle"]
+resource_name = "ROUNDSTART"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Starting Cutscene/Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.47535, 1.5, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Audio/ROUNDSTART:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/Starting Cutscene/ROUNDSTART:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7973902, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(9, 30.400002), Vector2(9, 30.400002), Vector2(9, -21.799995)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/Starting Cutscene/ROUNDSTART2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8333333, 1.2666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(9, 30.400002), Vector2(9, 30.400002), Vector2(9, -21.799995)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/Starting Cutscene/ROUNDSTART3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.3333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(9, 30.400002), Vector2(9, 30.400002), Vector2(9, -21.799995)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("UI/GameHUD:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.5013856),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.6333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"game_start"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("UI/Starting Cutscene/FIGHT!:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.5057248, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ys1ck"]
+_data = {
+&"GAMESET": SubResource("Animation_ys1ck"),
+&"RESET": SubResource("Animation_1shu2"),
+&"ROUNDSTART": SubResource("Animation_xacle")
+}
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8edix"]
 
@@ -34,6 +286,10 @@ normal = Vector2(-1, 0)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_8edix"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lntlw"]
+resource_local_to_scene = true
+size = Vector2(14, 26)
 
 [sub_resource type="Shader" id="Shader_8edix"]
 resource_local_to_scene = true
@@ -87,14 +343,25 @@ shader_parameter/replace_4 = Color(0.83522344, 0.379215, 0.41541192, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qpgel"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qpgel"]
-bg_color = Color(1, 1, 0, 1)
+bg_color = Color(0.99048275, 0.7751331, 0.38421834, 1)
 border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xacle"]
+font = ExtResource("8_ceqvn")
+font_size = 5
+font_color = Color(0.9999998, 0.9941912, 0.9931868, 1)
+outline_size = 2
+outline_color = Color(0.24689919, 0.42629465, 1, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(1, 2)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ceqvn"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lntlw"]
-bg_color = Color(1, 1, 0, 1)
-border_color = Color(1, 1, 1, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_ceqvn"]
+font = ExtResource("8_ceqvn")
+font_size = 10
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8edix"]
 sky_top_color = Color(0.8157308, 0, 0.40268844, 1)
@@ -131,8 +398,17 @@ albedo_color = Color(0.3787864, 0.526335, 1, 1)
 albedo_texture = ExtResource("8_8puwx")
 uv1_scale = Vector3(40, 17.52, 40)
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("fighter_1", "fighter_2")]
 texture_filter = 1
+script = ExtResource("1_lntlw")
+fighter_1 = NodePath("Riko")
+fighter_2 = NodePath("Riko2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ys1ck")
+}
+autoplay = "ROUNDSTART"
 
 [node name="Background" type="Node2D" parent="."]
 z_index = -10
@@ -216,27 +492,40 @@ position = Vector2(24, 2)
 opponent = NodePath("../Riko")
 fighter_id = 2
 
+[node name="EnvironmentBox" parent="Riko2" index="0"]
+shape = SubResource("RectangleShape2D_lntlw")
+
 [node name="Art" parent="Riko2" index="1"]
 material = SubResource("ShaderMaterial_qpgel")
+
+[node name="CollisionShape2D" parent="Riko2/SpecialAttributes/Hurtbox" index="0"]
+shape = SubResource("RectangleShape2D_lntlw")
 
 [node name="UI" type="CanvasLayer" parent="."]
 scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 0, 0)
 
-[node name="P1_Health" type="ProgressBar" parent="UI" node_paths=PackedStringArray("target")]
+[node name="GameHUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="P1_Health" type="ProgressBar" parent="UI/GameHUD" node_paths=PackedStringArray("target")]
+layout_mode = 0
 offset_left = 4.0
-offset_top = 8.0
+offset_top = 11.2
 offset_right = 54.0
-offset_bottom = 13.0
+offset_bottom = 16.2
 theme = ExtResource("6_lntlw")
 max_value = 1.0
 value = 0.7
 fill_mode = 1
 show_percentage = false
 script = ExtResource("7_xacle")
-target = NodePath("../../Riko")
+target = NodePath("../../../Riko")
 
-[node name="P1_Health_True" type="ProgressBar" parent="UI/P1_Health"]
+[node name="P1_Health_True" type="ProgressBar" parent="UI/GameHUD/P1_Health"]
 layout_mode = 0
 offset_right = 50.0
 offset_bottom = 5.0
@@ -248,23 +537,34 @@ value = 0.7
 fill_mode = 1
 show_percentage = false
 
-[node name="P2_Health" type="ProgressBar" parent="UI" node_paths=PackedStringArray("target")]
+[node name="Name" type="Label" parent="UI/GameHUD/P1_Health"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -0.6
+offset_top = -6.2
+offset_right = 39.4
+offset_bottom = 16.8
+text = "RIKO"
+label_settings = SubResource("LabelSettings_xacle")
+
+[node name="P2_Health" type="ProgressBar" parent="UI/GameHUD" node_paths=PackedStringArray("target")]
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -566.0
-offset_top = 8.0
-offset_right = -516.0
-offset_bottom = 13.0
+offset_left = 34.0
+offset_top = 10.799999
+offset_right = 84.0
+offset_bottom = 15.799999
 grow_horizontal = 0
 theme = ExtResource("6_lntlw")
 max_value = 1.0
 value = 0.7
 show_percentage = false
 script = ExtResource("7_xacle")
-target = NodePath("../../Riko2")
+target = NodePath("../../../Riko2")
 
-[node name="P2_Health_True" type="ProgressBar" parent="UI/P2_Health"]
+[node name="P2_Health_True" type="ProgressBar" parent="UI/GameHUD/P2_Health"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -274,10 +574,120 @@ offset_bottom = 5.0
 grow_horizontal = 0
 theme = ExtResource("6_lntlw")
 theme_override_styles/background = SubResource("StyleBoxEmpty_ceqvn")
-theme_override_styles/fill = SubResource("StyleBoxFlat_lntlw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qpgel")
 max_value = 1.0
 value = 0.7
 show_percentage = false
+
+[node name="Name" type="Label" parent="UI/GameHUD/P2_Health"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 12.4
+offset_top = -5.999999
+offset_right = 52.4
+offset_bottom = 17.0
+text = "SHIKU"
+label_settings = SubResource("LabelSettings_xacle")
+horizontal_alignment = 2
+
+[node name="Timer" type="Label" parent="UI/GameHUD"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 45.399998
+offset_top = 1.8
+offset_right = 85.39999
+offset_bottom = 24.8
+text = "99"
+label_settings = SubResource("LabelSettings_ceqvn")
+horizontal_alignment = 1
+
+[node name="Audio" type="Node" parent="UI"]
+
+[node name="ROUNDSTART" type="AudioStreamPlayer" parent="UI/Audio"]
+stream = ExtResource("10_xacle")
+
+[node name="GAMESET" type="AudioStreamPlayer" parent="UI/Audio"]
+stream = ExtResource("11_1shu2")
+volume_db = 3.5
+
+[node name="Starting Cutscene" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ROUNDSTART3" type="Label" parent="UI/Starting Cutscene"]
+modulate = Color(0, 0.5446777, 0.7957573, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 9.0
+offset_top = 30.400002
+offset_right = 119.0
+offset_bottom = 53.399925
+text = "ROUND START"
+label_settings = SubResource("LabelSettings_ceqvn")
+horizontal_alignment = 1
+
+[node name="ROUNDSTART2" type="Label" parent="UI/Starting Cutscene"]
+modulate = Color(0.8236359, 0.0005332887, 0.82363003, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 9.0
+offset_top = 30.400002
+offset_right = 119.0
+offset_bottom = 53.39995
+text = "ROUND START"
+label_settings = SubResource("LabelSettings_ceqvn")
+horizontal_alignment = 1
+
+[node name="ROUNDSTART" type="Label" parent="UI/Starting Cutscene"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 9.0
+offset_top = 30.400002
+offset_right = 119.0
+offset_bottom = 53.40002
+text = "ROUND START"
+label_settings = SubResource("LabelSettings_ceqvn")
+horizontal_alignment = 1
+
+[node name="FIGHT!" type="Label" parent="UI/Starting Cutscene"]
+visible = false
+modulate = Color(0.99997145, 0.11061167, 0.28953916, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 9.0
+offset_top = 30.400002
+offset_right = 119.0
+offset_bottom = 53.400024
+text = "FIGHT!"
+label_settings = SubResource("LabelSettings_ceqvn")
+horizontal_alignment = 1
+
+[node name="Fade" type="ColorRect" parent="UI/Starting Cutscene"]
+visible = false
+layout_mode = 0
+offset_right = 128.59999
+offset_bottom = 72.2
+color = Color(0, 0, 0, 1)
+
+[node name="Game Set Cutscene" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GAMESET" type="Label" parent="UI/Game Set Cutscene"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 9.0
+offset_top = 30.400002
+offset_right = 119.0
+offset_bottom = 53.400024
+text = "GAME SET"
+label_settings = SubResource("LabelSettings_ceqvn")
+horizontal_alignment = 1
 
 [node name="SubViewport" type="SubViewport" parent="."]
 oversampling = false
