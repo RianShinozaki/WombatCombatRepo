@@ -20,6 +20,7 @@ func game_start():
 	fighter_1.get_node("Fighter").knockout.connect(on_knockout)
 	fighter_2.get_node("Fighter").knockout.connect(on_knockout)
 	game_active = true
+	Engine.time_scale = 1.02
 	
 func _process(delta: float) -> void:
 	if not game_active: return

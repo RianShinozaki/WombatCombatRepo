@@ -16,6 +16,9 @@ var jmp_param: EntityJumpParameters
 @onready var art: Sprite2D = $"../../Art"
 @onready var shape: CollisionShape2D = $"../../SpecialAttributes/Hurtbox/CollisionShape2D"
 
+var attack_code: int = 0
+var attack_code_cache: int = 0
+
 var can_short_hop:
 	get:
 		return entity.get_node("ActionStates/NormalState").can_short_hop
@@ -39,6 +42,7 @@ func _start() -> void:
 	super._start()
 
 func _initiate(_status: String = ""):
+	attack_code += 1
 	var _direction = inp.input_direction
 	post_attack_state = entity.last_action_state
 	anim.get("parameters/AnimationNodeStateMachine/playback").start("Attack", true)
@@ -132,9 +136,12 @@ func _end() -> void:
 	can_short_hop = false
 
 func play_animation_oneshot(_anim: String):
+	attack_code_cache = attack_code
 	anim.get("parameters/AnimationNodeStateMachine/Attack/playback").start(_anim, true)
 	
 func animation_cancel():
+	if attack_code_cache != attack_code:
+		return
 	entity.switch_action_state(post_attack_state)
 
 func spawn_hadouken(_power: int):

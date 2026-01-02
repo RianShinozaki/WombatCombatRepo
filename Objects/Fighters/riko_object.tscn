@@ -1,4 +1,4 @@
-[gd_scene load_steps=189 format=3 uid="uid://emggaebl25hp"]
+[gd_scene load_steps=191 format=3 uid="uid://emggaebl25hp"]
 
 [ext_resource type="Script" uid="uid://bmbetce6put8" path="res://Scripts/Fighter/Base/fighter.gd" id="1_xqibr"]
 [ext_resource type="Script" uid="uid://dcnks7kp08igg" path="res://Scripts/Fighter/Parameters/Scripts/parameter_set.gd" id="2_hu5pq"]
@@ -15,10 +15,12 @@
 [ext_resource type="Script" uid="uid://dp13pejk5ofre" path="res://Scripts/Fighter/Components/hurt_manager.gd" id="13_hpd40"]
 [ext_resource type="Script" uid="uid://p333cm362g8t" path="res://Scripts/Fighter/Components/hitbox.gd" id="14_borbf"]
 [ext_resource type="Resource" uid="uid://x72pljjxm3iy" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_punch.tres" id="15_qkdok"]
-[ext_resource type="Resource" uid="uid://bhu5jpbjlwgue" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_high_punch_2.tres" id="16_3ml73"]
+[ext_resource type="Resource" uid="uid://ds2tvtbltdxn8" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_punch_2.tres" id="16_3ml73"]
+[ext_resource type="Resource" uid="uid://cb280yd68nop2" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_high_punch.tres" id="17_2y4vc"]
 [ext_resource type="Resource" uid="uid://dhai73hp8u343" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_high_kick.tres" id="17_3ml73"]
 [ext_resource type="Resource" uid="uid://dpcvksvdlq1h2" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_air_punch.tres" id="17_1521n"]
 [ext_resource type="Resource" uid="uid://cojbi5skowv57" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_air_kick.tres" id="18_s6eti"]
+[ext_resource type="Resource" uid="uid://bhu5jpbjlwgue" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_high_punch_2.tres" id="18_thf38"]
 [ext_resource type="Resource" uid="uid://ckq4pgxor76vb" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_low_punch.tres" id="19_iic8g"]
 [ext_resource type="Resource" uid="uid://lnsq23gc3iss" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_low_kick.tres" id="20_kcn50"]
 [ext_resource type="Resource" uid="uid://x510e5mrxcgl" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_dash_kick.tres" id="21_cyepp"]
@@ -1479,7 +1481,7 @@ tracks/1/path = NodePath("../ActionStates/AttackState")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.33333334),
+"times": PackedFloat32Array(0.31666666),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -2147,7 +2149,7 @@ position = Vector2(-1, 0)
 collision_layer = 2
 collision_mask = 16
 script = ExtResource("14_borbf")
-hitbox_data = ExtResource("16_3ml73")
+hitbox_data = ExtResource("17_2y4vc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/HighPunchHitbox"]
 position = Vector2(12, -2)
@@ -2159,7 +2161,7 @@ position = Vector2(-1, 0)
 collision_layer = 2
 collision_mask = 16
 script = ExtResource("14_borbf")
-hitbox_data = ExtResource("16_3ml73")
+hitbox_data = ExtResource("18_thf38")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/HighPunchHitbox2"]
 position = Vector2(4, -18.75)
