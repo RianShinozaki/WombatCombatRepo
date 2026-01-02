@@ -34,9 +34,6 @@ func _physics_process(delta: float) -> void:
 		scale -= Vector2.ONE*0.1
 		if hitbox_data.damage <= 0:
 			despawn()
-	
-func on_impact(_hurtbox: Area2D):
-	despawn()
 
 func despawn():
 	active = false
@@ -56,6 +53,4 @@ func on_spawn():
 	$MagicLoop.play()
 
 func on_area_entered(_area: Area2D):
-	if _area is Hadouken:
-		if speed <= _area.speed:
-			despawn()
+	despawn()

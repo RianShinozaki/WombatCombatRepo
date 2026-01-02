@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ceiieqyicbasy"]
+
+[ext_resource type="Shader" uid="uid://c4kyt4d7iupt3" path="res://Shaders/fighter.gdshader" id="1_kvkvc"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_kvkvc")
+shader_parameter/original_0 = Color(0.654902, 0.7529412, 0.9490196, 1)
+shader_parameter/original_1 = Color(0.4, 0.5647059, 0.8980392, 1)
+shader_parameter/original_2 = Color(0.05882353, 0.16078432, 0.37254903, 1)
+shader_parameter/original_3 = Color(0.2, 0.2627451, 0.4, 1)
+shader_parameter/original_4 = Color(0.42352942, 0.49803922, 0.6666667, 1)
+shader_parameter/replace_0 = Color(0.9554941, 0.87298995, 0.8731174, 1)
+shader_parameter/replace_1 = Color(0.89183766, 0.51261145, 0.57943004, 1)
+shader_parameter/replace_2 = Color(0.22218087, 0.12143084, 0.08760478, 1)
+shader_parameter/replace_3 = Color(0.47395575, 0.17269787, 0.14276683, 1)
+shader_parameter/replace_4 = Color(0.7560424, 0.4139092, 0.30209348, 1)

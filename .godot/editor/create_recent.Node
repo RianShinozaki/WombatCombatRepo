@@ -1,11 +1,11 @@
+Node
+Node2D
 Control
 AnimationPlayer
 ColorRect
 AudioStreamPlayer
-Node
 Label
 AudioStreamPlayer2D
-Node2D
 ObjectPool
 ObjectPoolObject
 CollisionShape2D

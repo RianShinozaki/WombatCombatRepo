@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj3t8o260vsfx"]
+
+[ext_resource type="PackedScene" uid="uid://emggaebl25hp" path="res://Objects/Fighters/riko_object.tscn" id="1_55icw"]
+
+[node name="RikoFighter" type="Node2D"]
+
+[node name="Fighter" parent="." instance=ExtResource("1_55icw")]

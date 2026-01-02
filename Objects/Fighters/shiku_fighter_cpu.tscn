@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvtxl8gpew6x6"]
+
+[ext_resource type="PackedScene" uid="uid://emggaebl25hp" path="res://Objects/Fighters/riko_object.tscn" id="1_q004q"]
+[ext_resource type="Material" uid="uid://ceiieqyicbasy" path="res://Art Assets/Fighters/shiku_mat.tres" id="2_85m2c"]
+[ext_resource type="Script" uid="uid://co1dbxvfj60e6" path="res://Scripts/Fighter/CPU/shiku_cpu_1.gd" id="3_t7q4h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7uwa"]
+resource_local_to_scene = true
+size = Vector2(14, 26)
+
+[node name="ShikuFighterCPU" type="Node2D"]
+
+[node name="Fighter" parent="." instance=ExtResource("1_q004q")]
+fighter_id = 2
+
+[node name="EnvironmentBox" parent="Fighter" index="0"]
+shape = SubResource("RectangleShape2D_f7uwa")
+
+[node name="Art" parent="Fighter" index="1"]
+material = ExtResource("2_85m2c")
+
+[node name="CollisionShape2D" parent="Fighter/SpecialAttributes/Hurtbox" index="0"]
+shape = SubResource("RectangleShape2D_f7uwa")
+
+[node name="CPU" type="Node" parent="Fighter"]
+script = ExtResource("3_t7q4h")
+difficulty_level = 1.0
+aggression_baseline = 1.0
+difficulty_aggression_factor = 0.1
+neutral_footsie_time_base = 0.6
+neutral_footsie_time_delta_factor = -0.2
+neutral_footsie_time_variance_base = 0.2
+neutral_footsie_time_variance_factor = -0.2
+footsie_distance_base = 64.0
+footsie_distance_delta_factor = 40.0
+neutral_state_max_time = 5.0
+attack_state_max_time = 3.0
+
+[editable path="Fighter"]

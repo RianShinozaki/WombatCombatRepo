@@ -14,4 +14,4 @@ func on_area_entered(_area: Area2D):
 		entity.current_action_state.process_damage(_area)
 	else:
 		entity.process_damage(_area)
-	_area.on_impact(self)
+	#_area.on_impact(self)

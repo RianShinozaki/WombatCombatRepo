@@ -25,6 +25,7 @@ var can_short_hop:
 var combo_number: int = 0
 var combo_timer: float
 var combo_max_time: float
+var topspinning: bool = false
 
 func _ready() -> void:
 	super._ready()
@@ -34,6 +35,7 @@ func _ready() -> void:
 	anim = entity.get_node("Art/AnimationTree")
 
 func _start() -> void:
+	topspinning = false
 	super._start()
 
 func _initiate(_status: String = ""):
@@ -43,8 +45,11 @@ func _initiate(_status: String = ""):
 	
 	var _input = inp.input_direction
 	
-	#Handle attack inputs
-	if _status.contains("light"):
+	#Handle attack inputs\
+	if _status.contains("uppercut"):
+		entity.velocity.x = 0
+		play_animation_oneshot("Uppercut_Heavy")
+	elif _status.contains("light"):
 		if _status.contains("hadouken"):
 			entity.velocity.x = 0
 			play_animation_oneshot("Hadouken")
@@ -61,9 +66,11 @@ func _initiate(_status: String = ""):
 			sfx_light_attack.play()
 	
 	if _status.contains("heavy"):
-		if _status.contains("uppercut"):
+		if _status.contains("topspin"):
+			play_animation_oneshot("TopSpin")
 			entity.velocity.x = 0
-			play_animation_oneshot("Uppercut_Heavy")
+			entity.velocity.y = -10
+			
 		elif _status.contains("hadouken"):
 			entity.velocity.x = 0
 			play_animation_oneshot("Hadouken_Heavy")
@@ -92,7 +99,13 @@ func _process(delta: float) -> void:
 		entity.accelerate_x(mov_param.get_deceleration(entity) * delta, 0, false)
 		if abs(entity.velocity.x) < mov_param.get_minimum_speed(entity):
 			entity.velocity.x = 0
-				
+	
+	if topspinning:
+		entity.velocity.x = mov_param.get_max_speed()*1.4 * (-1 if art.flip_h else 1)
+		
+		if not entity.is_on_floor():
+			entity.velocity.y = -10
+		
 	#Update gravity
 	if(entity.velocity.y > jmp_param.rising_gravity_scale): can_short_hop = false
 	var _do_short_hop = can_short_hop and not inp.action_a_pressed
@@ -129,12 +142,14 @@ func spawn_hadouken(_power: int):
 	_hadouken.collision_mask = (entity.p2_hurtbox_layer + entity.p2_hitbox_layer) if entity.fighter_id == 1 else (entity.p1_hurtbox_layer + entity.p1_hitbox_layer)
 
 func uppercut_jump():
-	entity.velocity.y = -80
+	entity.velocity.y = -110
 	entity.velocity.x = 30 * (-1 if art.flip_h else 1)
 
 func set_intangibility(_disabled: bool):
 	shape.set_deferred("disabled", _disabled)
-	
+
+func set_topspinning(_spinning: bool):
+	topspinning = _spinning
 	
 func just_grounded(_normal: Vector2, _velocity: Vector2):
 	#var fx: Node2D = land_fx_pool.spawn_object()

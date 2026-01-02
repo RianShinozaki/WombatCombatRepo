@@ -1,5 +1,6 @@
-res://Scripts/Fighter/Hitbox/Resources/Riko
+res://Scripts/Fighter/CPU
 res://Art Assets/Fighters
+res://Scripts/Fighter/Hitbox/Resources/Riko
 res://Art Assets/Effects
 res://Objects
 res://Shaders

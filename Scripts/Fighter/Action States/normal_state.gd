@@ -10,6 +10,7 @@ var anim: AnimationTree
 var mov_param: EntityMovementParameters
 var jmp_param: EntityJumpParameters
 var can_short_hop: bool
+var jump_initiated: bool
 
 func _ready() -> void:
 	super._ready()
@@ -32,6 +33,7 @@ func _start() -> void:
 	entity.get_node("EnvironmentBox").shape = mov_param.collision_shape
 	entity.get_node("EnvironmentBox").position = mov_param.collision_shape_position
 	can_short_hop = false
+	jump_initiated = false
 	
 func _process(delta: float) -> void:
 	super._process(delta)
@@ -49,7 +51,8 @@ func _process(delta: float) -> void:
 			var _input: Fighter.input_code = entity.inputs_buffer[_i]
 			match(_input):
 				Fighter.input_code.A:
-					if entity.jumps > 1:
+					if entity.jumps > 1 and not jump_initiated:
+						jump_initiated = true
 						entity.jumps -= 1
 						on_jump()
 						entity.inputs_buffer.remove_at(_i)
@@ -108,6 +111,7 @@ func on_jump():
 	if not active: return
 	anim.get("parameters/AnimationNodeStateMachine/playback").start("JumpSquat", true)
 	var _anim = await anim.animation_finished
+	jump_initiated = false
 	if _anim == "JumpSquat":
 		var _hor = sign(inp.get_input_x())
 		entity.velocity.x = mov_param.max_speed * _hor
@@ -120,11 +124,14 @@ func on_light_attack():
 	
 	#check for hadouken input
 	var _hadouken = check_input_pattern(entity.hadouken_pattern_l) if entity.get_node("Art").flip_h else check_input_pattern(entity.hadouken_pattern_r)
+	var _uppercut = check_input_pattern(entity.uppercut_pattern_l) if entity.get_node("Art").flip_h else check_input_pattern(entity.uppercut_pattern_r)
 	
 	var _attack: AttackState = entity.get_action_state_name("AttackState")
 	entity.switch_action_state(_attack)
-	
-	if _hadouken:
+	if _uppercut:
+		_attack._initiate("uppercut")
+		_attack.post_attack_state = entity.get_action_state_name("NormalState")
+	elif _hadouken:
 		_attack._initiate("light hadouken")
 	else:
 		_attack._initiate("light")
@@ -133,13 +140,13 @@ func on_heavy_attack():
 	if not active: return
 	#check for hadouken input
 	var _hadouken = check_input_pattern(entity.hadouken_pattern_2_l) if entity.get_node("Art").flip_h else check_input_pattern(entity.hadouken_pattern_2_r)
-	var _uppercut = check_input_pattern(entity.uppercut_pattern_l) if entity.get_node("Art").flip_h else check_input_pattern(entity.uppercut_pattern_r)
+	var _topspin = check_input_pattern(entity.topspin_pattern_l) if entity.get_node("Art").flip_h else check_input_pattern(entity.topspin_pattern_r)
 
 	var _attack: AttackState = entity.get_action_state_name("AttackState")
 	entity.switch_action_state(_attack)
-	if _uppercut:
-		_attack._initiate("heavy uppercut")
-		_attack.post_attack_state = entity.get_action_state_name("NormalState")
+	
+	if _topspin:
+		_attack._initiate("heavy topspin")
 	elif _hadouken:
 		_attack._initiate("heavy hadouken")
 	elif entity.dashing:

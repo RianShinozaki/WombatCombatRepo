@@ -12,8 +12,13 @@ var shake_amount: float = 0
 
 func _enter_tree() -> void:
 	instance = self
-	if not targets.is_empty():
-		global_position = get_camera_target()
+
+func _ready() -> void:
+	await get_tree().process_frame
+	targets.clear()
+	print(Game.instance.fighter_1.name)
+	targets.append(Game.instance.fighter_1.get_node("Fighter"))
+	targets.append(Game.instance.fighter_2.get_node("Fighter"))
 
 func lerp_zoom(_target: int, _trans_time: float = 0.3) -> void:
 	var _targf: float = float(_target)
@@ -21,11 +26,14 @@ func lerp_zoom(_target: int, _trans_time: float = 0.3) -> void:
 
 func _physics_process(_delta: float) -> void:
 	var _cs = get_camera_size()
+	if targets.is_empty(): return
+	
 	global_position = global_position.lerp(get_camera_target(), 4 * _delta)
 	global_position.x = clamp(global_position.x, x_extents.x + _cs.x/2, x_extents.y - _cs.x/2)
 	global_position.y = clamp(global_position.y, y_extents.x + _cs.y/2, y_extents.y - _cs.y/2)
 	if shake_amount > 0:
 		global_position += Vector2(randf_range(-shake_amount, shake_amount), randf_range(-shake_amount, shake_amount))
+
 func get_camera_size():
 	return get_viewport_rect().size/zoom.x
 	

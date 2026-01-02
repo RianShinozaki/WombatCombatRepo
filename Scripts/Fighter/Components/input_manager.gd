@@ -41,37 +41,6 @@ func _process(_delta: float) -> void:
 	if read_controller_input:
 		var _input_raw = Input.get_vector(player_prefix+"left", player_prefix+"right", player_prefix+"up", player_prefix+"down")
 		input_direction = input_direction.move_toward(_input_raw, 0.5)
-		input_direction_rounded = input_direction.round()
-		#Ignore inputs below a certain magnitude
-		direction_just_pressed = false
-		if input_direction.length() < input_deadzone:
-			input_direction = Vector2.ZERO
-			last_input_was_zero = true
-		else:
-			if last_input_was_zero:
-				direction_just_pressed = true
-			last_input_was_zero = false
-		
-		if input_direction != Vector2.ZERO:
-			var _angle: float = input_direction.angle()
-			_angle = snapped(_angle, PI/4)
-			_angle = wrap(_angle, 0, 2*PI)
-			input_angle = _angle
-			
-			if double_tap_timer < double_tap_max_time and last_input_angle == input_angle and direction_just_pressed:
-				emit_signal("double_tap_direction", Vector2.from_angle(input_angle))
-				
-			double_tap_timer = 0
-			last_direction_nonzero = input_direction_rounded
-			
-			#Emit signal
-			if last_input_angle != input_angle:
-				emit_signal("direction_input", Vector2.from_angle(input_angle))
-				var _input_code: Fighter.input_code = roundi(input_angle * (8/(2*PI))) as Fighter.input_code
-				emit_signal("direction_input_code", _input_code)
-			
-		last_direction_rounded = input_direction_rounded
-		last_input_angle = input_angle
 		
 		#I don't know a better way to do this
 		if Input.is_action_just_pressed(player_prefix+"A"):
@@ -91,6 +60,38 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_released(player_prefix+"C"):
 			emit_signal("action_c_just_released")
 		action_c_pressed = Input.is_action_pressed(player_prefix+"C")
+	
+	input_direction_rounded = input_direction.round()
+	#Ignore inputs below a certain magnitude
+	direction_just_pressed = false
+	if input_direction.length() < input_deadzone:
+		input_direction = Vector2.ZERO
+		last_input_was_zero = true
+	else:
+		if last_input_was_zero:
+			direction_just_pressed = true
+		last_input_was_zero = false
+	
+	if input_direction != Vector2.ZERO:
+		var _angle: float = input_direction.angle()
+		_angle = snapped(_angle, PI/4)
+		_angle = wrap(_angle, 0, 2*PI)
+		input_angle = _angle
+		
+		if double_tap_timer < double_tap_max_time and last_input_angle == input_angle and direction_just_pressed:
+			emit_signal("double_tap_direction", Vector2.from_angle(input_angle))
+			
+		double_tap_timer = 0
+		last_direction_nonzero = input_direction_rounded
+		
+		#Emit signal
+		if last_input_angle != input_angle:
+			emit_signal("direction_input", Vector2.from_angle(input_angle))
+			var _input_code: Fighter.input_code = roundi(input_angle * (8/(2*PI))) as Fighter.input_code
+			emit_signal("direction_input_code", _input_code)
+		
+	last_direction_rounded = input_direction_rounded
+	last_input_angle = input_angle
 
 func set_input_direction(direction: Vector2):
 	input_direction = direction

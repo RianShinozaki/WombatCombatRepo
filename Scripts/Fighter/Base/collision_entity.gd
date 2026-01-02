@@ -114,5 +114,5 @@ func inflict_hitstun(_shake_level: float, _shake_direction: Vector2, _duration: 
 	shake_level = 0
 	shake_direction = Vector2.ZERO
 
-func on_impact(_hitbox_data: HitboxData, _hurtbox: Hurtbox):
+func on_impact(_hitbox_data: HitboxData):
 	pass

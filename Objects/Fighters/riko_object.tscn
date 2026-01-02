@@ -1,55 +1,57 @@
-[gd_scene load_steps=171 format=3 uid="uid://dj3t8o260vsfx"]
+[gd_scene load_steps=178 format=3 uid="uid://emggaebl25hp"]
 
-[ext_resource type="Script" uid="uid://bmbetce6put8" path="res://Scripts/Fighter/Base/fighter.gd" id="1_ixvft"]
-[ext_resource type="Script" uid="uid://dcnks7kp08igg" path="res://Scripts/Fighter/Parameters/Scripts/parameter_set.gd" id="2_yrmp7"]
-[ext_resource type="Resource" uid="uid://dg8gob5sr5k7r" path="res://Scripts/Fighter/Parameters/Resources/Riko/riko_attack_movement.tres" id="3_7ktgc"]
-[ext_resource type="Resource" uid="uid://boeu2t36u147a" path="res://Scripts/Fighter/Parameters/Resources/Riko/riko_duck.tres" id="4_brc4g"]
-[ext_resource type="Resource" uid="uid://ctv5kyqfbs1w2" path="res://Scripts/Fighter/Parameters/Resources/Riko/riko_hurt.tres" id="5_7ktgc"]
-[ext_resource type="Resource" uid="uid://d0vcqrp0s8ni7" path="res://Scripts/Fighter/Parameters/Resources/Riko/riko_jump.tres" id="6_7ktgc"]
-[ext_resource type="Texture2D" uid="uid://4khf15ax841h" path="res://Art Assets/Fighters/riko.png" id="6_7457w"]
-[ext_resource type="Resource" uid="uid://ddkdnhhp2gdmi" path="res://Scripts/Fighter/Parameters/Resources/Riko/riko_movement.tres" id="7_7ktgc"]
-[ext_resource type="Script" uid="uid://b0nr5qbboqndr" path="res://Scripts/Fighter/Components/input_manager.gd" id="7_w4ghc"]
-[ext_resource type="Script" uid="uid://dp13pejk5ofre" path="res://Scripts/Fighter/Components/hurt_manager.gd" id="8_1kbdq"]
-[ext_resource type="Shader" uid="uid://c4kyt4d7iupt3" path="res://Shaders/fighter.gdshader" id="8_gkhnp"]
-[ext_resource type="Script" uid="uid://d2myk0wp535gl" path="res://Scripts/Fighter/Action States/normal_state.gd" id="8_w432u"]
-[ext_resource type="Script" uid="uid://ckcn71lv51hn0" path="res://Scripts/Fighter/Components/entity_art.gd" id="8_x2gyo"]
-[ext_resource type="Script" uid="uid://c3tjx53bpng7a" path="res://Scripts/Fighter/Action States/duck_state.gd" id="9_ixvft"]
-[ext_resource type="Script" uid="uid://ckfwe044dx0cu" path="res://Scripts/Fighter/Components/entity_status.gd" id="9_x2gyo"]
-[ext_resource type="Script" uid="uid://8m50bpdrgnj5" path="res://Scripts/Fighter/Action States/hurt_state.gd" id="10_vh0l3"]
-[ext_resource type="Script" uid="uid://p333cm362g8t" path="res://Scripts/Fighter/Components/hitbox.gd" id="10_w4ghc"]
-[ext_resource type="Script" uid="uid://yap1q5si5num" path="res://Scripts/Fighter/Components/hurtbox.gd" id="10_yrmp7"]
-[ext_resource type="Resource" uid="uid://x72pljjxm3iy" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_punch.tres" id="14_brc4g"]
-[ext_resource type="Resource" uid="uid://b344ybj4cga3y" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_kick.tres" id="15_btmf1"]
-[ext_resource type="Resource" uid="uid://dpcvksvdlq1h2" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_air_punch.tres" id="16_1apos"]
-[ext_resource type="Script" uid="uid://cyydaswh7revc" path="res://Scripts/Fighter/Action States/attack_state.gd" id="16_w432u"]
-[ext_resource type="Resource" uid="uid://cojbi5skowv57" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_air_kick.tres" id="17_n0sce"]
-[ext_resource type="Resource" uid="uid://ckq4pgxor76vb" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_low_punch.tres" id="18_f7q5x"]
-[ext_resource type="Resource" uid="uid://lnsq23gc3iss" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_low_kick.tres" id="19_uwm3q"]
-[ext_resource type="Resource" uid="uid://x510e5mrxcgl" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_dash_kick.tres" id="20_uwm3q"]
-[ext_resource type="Script" uid="uid://5rxuw6n1giow" path="res://Scripts/Effects/one_shot_fx_creator.gd" id="22_vd6q1"]
-[ext_resource type="Resource" uid="uid://djdkm33ye7slu" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_uppercut_1.tres" id="22_yfgk3"]
-[ext_resource type="SpriteFrames" uid="uid://b0uc2sl5q835l" path="res://Misc Resources/SpriteFrames/med_hit.tres" id="23_kbti5"]
-[ext_resource type="Script" uid="uid://cvmpahko10ix1" path="res://Scripts/Fighter/Action States/penalty_state.gd" id="23_ordi8"]
-[ext_resource type="PackedScene" uid="uid://bl473fbbeg4pj" path="res://Objects/one_shot_animated_fx.tscn" id="23_rdl13"]
-[ext_resource type="Resource" uid="uid://dca37jcn83ivi" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_uppercut_2.tres" id="23_tqbfv"]
-[ext_resource type="SpriteFrames" uid="uid://csvsuag5jq5ty" path="res://Misc Resources/SpriteFrames/small_hit.tres" id="24_j2cfp"]
-[ext_resource type="SpriteFrames" uid="uid://cesw45x1s7dh3" path="res://Misc Resources/SpriteFrames/blocked.tres" id="25_wmqtj"]
-[ext_resource type="SpriteFrames" uid="uid://5rkha074c8fj" path="res://Misc Resources/SpriteFrames/hadouken.tres" id="27_kql1y"]
-[ext_resource type="Script" uid="uid://ro21gab4hwxu" path="res://Scripts/System/ObjectPool.gd" id="28_my8vd"]
-[ext_resource type="PackedScene" uid="uid://qg0kbkuunkr4" path="res://Objects/hadouken.tscn" id="29_nncjt"]
-[ext_resource type="PackedScene" uid="uid://bp3pfnjxjuyub" path="res://Objects/hadouken_heavy.tscn" id="31_rx761"]
-[ext_resource type="AudioStream" uid="uid://d3ak87hldl7ia" path="res://Audio/SFX/heavyattack.ogg" id="32_5sqab"]
-[ext_resource type="Texture2D" uid="uid://dwiyu1vuc23x6" path="res://Art Assets/Backgrounds/shadow.png" id="32_22y4d"]
-[ext_resource type="AudioStream" uid="uid://ct13kvb4lpv8o" path="res://Audio/SFX/lightattack.ogg" id="33_5mfwa"]
-[ext_resource type="Script" uid="uid://c3rdpw0yqo021" path="res://Scripts/Fighter/Components/shadow.gd" id="33_fhcxa"]
-[ext_resource type="AudioStream" uid="uid://bft11x5n1mjms" path="res://Audio/SFX/jump.ogg" id="34_t3uea"]
-[ext_resource type="AudioStream" uid="uid://clwmyuq5exo6w" path="res://Audio/SFX/land.ogg" id="35_5yk55"]
-[ext_resource type="AudioStream" uid="uid://di18kc7hynsy1" path="res://Audio/SFX/heavyland.ogg" id="36_5mfwa"]
-[ext_resource type="AudioStream" uid="uid://beoncekjwu8vb" path="res://Audio/SFX/magicthrow.ogg" id="37_t3uea"]
-[ext_resource type="AudioStream" uid="uid://dpct3xr84kbl5" path="res://Audio/SFX/smallhit.ogg" id="38_pl6v3"]
-[ext_resource type="AudioStream" uid="uid://crb746cclygaj" path="res://Audio/SFX/heavyhit.ogg" id="39_yfgk3"]
-[ext_resource type="AudioStream" uid="uid://djygofnq0tjbg" path="res://Audio/SFX/magichit.ogg" id="40_tqbfv"]
-[ext_resource type="Script" uid="uid://dpjonc0d1omqu" path="res://Scripts/Fighter/Action States/dodge_state.gd" id="45_e2ywe"]
+[ext_resource type="Script" uid="uid://bmbetce6put8" path="res://Scripts/Fighter/Base/fighter.gd" id="1_xqibr"]
+[ext_resource type="Script" uid="uid://dcnks7kp08igg" path="res://Scripts/Fighter/Parameters/Scripts/parameter_set.gd" id="2_hu5pq"]
+[ext_resource type="Resource" uid="uid://dg8gob5sr5k7r" path="res://Scripts/Fighter/Parameters/Resources/Riko/riko_attack_movement.tres" id="3_cmeef"]
+[ext_resource type="Resource" uid="uid://boeu2t36u147a" path="res://Scripts/Fighter/Parameters/Resources/Riko/riko_duck.tres" id="4_ln4l0"]
+[ext_resource type="Resource" uid="uid://ctv5kyqfbs1w2" path="res://Scripts/Fighter/Parameters/Resources/Riko/riko_hurt.tres" id="5_ds0cr"]
+[ext_resource type="Resource" uid="uid://d0vcqrp0s8ni7" path="res://Scripts/Fighter/Parameters/Resources/Riko/riko_jump.tres" id="6_1a7ep"]
+[ext_resource type="Resource" uid="uid://ddkdnhhp2gdmi" path="res://Scripts/Fighter/Parameters/Resources/Riko/riko_movement.tres" id="7_stl4c"]
+[ext_resource type="Shader" uid="uid://c4kyt4d7iupt3" path="res://Shaders/fighter.gdshader" id="8_30utb"]
+[ext_resource type="Texture2D" uid="uid://4khf15ax841h" path="res://Art Assets/Fighters/riko.png" id="9_7wi24"]
+[ext_resource type="Script" uid="uid://ckcn71lv51hn0" path="res://Scripts/Fighter/Components/entity_art.gd" id="10_56k0o"]
+[ext_resource type="Script" uid="uid://b0nr5qbboqndr" path="res://Scripts/Fighter/Components/input_manager.gd" id="11_2lns2"]
+[ext_resource type="Script" uid="uid://ckfwe044dx0cu" path="res://Scripts/Fighter/Components/entity_status.gd" id="12_jum30"]
+[ext_resource type="Script" uid="uid://dp13pejk5ofre" path="res://Scripts/Fighter/Components/hurt_manager.gd" id="13_hpd40"]
+[ext_resource type="Script" uid="uid://p333cm362g8t" path="res://Scripts/Fighter/Components/hitbox.gd" id="14_borbf"]
+[ext_resource type="Resource" uid="uid://x72pljjxm3iy" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_punch.tres" id="15_qkdok"]
+[ext_resource type="Resource" uid="uid://b344ybj4cga3y" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_kick.tres" id="16_xcdut"]
+[ext_resource type="Resource" uid="uid://dpcvksvdlq1h2" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_air_punch.tres" id="17_1521n"]
+[ext_resource type="Resource" uid="uid://cojbi5skowv57" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_air_kick.tres" id="18_s6eti"]
+[ext_resource type="Resource" uid="uid://ckq4pgxor76vb" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_low_punch.tres" id="19_iic8g"]
+[ext_resource type="Resource" uid="uid://lnsq23gc3iss" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_low_kick.tres" id="20_kcn50"]
+[ext_resource type="Resource" uid="uid://x510e5mrxcgl" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_dash_kick.tres" id="21_cyepp"]
+[ext_resource type="Resource" uid="uid://djdkm33ye7slu" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_uppercut_1.tres" id="22_vi563"]
+[ext_resource type="Resource" uid="uid://dca37jcn83ivi" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_uppercut_2.tres" id="23_6x14j"]
+[ext_resource type="Resource" uid="uid://bm380f1t7f31m" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_topspin_1.tres" id="24_v53qf"]
+[ext_resource type="Resource" uid="uid://4m7aey5mx1kg" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_topspin_2.tres" id="25_m2lgr"]
+[ext_resource type="Script" uid="uid://yap1q5si5num" path="res://Scripts/Fighter/Components/hurtbox.gd" id="26_2n4o0"]
+[ext_resource type="Script" uid="uid://5rxuw6n1giow" path="res://Scripts/Effects/one_shot_fx_creator.gd" id="27_yoajh"]
+[ext_resource type="SpriteFrames" uid="uid://cesw45x1s7dh3" path="res://Misc Resources/SpriteFrames/blocked.tres" id="28_y2af8"]
+[ext_resource type="SpriteFrames" uid="uid://5rkha074c8fj" path="res://Misc Resources/SpriteFrames/hadouken.tres" id="29_kxeiv"]
+[ext_resource type="SpriteFrames" uid="uid://b0uc2sl5q835l" path="res://Misc Resources/SpriteFrames/med_hit.tres" id="30_kq2qy"]
+[ext_resource type="SpriteFrames" uid="uid://csvsuag5jq5ty" path="res://Misc Resources/SpriteFrames/small_hit.tres" id="31_d5y6h"]
+[ext_resource type="PackedScene" uid="uid://bl473fbbeg4pj" path="res://Objects/one_shot_animated_fx.tscn" id="32_vtoy5"]
+[ext_resource type="Script" uid="uid://ro21gab4hwxu" path="res://Scripts/System/ObjectPool.gd" id="33_gn4hx"]
+[ext_resource type="PackedScene" uid="uid://qg0kbkuunkr4" path="res://Objects/hadouken.tscn" id="34_yb27r"]
+[ext_resource type="PackedScene" uid="uid://bp3pfnjxjuyub" path="res://Objects/hadouken_heavy.tscn" id="35_5fg7j"]
+[ext_resource type="AudioStream" uid="uid://d3ak87hldl7ia" path="res://Audio/SFX/heavyattack.ogg" id="36_qn5ff"]
+[ext_resource type="AudioStream" uid="uid://ct13kvb4lpv8o" path="res://Audio/SFX/lightattack.ogg" id="37_pcwgx"]
+[ext_resource type="AudioStream" uid="uid://bft11x5n1mjms" path="res://Audio/SFX/jump.ogg" id="38_5a2lr"]
+[ext_resource type="AudioStream" uid="uid://clwmyuq5exo6w" path="res://Audio/SFX/land.ogg" id="39_i7rya"]
+[ext_resource type="AudioStream" uid="uid://di18kc7hynsy1" path="res://Audio/SFX/heavyland.ogg" id="40_tvsfi"]
+[ext_resource type="AudioStream" uid="uid://beoncekjwu8vb" path="res://Audio/SFX/magicthrow.ogg" id="41_tuiac"]
+[ext_resource type="AudioStream" uid="uid://dpct3xr84kbl5" path="res://Audio/SFX/smallhit.ogg" id="42_33hlt"]
+[ext_resource type="AudioStream" uid="uid://crb746cclygaj" path="res://Audio/SFX/heavyhit.ogg" id="43_0n45g"]
+[ext_resource type="AudioStream" uid="uid://djygofnq0tjbg" path="res://Audio/SFX/magichit.ogg" id="44_kqs83"]
+[ext_resource type="Script" uid="uid://d2myk0wp535gl" path="res://Scripts/Fighter/Action States/normal_state.gd" id="45_6c1aa"]
+[ext_resource type="Script" uid="uid://cvmpahko10ix1" path="res://Scripts/Fighter/Action States/penalty_state.gd" id="46_447ve"]
+[ext_resource type="Script" uid="uid://dpjonc0d1omqu" path="res://Scripts/Fighter/Action States/dodge_state.gd" id="47_u2iv8"]
+[ext_resource type="Script" uid="uid://8m50bpdrgnj5" path="res://Scripts/Fighter/Action States/hurt_state.gd" id="48_1woop"]
+[ext_resource type="Script" uid="uid://c3tjx53bpng7a" path="res://Scripts/Fighter/Action States/duck_state.gd" id="49_jldxg"]
+[ext_resource type="Script" uid="uid://cyydaswh7revc" path="res://Scripts/Fighter/Action States/attack_state.gd" id="50_sfp53"]
+[ext_resource type="Texture2D" uid="uid://dwiyu1vuc23x6" path="res://Art Assets/Backgrounds/shadow.png" id="51_gq08o"]
+[ext_resource type="Script" uid="uid://c3rdpw0yqo021" path="res://Scripts/Fighter/Components/shadow.gd" id="52_wij8q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yyih5"]
 resource_local_to_scene = true
@@ -57,7 +59,7 @@ size = Vector2(14, 26)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_my8vd"]
 resource_local_to_scene = true
-shader = ExtResource("8_gkhnp")
+shader = ExtResource("8_30utb")
 shader_parameter/original_0 = Color(0, 0, 0, 1)
 shader_parameter/original_1 = Color(0, 0, 0, 1)
 shader_parameter/original_2 = Color(0, 0, 0, 1)
@@ -998,7 +1000,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_8o8ig"]
 resource_name = "Punch"
-length = 0.2004
+length = 0.2672
 step = 0.0167
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1007,7 +1009,7 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.11666667),
+"times": PackedFloat32Array(0, 0.033333335, 0.18333334),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [10, 11, 10]
@@ -1019,7 +1021,7 @@ tracks/1/path = NodePath("../SpecialAttributes/Hitboxes/PunchHitbox/CollisionSha
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.11666667),
+"times": PackedFloat32Array(0, 0.033333335, 0.18333334),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -1031,7 +1033,7 @@ tracks/2/path = NodePath("../ActionStates/AttackState")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.16666667),
+"times": PackedFloat32Array(0.23333335),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -1185,6 +1187,30 @@ tracks/11/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../SpecialAttributes/Hitboxes/TopspinHitbox_1/CollisionShape2D:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../SpecialAttributes/Hitboxes/TopspinHitbox_2/CollisionShape2D:disabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_yx171"]
 resource_name = "Run"
@@ -1238,6 +1264,67 @@ tracks/0/keys = {
 "values": [43, 52, 53, 54, 43]
 }
 
+[sub_resource type="Animation" id="Animation_l72cs"]
+resource_name = "TopSpin"
+length = 0.84
+step = 0.0334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.10000001, 0.13333334, 0.2, 0.23333333, 0.26666668, 0.33333334, 0.36666667, 0.4, 0.46666667, 0.5, 0.53333336, 0.6, 0.6666667, 0.73333335, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [58, 59, 60, 61, 62, 63, 64, 65, 66, 61, 62, 63, 67, 68, 69, 70, 24]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../SpecialAttributes/Hitboxes/TopspinHitbox_1/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.16666666, 0.26666668, 0.3, 0.4, 0.43333337),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../SpecialAttributes/Hitboxes/TopspinHitbox_2/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.53333336, 0.5666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ActionStates/AttackState")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.53333336, 0.8333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [true],
+"method": &"set_topspinning"
+}, {
+"args": [false],
+"method": &"set_topspinning"
+}, {
+"args": [],
+"method": &"animation_cancel"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_yfgk3"]
 resource_name = "Uppercut_Heavy"
 length = 0.7515
@@ -1249,7 +1336,7 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.23333335, 0.35, 0.65),
+"times": PackedFloat32Array(0, 0.05, 0.15000002, 0.26666665, 0.6333333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [47, 48, 49, 50, 51]
@@ -1261,7 +1348,7 @@ tracks/1/path = NodePath("../ActionStates/AttackState")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.13333334, 0.23333333, 0.35, 0.75),
+"times": PackedFloat32Array(0.05, 0.14999999, 0.26666665, 0.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
 "args": [true],
@@ -1284,7 +1371,7 @@ tracks/2/path = NodePath("../SpecialAttributes/Hitboxes/UppercutHitbox_1/Collisi
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.23333333),
+"times": PackedFloat32Array(0, 0.05, 0.14999999),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -1296,7 +1383,7 @@ tracks/3/path = NodePath("../SpecialAttributes/Hitboxes/UppercutHitbox_2/Collisi
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.23333333, 0.35),
+"times": PackedFloat32Array(0, 0.14999999, 0.26666665),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -1352,6 +1439,7 @@ _data = {
 &"Run": SubResource("Animation_yx171"),
 &"TechBackwards": SubResource("Animation_e2ywe"),
 &"TechForward": SubResource("Animation_tqbfv"),
+&"TopSpin": SubResource("Animation_l72cs"),
 &"Uppercut_Heavy": SubResource("Animation_yfgk3"),
 &"WalkBack": SubResource("Animation_yhmtn")
 }
@@ -1388,6 +1476,9 @@ animation = &"LowKick"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_brc4g"]
 animation = &"Punch"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jvpbl"]
+animation = &"TopSpin"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tqbfv"]
 animation = &"Uppercut_Heavy"
@@ -1448,6 +1539,10 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rufsn"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ordi8"]
 states/AirKick/node = SubResource("AnimationNodeAnimation_w432u")
 states/AirKick/position = Vector2(326, 192)
@@ -1471,10 +1566,12 @@ states/LowKick/node = SubResource("AnimationNodeAnimation_f7q5x")
 states/LowKick/position = Vector2(724.864, 404)
 states/Punch/node = SubResource("AnimationNodeAnimation_brc4g")
 states/Punch/position = Vector2(360, 41)
+states/TopSpin/node = SubResource("AnimationNodeAnimation_jvpbl")
+states/TopSpin/position = Vector2(1072.864, 41)
 states/Uppercut_Heavy/node = SubResource("AnimationNodeAnimation_tqbfv")
 states/Uppercut_Heavy/position = Vector2(995.864, -69.095245)
-transitions = ["Punch", "End", SubResource("AnimationNodeStateMachineTransition_btmf1"), "Kick", "End", SubResource("AnimationNodeStateMachineTransition_1apos"), "AirPunch", "End", SubResource("AnimationNodeStateMachineTransition_n0sce"), "AirKick", "LandPenalty", SubResource("AnimationNodeStateMachineTransition_f7q5x"), "LandPenalty", "End", SubResource("AnimationNodeStateMachineTransition_uwm3q"), "LowKick", "End", SubResource("AnimationNodeStateMachineTransition_rdl13"), "DuckPunch", "End", SubResource("AnimationNodeStateMachineTransition_kbti5"), "DashKick", "End", SubResource("AnimationNodeStateMachineTransition_fhcxa"), "AirPunch", "Land", SubResource("AnimationNodeStateMachineTransition_my8vd"), "Land", "End", SubResource("AnimationNodeStateMachineTransition_nncjt"), "Hadouken", "End", SubResource("AnimationNodeStateMachineTransition_kql1y"), "Hadouken_Heavy", "End", SubResource("AnimationNodeStateMachineTransition_vsqle"), "Uppercut_Heavy", "End", SubResource("AnimationNodeStateMachineTransition_e2ywe"), "AirKick", "End", SubResource("AnimationNodeStateMachineTransition_tqbfv")]
-graph_offset = Vector2(136.86401, 47.904755)
+transitions = ["Punch", "End", SubResource("AnimationNodeStateMachineTransition_btmf1"), "Kick", "End", SubResource("AnimationNodeStateMachineTransition_1apos"), "AirPunch", "End", SubResource("AnimationNodeStateMachineTransition_n0sce"), "AirKick", "LandPenalty", SubResource("AnimationNodeStateMachineTransition_f7q5x"), "LandPenalty", "End", SubResource("AnimationNodeStateMachineTransition_uwm3q"), "LowKick", "End", SubResource("AnimationNodeStateMachineTransition_rdl13"), "DuckPunch", "End", SubResource("AnimationNodeStateMachineTransition_kbti5"), "DashKick", "End", SubResource("AnimationNodeStateMachineTransition_fhcxa"), "AirPunch", "Land", SubResource("AnimationNodeStateMachineTransition_my8vd"), "Land", "End", SubResource("AnimationNodeStateMachineTransition_nncjt"), "Hadouken", "End", SubResource("AnimationNodeStateMachineTransition_kql1y"), "Hadouken_Heavy", "End", SubResource("AnimationNodeStateMachineTransition_vsqle"), "Uppercut_Heavy", "End", SubResource("AnimationNodeStateMachineTransition_e2ywe"), "AirKick", "End", SubResource("AnimationNodeStateMachineTransition_tqbfv"), "TopSpin", "End", SubResource("AnimationNodeStateMachineTransition_rufsn")]
+graph_offset = Vector2(422.864, -87.095245)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rdl13"]
 animation = &"Block"
@@ -1681,7 +1778,7 @@ states/TechBackwards/position = Vector2(164, 216.19388)
 states/TechForward/node = SubResource("AnimationNodeAnimation_l72cs")
 states/TechForward/position = Vector2(303, 291.19388)
 transitions = ["Start", "Grounded", SubResource("AnimationNodeStateMachineTransition_yx171"), "Grounded", "Jump", SubResource("AnimationNodeStateMachineTransition_gwjdr"), "Jump", "Grounded", SubResource("AnimationNodeStateMachineTransition_lvtmh"), "Attack", "Grounded", SubResource("AnimationNodeStateMachineTransition_ixvft"), "Hurt", "HurtMajor", SubResource("AnimationNodeStateMachineTransition_j2cfp"), "JumpSquat", "Jump", SubResource("AnimationNodeStateMachineTransition_gkhnp"), "KnockedAir", "KnockedBounce", SubResource("AnimationNodeStateMachineTransition_ajl3s"), "GetUp", "Grounded", SubResource("AnimationNodeStateMachineTransition_5sqab"), "HurtAir", "Jump", SubResource("AnimationNodeStateMachineTransition_yfgk3"), "TechBackwards", "Grounded", SubResource("AnimationNodeStateMachineTransition_jvpbl"), "TechForward", "Grounded", SubResource("AnimationNodeStateMachineTransition_und4d")]
-graph_offset = Vector2(-10, 59.29027)
+graph_offset = Vector2(20, -176.70973)
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_x2gyo"]
 
@@ -1720,28 +1817,36 @@ size = Vector2(9, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfgk3"]
 size = Vector2(11, 19)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvpbl"]
+size = Vector2(34, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2ywe"]
+size = Vector2(31, 9)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uwm3q"]
 size = Vector2(8, 19)
 
-[node name="Riko" type="CharacterBody2D" node_paths=PackedStringArray("current_action_state")]
+[node name="Fighter" type="CharacterBody2D" node_paths=PackedStringArray("current_action_state")]
 texture_filter = 1
 collision_layer = 0
-script = ExtResource("1_ixvft")
+script = ExtResource("1_xqibr")
 fighter_id = 1
 p1_hitbox_layer = 2
+p1_hitbox_mask = 24
 p1_hurtbox_layer = 4
 p2_hitbox_layer = 8
+p2_hitbox_mask = 6
 p2_hurtbox_layer = 16
-input_queue_max_frames = 15
+input_queue_max_frames = 16
 input_buffer_max_frames = 8
 apply_physics = true
 current_action_state = NodePath("ActionStates/NormalState")
-parameters = Dictionary[String, ExtResource("2_yrmp7")]({
-"attack_movement": ExtResource("3_7ktgc"),
-"duck": ExtResource("4_brc4g"),
-"hurt": ExtResource("5_7ktgc"),
-"jump": ExtResource("6_7ktgc"),
-"movement": ExtResource("7_7ktgc")
+parameters = Dictionary[String, ExtResource("2_hu5pq")]({
+"attack_movement": ExtResource("3_cmeef"),
+"duck": ExtResource("4_ln4l0"),
+"hurt": ExtResource("5_ds0cr"),
+"jump": ExtResource("6_1a7ep"),
+"movement": ExtResource("7_stl4c")
 })
 
 [node name="EnvironmentBox" type="CollisionShape2D" parent="."]
@@ -1752,10 +1857,10 @@ shape = SubResource("RectangleShape2D_yyih5")
 [node name="Art" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_my8vd")
 position = Vector2(0, -6)
-texture = ExtResource("6_7457w")
-hframes = 8
+texture = ExtResource("9_7wi24")
+hframes = 9
 vframes = 8
-script = ExtResource("8_x2gyo")
+script = ExtResource("10_56k0o")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Art"]
 deterministic = true
@@ -1772,20 +1877,20 @@ parameters/TimeScale/scale = 1.0
 [node name="GenericAttributes" type="Node2D" parent="."]
 
 [node name="InputManager" type="Node2D" parent="GenericAttributes"]
-script = ExtResource("7_w4ghc")
+script = ExtResource("11_2lns2")
 player_prefix = "p1-"
 input_deadzone = 0.5
 double_tap_max_time = 0.2
 
 [node name="EntityStatus" type="Node2D" parent="GenericAttributes"]
-script = ExtResource("9_x2gyo")
-max_health = 100.0
+script = ExtResource("12_jum30")
+max_health = 70.0
 max_knockdown = 1.0
 
 [node name="SpecialAttributes" type="Node2D" parent="."]
 
 [node name="HurtManager" type="Node2D" parent="SpecialAttributes"]
-script = ExtResource("8_1kbdq")
+script = ExtResource("13_hpd40")
 power_resistance = 1
 
 [node name="Hitboxes" type="Node2D" parent="SpecialAttributes"]
@@ -1794,8 +1899,8 @@ power_resistance = 1
 visible = false
 collision_layer = 2
 collision_mask = 16
-script = ExtResource("10_w4ghc")
-hitbox_data = ExtResource("14_brc4g")
+script = ExtResource("14_borbf")
+hitbox_data = ExtResource("15_qkdok")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/PunchHitbox"]
 position = Vector2(11, -6.5)
@@ -1806,8 +1911,8 @@ disabled = true
 visible = false
 collision_layer = 2
 collision_mask = 16
-script = ExtResource("10_w4ghc")
-hitbox_data = ExtResource("15_btmf1")
+script = ExtResource("14_borbf")
+hitbox_data = ExtResource("16_xcdut")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/KickHitbox"]
 position = Vector2(11.5, 0.5)
@@ -1818,8 +1923,8 @@ disabled = true
 visible = false
 collision_layer = 2
 collision_mask = 16
-script = ExtResource("10_w4ghc")
-hitbox_data = ExtResource("16_1apos")
+script = ExtResource("14_borbf")
+hitbox_data = ExtResource("17_1521n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/AirPunchHitbox"]
 position = Vector2(8.5, 0)
@@ -1830,8 +1935,8 @@ disabled = true
 visible = false
 collision_layer = 2
 collision_mask = 16
-script = ExtResource("10_w4ghc")
-hitbox_data = ExtResource("17_n0sce")
+script = ExtResource("14_borbf")
+hitbox_data = ExtResource("18_s6eti")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/AirKickHitbox"]
 position = Vector2(12, 3.5)
@@ -1842,8 +1947,8 @@ disabled = true
 visible = false
 collision_layer = 2
 collision_mask = 16
-script = ExtResource("10_w4ghc")
-hitbox_data = ExtResource("18_f7q5x")
+script = ExtResource("14_borbf")
+hitbox_data = ExtResource("19_iic8g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/LowPunchHitbox"]
 position = Vector2(11.5, 2)
@@ -1855,8 +1960,8 @@ visible = false
 position = Vector2(2, 8)
 collision_layer = 2
 collision_mask = 16
-script = ExtResource("10_w4ghc")
-hitbox_data = ExtResource("19_uwm3q")
+script = ExtResource("14_borbf")
+hitbox_data = ExtResource("20_kcn50")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/LowKickHitbox"]
 position = Vector2(10, -0.5)
@@ -1867,8 +1972,8 @@ disabled = true
 visible = false
 collision_layer = 2
 collision_mask = 16
-script = ExtResource("10_w4ghc")
-hitbox_data = ExtResource("20_uwm3q")
+script = ExtResource("14_borbf")
+hitbox_data = ExtResource("21_cyepp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/DashKickHitbox"]
 position = Vector2(12, -1.5)
@@ -1878,8 +1983,8 @@ disabled = true
 [node name="UppercutHitbox_1" type="Area2D" parent="SpecialAttributes/Hitboxes"]
 collision_layer = 2
 collision_mask = 16
-script = ExtResource("10_w4ghc")
-hitbox_data = ExtResource("22_yfgk3")
+script = ExtResource("14_borbf")
+hitbox_data = ExtResource("22_vi563")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/UppercutHitbox_1"]
 position = Vector2(9.5, -3.5)
@@ -1889,18 +1994,41 @@ disabled = true
 [node name="UppercutHitbox_2" type="Area2D" parent="SpecialAttributes/Hitboxes"]
 collision_layer = 2
 collision_mask = 16
-script = ExtResource("10_w4ghc")
-hitbox_data = ExtResource("23_tqbfv")
+script = ExtResource("14_borbf")
+hitbox_data = ExtResource("23_6x14j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/UppercutHitbox_2"]
 position = Vector2(8.5, -19.5)
 shape = SubResource("RectangleShape2D_yfgk3")
 disabled = true
 
+[node name="TopspinHitbox_1" type="Area2D" parent="SpecialAttributes/Hitboxes"]
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("14_borbf")
+hitbox_data = ExtResource("24_v53qf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/TopspinHitbox_1"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_jvpbl")
+disabled = true
+
+[node name="TopspinHitbox_2" type="Area2D" parent="SpecialAttributes/Hitboxes"]
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("14_borbf")
+hitbox_data = ExtResource("25_m2lgr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/TopspinHitbox_2"]
+position = Vector2(-1, -6)
+rotation = -0.28448868
+shape = SubResource("RectangleShape2D_e2ywe")
+disabled = true
+
 [node name="Hurtbox" type="Area2D" parent="SpecialAttributes"]
 collision_layer = 4
 collision_mask = 8
-script = ExtResource("10_yrmp7")
+script = ExtResource("26_2n4o0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hurtbox"]
 position = Vector2(0, -3)
@@ -1918,87 +2046,87 @@ shape = SubResource("RectangleShape2D_uwm3q")
 debug_color = Color(0.66839445, 0.51181114, 0, 0.41960785)
 
 [node name="OneShotFXPool" type="Node2D" parent="SpecialAttributes"]
-script = ExtResource("22_vd6q1")
+script = ExtResource("27_yoajh")
 fx_dict = Dictionary[String, SpriteFrames]({
-"Blocked": ExtResource("25_wmqtj"),
-"Hadouken": ExtResource("27_kql1y"),
-"Med Hit": ExtResource("23_kbti5"),
-"Small Hit": ExtResource("24_j2cfp")
+"Blocked": ExtResource("28_y2af8"),
+"Hadouken": ExtResource("29_kxeiv"),
+"Med Hit": ExtResource("30_kq2qy"),
+"Small Hit": ExtResource("31_d5y6h")
 })
-object = ExtResource("23_rdl13")
+object = ExtResource("32_vtoy5")
 count = 10
 
 [node name="HadoukenPool" type="Node" parent="SpecialAttributes"]
-script = ExtResource("28_my8vd")
-object = ExtResource("29_nncjt")
+script = ExtResource("33_gn4hx")
+object = ExtResource("34_yb27r")
 count = 4
 metadata/_custom_type_script = "uid://ro21gab4hwxu"
 
 [node name="HadoukenHeavyPool" type="Node" parent="SpecialAttributes"]
-script = ExtResource("28_my8vd")
-object = ExtResource("31_rx761")
+script = ExtResource("33_gn4hx")
+object = ExtResource("35_5fg7j")
 count = 4
 metadata/_custom_type_script = "uid://ro21gab4hwxu"
 
 [node name="SFX" type="Node2D" parent="SpecialAttributes"]
 
 [node name="HeavyAttack" type="AudioStreamPlayer2D" parent="SpecialAttributes/SFX"]
-stream = ExtResource("32_5sqab")
+stream = ExtResource("36_qn5ff")
 
 [node name="LightAttack" type="AudioStreamPlayer2D" parent="SpecialAttributes/SFX"]
-stream = ExtResource("33_5mfwa")
+stream = ExtResource("37_pcwgx")
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="SpecialAttributes/SFX"]
-stream = ExtResource("34_t3uea")
+stream = ExtResource("38_5a2lr")
 
 [node name="Land" type="AudioStreamPlayer2D" parent="SpecialAttributes/SFX"]
-stream = ExtResource("35_5yk55")
+stream = ExtResource("39_i7rya")
 
 [node name="HeavyLand" type="AudioStreamPlayer2D" parent="SpecialAttributes/SFX"]
-stream = ExtResource("36_5mfwa")
+stream = ExtResource("40_tvsfi")
 
 [node name="MagicAttack" type="AudioStreamPlayer2D" parent="SpecialAttributes/SFX"]
-stream = ExtResource("37_t3uea")
+stream = ExtResource("41_tuiac")
 volume_db = -3.0
 
 [node name="LightHit" type="AudioStreamPlayer2D" parent="SpecialAttributes/SFX"]
-stream = ExtResource("38_pl6v3")
+stream = ExtResource("42_33hlt")
 
 [node name="HeavyHit" type="AudioStreamPlayer2D" parent="SpecialAttributes/SFX"]
-stream = ExtResource("39_yfgk3")
+stream = ExtResource("43_0n45g")
 
 [node name="MagicHit" type="AudioStreamPlayer2D" parent="SpecialAttributes/SFX"]
-stream = ExtResource("40_tqbfv")
+stream = ExtResource("44_kqs83")
 volume_db = -3.0
 
 [node name="ActionStates" type="Node2D" parent="."]
 
 [node name="NormalState" type="Node2D" parent="ActionStates"]
-script = ExtResource("8_w432u")
+script = ExtResource("45_6c1aa")
 active = true
 
 [node name="PenaltyState" type="Node2D" parent="ActionStates"]
-script = ExtResource("23_ordi8")
+script = ExtResource("46_447ve")
 
 [node name="DodgeState" type="Node2D" parent="ActionStates"]
-script = ExtResource("45_e2ywe")
+script = ExtResource("47_u2iv8")
 
 [node name="HurtState" type="Node2D" parent="ActionStates"]
-script = ExtResource("10_vh0l3")
+script = ExtResource("48_1woop")
 
 [node name="DuckState" type="Node2D" parent="ActionStates"]
-script = ExtResource("9_ixvft")
+script = ExtResource("49_jldxg")
 
 [node name="AttackState" type="Node2D" parent="ActionStates"]
-script = ExtResource("16_w432u")
+script = ExtResource("50_sfp53")
 
 [node name="Sprite3D" type="Sprite3D" parent="." node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 modulate = Color(0, 0, 0, 0.5568628)
 pixel_size = 0.001
 texture_filter = 0
-texture = ExtResource("32_22y4d")
-script = ExtResource("33_fhcxa")
+texture = ExtResource("51_gq08o")
+script = ExtResource("52_wij8q")
 target = NodePath("..")
 z_offset = 6.96
 y = -12.95

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cynswvfjccx6m"]
+
+[ext_resource type="PackedScene" uid="uid://emggaebl25hp" path="res://Objects/Fighters/riko_object.tscn" id="1_q004q"]
+[ext_resource type="Material" uid="uid://ceiieqyicbasy" path="res://Art Assets/Fighters/shiku_mat.tres" id="2_85m2c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7uwa"]
+resource_local_to_scene = true
+size = Vector2(14, 26)
+
+[node name="ShikuFighter" type="Node2D"]
+
+[node name="Fighter" parent="." instance=ExtResource("1_q004q")]
+fighter_id = 2
+
+[node name="EnvironmentBox" parent="Fighter" index="0"]
+shape = SubResource("RectangleShape2D_f7uwa")
+
+[node name="Art" parent="Fighter" index="1"]
+material = ExtResource("2_85m2c")
+
+[node name="CollisionShape2D" parent="Fighter/SpecialAttributes/Hurtbox" index="0"]
+shape = SubResource("RectangleShape2D_f7uwa")
+
+[editable path="Fighter"]

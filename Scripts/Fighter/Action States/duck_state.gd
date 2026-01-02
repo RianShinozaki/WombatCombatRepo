@@ -80,8 +80,6 @@ func _end() -> void:
 	anim.get("parameters/AnimationNodeStateMachine/Grounded/playback").start("Idle", true)
 
 func check_input_pattern(_pattern: Array[Fighter.input_code]) -> bool:
-	print(entity.inputs_queue)
-
 	if entity.inputs_queue.size() < _pattern.size(): return false
 	for i in range(_pattern.size()):
 		if _pattern[i] != entity.inputs_queue[entity.inputs_queue.size() - _pattern.size() + i]:

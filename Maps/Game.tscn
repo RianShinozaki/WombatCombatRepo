@@ -1,11 +1,11 @@
-[gd_scene load_steps=41 format=3 uid="uid://dtg05jdn1ct63"]
+[gd_scene load_steps=39 format=3 uid="uid://dtg05jdn1ct63"]
 
 [ext_resource type="Script" uid="uid://c60dhmamwv7gt" path="res://Maps/game.gd" id="1_lntlw"]
 [ext_resource type="Texture2D" uid="uid://xob1v1sccc84" path="res://Art Assets/Backgrounds/CreamBGSky.png" id="1_qbg5b"]
 [ext_resource type="Script" uid="uid://d2mlgrhekosko" path="res://Scripts/System/parallax_controller.gd" id="2_8puwx"]
 [ext_resource type="Texture2D" uid="uid://ccksdv6wc4oqu" path="res://Art Assets/Backgrounds/CreamBGFront.png" id="3_8edix"]
 [ext_resource type="Script" uid="uid://pyph5bknxeg2" path="res://Scripts/System/GameCamera.gd" id="4_qpgel"]
-[ext_resource type="PackedScene" uid="uid://dj3t8o260vsfx" path="res://Objects/riko.tscn" id="5_ceqvn"]
+[ext_resource type="PackedScene" uid="uid://dj3t8o260vsfx" path="res://Objects/Fighters/riko_fighter.tscn" id="5_ceqvn"]
 [ext_resource type="Theme" uid="uid://i3rss0f21vbn" path="res://Misc Resources/Themes/battle_ui.tres" id="6_lntlw"]
 [ext_resource type="Script" uid="uid://dclrouxt8oqon" path="res://Scripts/UI/health_bar.gd" id="7_xacle"]
 [ext_resource type="Script" uid="uid://bshhgc4qdv4qy" path="res://Scripts/System/3D_to_2D_target.gd" id="8_8edix"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://diqahf736qp0a" path="res://Audio/Music/Street Fighter IV - Volcanic Rim Stage (Sega Genesis Remix).mp3" id="10_qpgel"]
 [ext_resource type="AudioStream" uid="uid://d0r4ykgqptr0l" path="res://Audio/SFX/Voice/ROUNDSTART.wav" id="10_xacle"]
 [ext_resource type="AudioStream" uid="uid://bojpeojdmt1uk" path="res://Audio/SFX/Voice/GAMESET.wav" id="11_1shu2"]
+[ext_resource type="PackedScene" uid="uid://cvtxl8gpew6x6" path="res://Objects/Fighters/shiku_fighter_cpu.tscn" id="15_ys1ck"]
 
 [sub_resource type="Animation" id="Animation_ys1ck"]
 resource_name = "GAMESET"
@@ -287,59 +288,6 @@ normal = Vector2(-1, 0)
 [sub_resource type="ViewportTexture" id="ViewportTexture_8edix"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lntlw"]
-resource_local_to_scene = true
-size = Vector2(14, 26)
-
-[sub_resource type="Shader" id="Shader_8edix"]
-resource_local_to_scene = true
-code = "shader_type canvas_item;
-
-
-uniform vec4 original_0 : source_color;
-uniform vec4 original_1: source_color;
-uniform vec4 original_2: source_color;
-uniform vec4 original_3: source_color;
-uniform vec4 original_4: source_color;
-uniform vec4 replace_0: source_color;
-uniform vec4 replace_1: source_color;
-uniform vec4 replace_2: source_color;
-uniform vec4 replace_3: source_color;
-uniform vec4 replace_4: source_color;
-
-const float precision = 0.1;
-
-
-vec4 swap_color(vec4 color){
-	vec4 original_colors[5] = vec4[5] (original_0, original_1, original_2, original_3, original_4);
-	vec4 replace_colors[5] = vec4[5] (replace_0, replace_1, replace_2, replace_3, replace_4);
-	for (int i = 0; i < 5; i ++) {
-		if (distance(color, original_colors[i]) <= precision){
-			return replace_colors[i];
-		}
-	}
-	return color;
-}
-
-
-void fragment() {
-	COLOR = swap_color(texture(TEXTURE, UV));
-}"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qpgel"]
-resource_local_to_scene = true
-shader = SubResource("Shader_8edix")
-shader_parameter/original_0 = Color(0.654902, 0.7529412, 0.9490196, 1)
-shader_parameter/original_1 = Color(0.4, 0.5647059, 0.8980392, 1)
-shader_parameter/original_2 = Color(0.05882353, 0.16078432, 0.37254903, 1)
-shader_parameter/original_3 = Color(0.2, 0.2627451, 0.4, 1)
-shader_parameter/original_4 = Color(0.42352942, 0.49803922, 0.6666667, 1)
-shader_parameter/replace_0 = Color(1, 0.82172304, 0.7918184, 1)
-shader_parameter/replace_1 = Color(0.8653362, 0.53333217, 0.52057344, 1)
-shader_parameter/replace_2 = Color(0.38722995, 0.15377143, 0.13540837, 1)
-shader_parameter/replace_3 = Color(0.71945673, 0.16269562, 0.2661459, 1)
-shader_parameter/replace_4 = Color(0.83522344, 0.379215, 0.41541192, 1)
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qpgel"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qpgel"]
@@ -401,8 +349,8 @@ uv1_scale = Vector3(40, 17.52, 40)
 [node name="Game" type="Node2D" node_paths=PackedStringArray("fighter_1", "fighter_2")]
 texture_filter = 1
 script = ExtResource("1_lntlw")
-fighter_1 = NodePath("Riko")
-fighter_2 = NodePath("Riko2")
+fighter_1 = NodePath("RikoFighter")
+fighter_2 = NodePath("ShikuFighterCPU")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -463,7 +411,7 @@ position = Vector2(80, -8)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision/StaticBody2D3"]
 shape = SubResource("WorldBoundaryShape2D_sb48q")
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("targets")]
+[node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -15.003)
 zoom = Vector2(5, 5)
 limit_enabled = false
@@ -472,7 +420,6 @@ limit_top = -120
 limit_right = 155
 limit_bottom = 35
 script = ExtResource("4_qpgel")
-targets = [NodePath("../Riko"), NodePath("../Riko2")]
 target_offset_y = 15.0
 x_extents = Vector2(-80, 80)
 y_extents = Vector2(-60, 30)
@@ -481,25 +428,6 @@ y_extents = Vector2(-60, 30)
 z_index = -4
 material = SubResource("CanvasItemMaterial_8edix")
 texture = SubResource("ViewportTexture_8edix")
-
-[node name="Riko" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("5_ceqvn")]
-position = Vector2(-57, 4)
-opponent = NodePath("../Riko2")
-
-[node name="Riko2" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("5_ceqvn")]
-self_modulate = Color(0.8900387, 0.00066478195, 0.8956758, 1)
-position = Vector2(24, 2)
-opponent = NodePath("../Riko")
-fighter_id = 2
-
-[node name="EnvironmentBox" parent="Riko2" index="0"]
-shape = SubResource("RectangleShape2D_lntlw")
-
-[node name="Art" parent="Riko2" index="1"]
-material = SubResource("ShaderMaterial_qpgel")
-
-[node name="CollisionShape2D" parent="Riko2/SpecialAttributes/Hurtbox" index="0"]
-shape = SubResource("RectangleShape2D_lntlw")
 
 [node name="UI" type="CanvasLayer" parent="."]
 scale = Vector2(5, 5)
@@ -511,7 +439,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="P1_Health" type="ProgressBar" parent="UI/GameHUD" node_paths=PackedStringArray("target")]
+[node name="P1_Health" type="ProgressBar" parent="UI/GameHUD"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 11.2
@@ -523,7 +451,7 @@ value = 0.7
 fill_mode = 1
 show_percentage = false
 script = ExtResource("7_xacle")
-target = NodePath("../../../Riko")
+player_1 = true
 
 [node name="P1_Health_True" type="ProgressBar" parent="UI/GameHUD/P1_Health"]
 layout_mode = 0
@@ -547,7 +475,7 @@ offset_bottom = 16.8
 text = "RIKO"
 label_settings = SubResource("LabelSettings_xacle")
 
-[node name="P2_Health" type="ProgressBar" parent="UI/GameHUD" node_paths=PackedStringArray("target")]
+[node name="P2_Health" type="ProgressBar" parent="UI/GameHUD"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -562,7 +490,6 @@ max_value = 1.0
 value = 0.7
 show_percentage = false
 script = ExtResource("7_xacle")
-target = NodePath("../../../Riko2")
 
 [node name="P2_Health_True" type="ProgressBar" parent="UI/GameHUD/P2_Health"]
 layout_mode = 1
@@ -727,4 +654,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_qpgel")
 stream = ExtResource("10_qpgel")
 autoplay = true
 
-[editable path="Riko2"]
+[node name="RikoFighter" parent="." instance=ExtResource("5_ceqvn")]
+position = Vector2(-39, -4)
+
+[node name="ShikuFighterCPU" parent="." instance=ExtResource("15_ys1ck")]
+position = Vector2(35, -3)
