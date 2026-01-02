@@ -1,4 +1,4 @@
-[gd_scene load_steps=178 format=3 uid="uid://emggaebl25hp"]
+[gd_scene load_steps=189 format=3 uid="uid://emggaebl25hp"]
 
 [ext_resource type="Script" uid="uid://bmbetce6put8" path="res://Scripts/Fighter/Base/fighter.gd" id="1_xqibr"]
 [ext_resource type="Script" uid="uid://dcnks7kp08igg" path="res://Scripts/Fighter/Parameters/Scripts/parameter_set.gd" id="2_hu5pq"]
@@ -15,7 +15,8 @@
 [ext_resource type="Script" uid="uid://dp13pejk5ofre" path="res://Scripts/Fighter/Components/hurt_manager.gd" id="13_hpd40"]
 [ext_resource type="Script" uid="uid://p333cm362g8t" path="res://Scripts/Fighter/Components/hitbox.gd" id="14_borbf"]
 [ext_resource type="Resource" uid="uid://x72pljjxm3iy" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_punch.tres" id="15_qkdok"]
-[ext_resource type="Resource" uid="uid://b344ybj4cga3y" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_kick.tres" id="16_xcdut"]
+[ext_resource type="Resource" uid="uid://bhu5jpbjlwgue" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_high_punch_2.tres" id="16_3ml73"]
+[ext_resource type="Resource" uid="uid://dhai73hp8u343" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_high_kick.tres" id="17_3ml73"]
 [ext_resource type="Resource" uid="uid://dpcvksvdlq1h2" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_air_punch.tres" id="17_1521n"]
 [ext_resource type="Resource" uid="uid://cojbi5skowv57" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_air_kick.tres" id="18_s6eti"]
 [ext_resource type="Resource" uid="uid://ckq4pgxor76vb" path="res://Scripts/Fighter/Hitbox/Resources/Riko/riko_low_punch.tres" id="19_iic8g"]
@@ -1211,6 +1212,54 @@ tracks/13/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../SpecialAttributes/Hitboxes/PunchHitbox_2/CollisionShape2D:disabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../SpecialAttributes/Hitboxes/HighKickHitbox/CollisionShape2D:disabled")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../SpecialAttributes/Hitboxes/HighPunchHitbox/CollisionShape2D:disabled")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("../SpecialAttributes/Hitboxes/HighPunchHitbox2/CollisionShape2D:disabled")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_yx171"]
 resource_name = "Run"
@@ -1407,6 +1456,147 @@ tracks/0/keys = {
 "values": [5, 4, 3, 2]
 }
 
+[sub_resource type="Animation" id="Animation_yc7ia"]
+resource_name = "Punch_2"
+length = 0.3507
+step = 0.0167
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08333333, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [76, 77, 76]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ActionStates/AttackState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.33333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_cancel"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../SpecialAttributes/Hitboxes/PunchHitbox_2/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_3ml73"]
+resource_name = "HighKick"
+length = 0.4175
+step = 0.0167
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.11666667, 0.31666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [71, 72, 14]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ActionStates/AttackState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_cancel"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../SpecialAttributes/Hitboxes/HighKickHitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.11614333, 0.22260806),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_6ih33"]
+resource_name = "HighPunch"
+length = 0.4509
+step = 0.0167
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.11666667, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [73, 74, 75]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ActionStates/AttackState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.43333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_cancel"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../SpecialAttributes/Hitboxes/HighPunchHitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.11666667, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../SpecialAttributes/Hitboxes/HighPunchHitbox2/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.11666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2vekm"]
 _data = {
 &"AirKick": SubResource("Animation_ixvft"),
@@ -1420,6 +1610,8 @@ _data = {
 &"GetUp": SubResource("Animation_ttdah"),
 &"Hadouken": SubResource("Animation_gkhnp"),
 &"Hadouken_Heavy": SubResource("Animation_kql1y"),
+&"HighKick": SubResource("Animation_3ml73"),
+&"HighPunch": SubResource("Animation_6ih33"),
 &"Hurt": SubResource("Animation_x2gyo"),
 &"HurtAir": SubResource("Animation_pl6v3"),
 &"HurtMajor": SubResource("Animation_1apos"),
@@ -1435,6 +1627,7 @@ _data = {
 &"LandingPenalty": SubResource("Animation_ordi8"),
 &"LowKick": SubResource("Animation_btmf1"),
 &"Punch": SubResource("Animation_8o8ig"),
+&"Punch_2": SubResource("Animation_yc7ia"),
 &"RESET": SubResource("Animation_2vekm"),
 &"Run": SubResource("Animation_yx171"),
 &"TechBackwards": SubResource("Animation_e2ywe"),
@@ -1462,6 +1655,12 @@ animation = &"Hadouken"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rx761"]
 animation = &"Hadouken_Heavy"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3ml73"]
+animation = &"HighKick"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6ih33"]
+animation = &"HighPunch"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7ktgc"]
 animation = &"Kick"
 
@@ -1476,6 +1675,9 @@ animation = &"LowKick"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_brc4g"]
 animation = &"Punch"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2y4vc"]
+animation = &"Punch_2"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jvpbl"]
 animation = &"TopSpin"
@@ -1543,6 +1745,18 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_thf38"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dv5vi"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kiumx"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ordi8"]
 states/AirKick/node = SubResource("AnimationNodeAnimation_w432u")
 states/AirKick/position = Vector2(326, 192)
@@ -1556,6 +1770,10 @@ states/Hadouken/node = SubResource("AnimationNodeAnimation_gkhnp")
 states/Hadouken/position = Vector2(713.864, -76.095245)
 states/Hadouken_Heavy/node = SubResource("AnimationNodeAnimation_rx761")
 states/Hadouken_Heavy/position = Vector2(826.864, -90.095245)
+states/HighKick/node = SubResource("AnimationNodeAnimation_3ml73")
+states/HighKick/position = Vector2(1112.864, 204.90475)
+states/HighPunch/node = SubResource("AnimationNodeAnimation_6ih33")
+states/HighPunch/position = Vector2(982.864, 241)
 states/Kick/node = SubResource("AnimationNodeAnimation_7ktgc")
 states/Kick/position = Vector2(321, 113)
 states/Land/node = SubResource("AnimationNodeAnimation_wmqtj")
@@ -1566,12 +1784,14 @@ states/LowKick/node = SubResource("AnimationNodeAnimation_f7q5x")
 states/LowKick/position = Vector2(724.864, 404)
 states/Punch/node = SubResource("AnimationNodeAnimation_brc4g")
 states/Punch/position = Vector2(360, 41)
+states/Punch_2/node = SubResource("AnimationNodeAnimation_2y4vc")
+states/Punch_2/position = Vector2(1150.864, 141.90475)
 states/TopSpin/node = SubResource("AnimationNodeAnimation_jvpbl")
 states/TopSpin/position = Vector2(1072.864, 41)
 states/Uppercut_Heavy/node = SubResource("AnimationNodeAnimation_tqbfv")
 states/Uppercut_Heavy/position = Vector2(995.864, -69.095245)
-transitions = ["Punch", "End", SubResource("AnimationNodeStateMachineTransition_btmf1"), "Kick", "End", SubResource("AnimationNodeStateMachineTransition_1apos"), "AirPunch", "End", SubResource("AnimationNodeStateMachineTransition_n0sce"), "AirKick", "LandPenalty", SubResource("AnimationNodeStateMachineTransition_f7q5x"), "LandPenalty", "End", SubResource("AnimationNodeStateMachineTransition_uwm3q"), "LowKick", "End", SubResource("AnimationNodeStateMachineTransition_rdl13"), "DuckPunch", "End", SubResource("AnimationNodeStateMachineTransition_kbti5"), "DashKick", "End", SubResource("AnimationNodeStateMachineTransition_fhcxa"), "AirPunch", "Land", SubResource("AnimationNodeStateMachineTransition_my8vd"), "Land", "End", SubResource("AnimationNodeStateMachineTransition_nncjt"), "Hadouken", "End", SubResource("AnimationNodeStateMachineTransition_kql1y"), "Hadouken_Heavy", "End", SubResource("AnimationNodeStateMachineTransition_vsqle"), "Uppercut_Heavy", "End", SubResource("AnimationNodeStateMachineTransition_e2ywe"), "AirKick", "End", SubResource("AnimationNodeStateMachineTransition_tqbfv"), "TopSpin", "End", SubResource("AnimationNodeStateMachineTransition_rufsn")]
-graph_offset = Vector2(422.864, -87.095245)
+transitions = ["Punch", "End", SubResource("AnimationNodeStateMachineTransition_btmf1"), "Kick", "End", SubResource("AnimationNodeStateMachineTransition_1apos"), "AirPunch", "End", SubResource("AnimationNodeStateMachineTransition_n0sce"), "AirKick", "LandPenalty", SubResource("AnimationNodeStateMachineTransition_f7q5x"), "LandPenalty", "End", SubResource("AnimationNodeStateMachineTransition_uwm3q"), "LowKick", "End", SubResource("AnimationNodeStateMachineTransition_rdl13"), "DuckPunch", "End", SubResource("AnimationNodeStateMachineTransition_kbti5"), "DashKick", "End", SubResource("AnimationNodeStateMachineTransition_fhcxa"), "AirPunch", "Land", SubResource("AnimationNodeStateMachineTransition_my8vd"), "Land", "End", SubResource("AnimationNodeStateMachineTransition_nncjt"), "Hadouken", "End", SubResource("AnimationNodeStateMachineTransition_kql1y"), "Hadouken_Heavy", "End", SubResource("AnimationNodeStateMachineTransition_vsqle"), "Uppercut_Heavy", "End", SubResource("AnimationNodeStateMachineTransition_e2ywe"), "AirKick", "End", SubResource("AnimationNodeStateMachineTransition_tqbfv"), "TopSpin", "End", SubResource("AnimationNodeStateMachineTransition_rufsn"), "HighPunch", "End", SubResource("AnimationNodeStateMachineTransition_thf38"), "HighKick", "End", SubResource("AnimationNodeStateMachineTransition_dv5vi"), "Punch_2", "End", SubResource("AnimationNodeStateMachineTransition_kiumx")]
+graph_offset = Vector2(555.864, 46.904755)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rdl13"]
 animation = &"Block"
@@ -1793,6 +2013,9 @@ node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"AnimationNode
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gkhnp"]
 size = Vector2(12, 7)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ml73"]
+size = Vector2(8, 9.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_my8vd"]
 size = Vector2(15, 7)
 
@@ -1859,7 +2082,7 @@ material = SubResource("ShaderMaterial_my8vd")
 position = Vector2(0, -6)
 texture = ExtResource("9_7wi24")
 hframes = 9
-vframes = 8
+vframes = 9
 script = ExtResource("10_56k0o")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Art"]
@@ -1907,15 +2130,64 @@ position = Vector2(11, -6.5)
 shape = SubResource("RectangleShape2D_gkhnp")
 disabled = true
 
-[node name="KickHitbox" type="Area2D" parent="SpecialAttributes/Hitboxes"]
-visible = false
+[node name="PunchHitbox_2" type="Area2D" parent="SpecialAttributes/Hitboxes"]
+position = Vector2(-1, 0)
 collision_layer = 2
 collision_mask = 16
 script = ExtResource("14_borbf")
-hitbox_data = ExtResource("16_xcdut")
+hitbox_data = ExtResource("16_3ml73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/PunchHitbox_2"]
+position = Vector2(14, -4)
+shape = SubResource("RectangleShape2D_gkhnp")
+disabled = true
+
+[node name="HighPunchHitbox" type="Area2D" parent="SpecialAttributes/Hitboxes"]
+position = Vector2(-1, 0)
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("14_borbf")
+hitbox_data = ExtResource("16_3ml73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/HighPunchHitbox"]
+position = Vector2(12, -2)
+shape = SubResource("RectangleShape2D_gkhnp")
+disabled = true
+
+[node name="HighPunchHitbox2" type="Area2D" parent="SpecialAttributes/Hitboxes"]
+position = Vector2(-1, 0)
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("14_borbf")
+hitbox_data = ExtResource("16_3ml73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/HighPunchHitbox2"]
+position = Vector2(4, -18.75)
+shape = SubResource("RectangleShape2D_3ml73")
+disabled = true
+
+[node name="KickHitbox" type="Area2D" parent="SpecialAttributes/Hitboxes"]
+position = Vector2(2, 0)
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("14_borbf")
+hitbox_data = ExtResource("17_3ml73")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/KickHitbox"]
 position = Vector2(11.5, 0.5)
+shape = SubResource("RectangleShape2D_my8vd")
+disabled = true
+
+[node name="HighKickHitbox" type="Area2D" parent="SpecialAttributes/Hitboxes"]
+position = Vector2(2, 0)
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("14_borbf")
+hitbox_data = ExtResource("17_3ml73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAttributes/Hitboxes/HighKickHitbox"]
+position = Vector2(6, -9)
+rotation = -0.2617994
 shape = SubResource("RectangleShape2D_my8vd")
 disabled = true
 

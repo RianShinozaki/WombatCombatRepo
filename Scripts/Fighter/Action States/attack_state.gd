@@ -57,20 +57,28 @@ func _initiate(_status: String = ""):
 			entity.velocity.x = 0
 			play_animation_oneshot("DuckPunch")
 			sfx_light_attack.play()
-		elif entity.is_on_floor():
+		elif not entity.is_on_floor():
+			play_animation_oneshot("AirPunch")
+			sfx_light_attack.play()
+		elif _status.contains("high"):
+			entity.velocity.x = 0
+			play_animation_oneshot("HighPunch")
+			sfx_light_attack.play()
+		elif _status.contains("2"):
+			entity.velocity.x = 0
+			play_animation_oneshot("Punch_2")
+			sfx_light_attack.play()
+		else:
 			entity.velocity.x = 0
 			play_animation_oneshot("Punch")
 			sfx_light_attack.play()
-		else:
-			play_animation_oneshot("AirPunch")
-			sfx_light_attack.play()
+			
 	
 	if _status.contains("heavy"):
 		if _status.contains("topspin"):
 			play_animation_oneshot("TopSpin")
 			entity.velocity.x = 0
 			entity.velocity.y = -10
-			
 		elif _status.contains("hadouken"):
 			entity.velocity.x = 0
 			play_animation_oneshot("Hadouken_Heavy")
@@ -81,14 +89,17 @@ func _initiate(_status: String = ""):
 			entity.velocity.x = 0
 			play_animation_oneshot("LowKick")
 			sfx_heavy_attack.play()
-		elif entity.is_on_floor():
+		elif not entity.is_on_floor():
+			play_animation_oneshot("AirKick")
+			sfx_heavy_attack.play()
+		elif _status.contains("high"):
+			entity.velocity.x = 0
+			play_animation_oneshot("HighKick")
+			sfx_heavy_attack.play()
+		else:
 			entity.velocity.x = 0
 			play_animation_oneshot("Kick")
 			sfx_heavy_attack.play()
-		else:
-			play_animation_oneshot("AirKick")
-			sfx_heavy_attack.play()
-	
 	
 func _process(delta: float) -> void:
 	super._process(delta)

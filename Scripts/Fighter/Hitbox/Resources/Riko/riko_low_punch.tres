@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_ynlgg")
 damage = 2
+damage_range = 1
 x_knockback = 30.0
 x_knockback_on_block = 15.0
 x_knockback_is_relative = true

@@ -24,7 +24,7 @@ shape = SubResource("RectangleShape2D_f7uwa")
 
 [node name="CPU" type="Node" parent="Fighter"]
 script = ExtResource("3_t7q4h")
-difficulty_level = 1.0
+difficulty_level = -1.0
 aggression_baseline = 1.0
 difficulty_aggression_factor = 0.1
 neutral_footsie_time_base = 0.6

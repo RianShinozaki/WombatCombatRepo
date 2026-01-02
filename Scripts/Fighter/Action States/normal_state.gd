@@ -128,11 +128,16 @@ func on_light_attack():
 	
 	var _attack: AttackState = entity.get_action_state_name("AttackState")
 	entity.switch_action_state(_attack)
+	var _dir: int = sign(entity.opponent.global_position.x - entity.global_position.x)
 	if _uppercut:
 		_attack._initiate("uppercut")
 		_attack.post_attack_state = entity.get_action_state_name("NormalState")
 	elif _hadouken:
 		_attack._initiate("light hadouken")
+	elif inp.get_input_y() < -0.3:
+		_attack._initiate("light high")
+	elif entity.moving_toward_opponent == 1:
+		_attack._initiate("light 2")
 	else:
 		_attack._initiate("light")
 	
@@ -151,6 +156,8 @@ func on_heavy_attack():
 		_attack._initiate("heavy hadouken")
 	elif entity.dashing:
 		_attack._initiate("heavy dash")
+	elif inp.get_input_y() < -0.3:
+		_attack._initiate("heavy high")
 	else:
 		_attack._initiate("heavy")
 

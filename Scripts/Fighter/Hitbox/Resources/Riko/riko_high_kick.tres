@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="HitboxData" load_steps=2 format=3 uid="uid://b344ybj4cga3y"]
+[gd_resource type="Resource" script_class="HitboxData" load_steps=2 format=3 uid="uid://dhai73hp8u343"]
 
-[ext_resource type="Script" uid="uid://bvsg0yf1vijg5" path="res://Scripts/Fighter/Hitbox/hitbox_data.gd" id="1_lov12"]
+[ext_resource type="Script" uid="uid://bvsg0yf1vijg5" path="res://Scripts/Fighter/Hitbox/hitbox_data.gd" id="1_gaufs"]
 
 [resource]
-script = ExtResource("1_lov12")
-damage = 6
+script = ExtResource("1_gaufs")
+damage = 5
 damage_range = 1
 x_knockback = 100.0
 x_knockback_on_block = 1.0

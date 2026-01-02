@@ -33,3 +33,8 @@ res://Scripts/Fighter/Components/input_manager.gd
 res://Objects/Fighters/riko_object.tscn
 res://Scripts/Fighter/Parameters/Resources/Riko/riko_jump.tres
 res://Scripts/Fighter/Action States/normal_state.gd
+res://Scripts/Fighter/Hitbox/Resources/Riko/riko_punch_2.tres
+res://Scripts/Fighter/Hitbox/Resources/Riko/riko_low_punch.tres
+res://Scripts/Fighter/Hitbox/Resources/Riko/riko_high_punch.tres
+res://Scripts/Fighter/Hitbox/Resources/Riko/riko_kick.tres
+res://Scripts/Fighter/Hitbox/Resources/Riko/riko_high_punch_2.tres
